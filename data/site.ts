@@ -5,7 +5,7 @@ export const siteConfig = {
   role: "Full-Stack Developer",
   intro:
     "I build modern full-stack web applications with clean frontend architecture, robust backend APIs, and reliable database design.",
-  email: "shukrael.dev@gmail.com",
+  email: "shukraelmohammed32@gmail.com",
   profileImage: "/images/profile-picture.png",
   profileImageAlt: "Shukreal profile photo",
   location: "Dire Dawa, Ethiopia",
@@ -23,7 +23,7 @@ export const navigation: NavItem[] = [
 ];
 
 export const socialLinks: SocialItem[] = [
-  { label: "GitHub", href: "https://github.com/shukrael" },
+  { label: "GitHub", href: "https://github.com/shukraelmohammed32" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/shukrael" },
   { label: "Email", href: `mailto:${siteConfig.email}` }
 ];
