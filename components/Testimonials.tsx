@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { Star } from "lucide-react";
 
 import { Container } from "@/components/Container";
@@ -48,10 +48,12 @@ export function Testimonials() {
             <FadeIn key={index} delay={index * 0.1}>
               <div className="panel h-full p-8">
                 <div className="flex items-center gap-4">
-                  <img
-                    src={testimonial.avatar}
+                  <Image
                     alt={testimonial.name}
                     className="h-14 w-14 rounded-full object-cover"
+                    height={56}
+                    src={testimonial.avatar}
+                    width={56}
                   />
                   <div>
                     <h4 className="font-bold" style={{ color: "var(--foreground)" }}>{testimonial.name}</h4>
@@ -64,7 +66,7 @@ export function Testimonials() {
                   ))}
                 </div>
                 <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--muted)" }}>
-                  "{testimonial.text}"
+                  &ldquo;{testimonial.text}&rdquo;
                 </p>
               </div>
             </FadeIn>

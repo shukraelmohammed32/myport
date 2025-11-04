@@ -8,102 +8,75 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      className="mt-20 py-12"
-      style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--background)" }}
-    >
-      <Container className="space-y-10">
+    <footer className="pb-10 pt-4">
+      <Container>
+        <div className="neo-panel rounded-[32px] px-6 py-8 sm:px-8">
+          <div className="grid gap-8 border-b border-white/8 pb-8 lg:grid-cols-[1.4fr_1fr_1fr]">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="relative flex h-3 w-3">
+                  <span className="absolute inset-0 rounded-full bg-[#ff2a2a] blur-[6px]" />
+                  <span className="relative rounded-full bg-[#ff5b5b]" />
+                </span>
+                <p className="font-display text-lg font-semibold tracking-tight text-white">
+                  {siteConfig.name}
+                </p>
+              </div>
+              <p className="max-w-md text-sm leading-7 text-white/62">{siteConfig.availability}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/40">
+                {siteConfig.role}
+              </p>
+            </div>
 
-        {/* Top grid */}
-        <div
-          className="grid gap-10 pb-10 md:grid-cols-[1.5fr_1fr_1fr]"
-          style={{ borderBottom: "1px solid var(--border)" }}
-        >
-          {/* Brand */}
-          <div className="space-y-3">
-            <p
-              className="flex items-center gap-2.5 font-display text-base font-semibold"
-              style={{ color: "var(--foreground)" }}
-            >
-              <span
-                className="h-2 w-2 rounded-full"
-                style={{ backgroundColor: "var(--foreground)" }}
-                aria-hidden
-              />
-              {siteConfig.name}
-            </p>
-            <p className="max-w-xs text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
-              {siteConfig.availability}
-            </p>
-            <p className="text-xs" style={{ color: "var(--muted)", opacity: 0.65 }}>
-              {siteConfig.email}
-            </p>
-          </div>
-
-          {/* Navigate */}
-          <div className="space-y-4">
-            <h3
-              className="text-[0.7rem] font-bold uppercase tracking-[0.2em]"
-              style={{ color: "var(--muted)" }}
-            >
-              Navigate
-            </h3>
-            <ul className="space-y-2.5">
-              {navigation.map((item) => (
-                <li key={item.href}>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#ff7a7a]">
+                Navigation
+              </p>
+              <div className="mt-4 grid gap-3">
+                {navigation.map((item) => (
                   <Link
-                    className="link-hover text-sm font-medium opacity-60 transition-opacity hover:opacity-100"
-                    style={{ color: "var(--foreground)" }}
+                    className="text-sm font-medium text-white/62 transition duration-300 hover:text-white"
                     href={item.href}
+                    key={item.href}
                   >
                     {item.label}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </div>
+            </div>
 
-          {/* Connect */}
-          <div className="space-y-4">
-            <h3
-              className="text-[0.7rem] font-bold uppercase tracking-[0.2em]"
-              style={{ color: "var(--muted)" }}
-            >
-              Connect
-            </h3>
-            <ul className="space-y-2.5">
-              {socialLinks.map((link) => {
-                const isExternal = link.href.startsWith("http");
-                return (
-                  <li key={link.label}>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#ff7a7a]">
+                Connect
+              </p>
+              <div className="mt-4 grid gap-3">
+                {socialLinks.map((link) => {
+                  const isExternal = link.href.startsWith("http");
+
+                  return (
                     <Link
-                      className="link-hover inline-flex items-center gap-1.5 text-sm font-medium opacity-60 transition-opacity hover:opacity-100"
-                      style={{ color: "var(--foreground)" }}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white/62 transition duration-300 hover:text-white"
                       href={link.href}
+                      key={link.label}
                       rel={isExternal ? "noreferrer" : undefined}
                       target={isExternal ? "_blank" : undefined}
                     >
                       {link.label}
                       <ArrowUpRight className="h-3.5 w-3.5" />
                     </Link>
-                  </li>
-                );
-              })}
-            </ul>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2 pt-6 text-xs text-white/42 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {year} {siteConfig.name}. Built with Next.js, Tailwind CSS, and a sharp red glow.
+            </p>
+            <p className="font-semibold uppercase tracking-[0.22em]">Premium AI Portfolio</p>
           </div>
         </div>
-
-        {/* Bottom bar */}
-        <div
-          className="flex flex-col gap-1 text-xs sm:flex-row sm:items-center sm:justify-between"
-          style={{ color: "var(--muted)" }}
-        >
-          <p>
-            © {year} {siteConfig.name}. Crafted with Next.js &amp; Tailwind CSS.
-          </p>
-          <p className="uppercase tracking-[0.12em] font-medium">{siteConfig.role}</p>
-        </div>
-
       </Container>
     </footer>
   );

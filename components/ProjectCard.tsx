@@ -33,22 +33,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
         target="_blank"
         style={{ borderBottom: "1px solid var(--border)" }}
       >
-        {isDataImage ? (
-          <img
-            alt={`${project.title} project preview`}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-            onError={() => setImageSrc("/images/project-ecommerce.svg")}
-            src={imageSrc}
-          />
-        ) : (
-          <Image
-            alt={`${project.title} project preview`}
-            className="object-cover transition duration-700 group-hover:scale-105"
-            fill
-            onError={() => setImageSrc("/images/project-ecommerce.svg")}
-            src={imageSrc}
-          />
-        )}
+        <Image
+          alt={`${project.title} project preview`}
+          className="object-cover transition duration-700 group-hover:scale-105"
+          fill
+          onError={() => setImageSrc("/images/project-ecommerce.svg")}
+          src={imageSrc}
+          unoptimized={isDataImage}
+        />
         <div
           aria-hidden
           className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5"

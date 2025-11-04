@@ -2,24 +2,25 @@ import type { NavItem, SocialItem } from "@/types/portfolio";
 
 export const siteConfig = {
   name: "Shukreal",
-  roles: ["Full-Stack Developer", "React Specialist", "UI/UX Enthusiast"],
+  role: "AI Product Engineer",
+  roles: ["AI Product Engineer", "Full-Stack Developer", "UI Systems Builder"],
   intro:
-    "I build modern full-stack web applications with clean frontend architecture, robust backend APIs, and reliable database design.",
+    "I build AI-native web experiences with premium UI direction, strong frontend systems, and dependable full-stack delivery.",
   email: "shukraelmohammed32@gmail.com",
   profileImage: "/images/profile-picture.png",
   profileImageAlt: "Shukreal profile photo",
   location: "Dire Dawa, Ethiopia",
   featuredPlace: "East Africa Tech Hub",
-  availability: "Available for full-stack web development opportunities.",
+  availability: "Available for AI product sprints, modern full-stack builds, and design-forward delivery work.",
   resumePath: "/Shukrael_Resume.pdf"
 };
 
 export const navigation: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Admin", href: "/admin" },
-  { label: "Contact", href: "/contact" }
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "Works", href: "/#works" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" }
 ];
 
 export const socialLinks: SocialItem[] = [
