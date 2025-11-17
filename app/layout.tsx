@@ -4,9 +4,9 @@ import Script from "next/script";
 import type { ReactNode } from "react";
 
 import "@/styles/globals.css";
+import { SiteFooter } from "@/components/Footer";
+import { SiteHeader } from "@/components/Navbar";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
 
 const sans = Manrope({
   subsets: ["latin"],

@@ -8,19 +8,6 @@ export type SocialItem = {
   href: string;
 };
 
-export type SkillCategory = {
-  title: string;
-  summary: string;
-  tools: string[];
-};
-
-export type Skill = {
-  name: string;
-  category: string;
-  percentage: number;
-  icon: string;
-};
-
 export type Project = {
   slug: string;
   title: string;
