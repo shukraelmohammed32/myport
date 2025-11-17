@@ -318,11 +318,10 @@ export function AISprintLanding() {
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
-                  Featured Projects
+                  Project Highlights
                 </p>
                 <p className="mt-2 text-sm leading-6 text-white/64 sm:text-base">
-                  Project names pulled from the portfolio and styled as a clean visual strip across
-                  the landing page.
+                  A quick scan of selected work featured throughout the portfolio experience.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-3 lg:grid-cols-6">
@@ -479,11 +478,11 @@ export function AISprintLanding() {
                 Projects
               </p>
               <h2 className="font-display text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl">
-                Selected full-stack projects built with product thinking and clean execution.
+                Featured full-stack projects built with clean UI, solid backend logic, and practical execution.
               </h2>
               <p className="text-base leading-8 text-white/66 sm:text-lg">
-                A few standout builds from the portfolio, covering frontend experience, backend
-                functionality, and practical problem solving across real product scenarios.
+                These projects highlight the way I approach frontend architecture, backend systems,
+                and polished user experience across real product builds.
               </p>
             </div>
 
@@ -491,7 +490,7 @@ export function AISprintLanding() {
               className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl transition duration-300 hover:border-[#ff6b6b]/30 hover:text-white"
               href="/projects"
             >
-              Explore All Projects
+              View All Projects
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
