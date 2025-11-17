@@ -32,15 +32,6 @@ const heroStats = [
   }
 ] as const;
 
-const clientWordmarks = [
-  "OpsDesk",
-  "CampusConnect",
-  "InvoiceFlow",
-  "DevForum",
-  "Portfolio CMS",
-  "Library Store"
-] as const;
-
 const serviceCards = [
   {
     icon: BrainCircuit,
@@ -314,28 +305,6 @@ export function AISprintLanding() {
             </div>
           </div>
 
-          <div className="neo-panel mt-10 rounded-[28px] px-6 py-5 sm:px-8">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
-                  Project Highlights
-                </p>
-                <p className="mt-2 text-sm leading-6 text-white/64 sm:text-base">
-                  A quick scan of selected work featured throughout the portfolio experience.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-3 lg:grid-cols-6">
-                {clientWordmarks.map((wordmark) => (
-                  <div
-                    className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/42"
-                    key={wordmark}
-                  >
-                    {wordmark}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </Container>
       </section>
 
@@ -607,9 +576,9 @@ export function AISprintLanding() {
                 </Link>
                 <Link
                   className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white/82"
-                  href="/about"
+                  href="/projects"
                 >
-                  Read Full Story
+                  View Projects
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
