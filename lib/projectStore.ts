@@ -3,22 +3,55 @@ import type { Project } from "@/types/portfolio";
 
 const STORAGE_KEY = "portfolio.projects";
 
-function isValidProject(value: unknown): value is Project {
+type ProjectInput = Omit<Project, "slug"> & {
+  slug?: string;
+};
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function normalizeProject(value: unknown): Project | null {
   if (!value || typeof value !== "object") {
-    return false;
+    return null;
   }
 
   const candidate = value as Record<string, unknown>;
+  const title = typeof candidate.title === "string" ? candidate.title : null;
+  const summary = typeof candidate.summary === "string" ? candidate.summary : null;
+  const image = typeof candidate.image === "string" ? candidate.image : null;
+  const github = typeof candidate.github === "string" ? candidate.github : null;
+  const demo = typeof candidate.demo === "string" || typeof candidate.demo === "undefined"
+    ? candidate.demo
+    : null;
+  const stack =
+    Array.isArray(candidate.stack) && candidate.stack.every((item) => typeof item === "string")
+      ? candidate.stack
+      : null;
+  const slug =
+    typeof candidate.slug === "string" && candidate.slug.trim().length > 0
+      ? candidate.slug
+      : title
+        ? slugify(title)
+        : null;
 
-  return (
-    typeof candidate.title === "string" &&
-    typeof candidate.summary === "string" &&
-    typeof candidate.image === "string" &&
-    Array.isArray(candidate.stack) &&
-    candidate.stack.every((item) => typeof item === "string") &&
-    typeof candidate.github === "string" &&
-    (typeof candidate.demo === "string" || typeof candidate.demo === "undefined")
-  );
+  if (!title || !summary || !image || !github || !stack || !slug || demo === null) {
+    return null;
+  }
+
+  return {
+    slug,
+    title,
+    summary,
+    image,
+    stack,
+    github,
+    demo
+  };
 }
 
 export function getStoredProjects(): Project[] {
@@ -39,7 +72,9 @@ export function getStoredProjects(): Project[] {
       return defaultProjects;
     }
 
-    const validProjects = parsed.filter(isValidProject);
+    const validProjects = parsed
+      .map((project) => normalizeProject(project))
+      .filter((project): project is Project => project !== null);
     return validProjects.length > 0 ? validProjects : defaultProjects;
   } catch {
     return defaultProjects;
@@ -54,9 +89,15 @@ export function saveProjects(projectList: Project[]) {
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(projectList));
 }
 
-export function addStoredProject(project: Project): Project[] {
+export function addStoredProject(project: ProjectInput): Project[] {
   const currentProjects = getStoredProjects();
-  const nextProjects = [project, ...currentProjects];
+  const normalizedProject = normalizeProject(project);
+
+  if (!normalizedProject) {
+    return currentProjects;
+  }
+
+  const nextProjects = [normalizedProject, ...currentProjects];
   saveProjects(nextProjects);
   return nextProjects;
 }

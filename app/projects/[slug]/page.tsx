@@ -7,13 +7,14 @@ import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/ButtonLink";
 
 type ProjectPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects.find((p) => p.slug === params.slug);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
@@ -29,10 +30,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           <div className="relative h-96 w-full overflow-hidden rounded-lg border border-[var(--border)]">
             <Image
-              src={project.image}
               alt={project.title}
-              layout="fill"
-              objectFit="cover"
+              className="object-cover"
+              fill
+              src={project.image}
             />
           </div>
 

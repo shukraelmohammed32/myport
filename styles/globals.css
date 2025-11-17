@@ -257,6 +257,10 @@ a {
   animation: jelly-drift 7s ease-in-out infinite;
 }
 
+.hero-float {
+  animation: jelly-drift 7s ease-in-out infinite;
+}
+
 .tentacle {
   background: linear-gradient(180deg, rgba(255, 181, 181, 0.68), rgba(255, 42, 42, 0.35) 45%, transparent 100%);
   filter: blur(1px);

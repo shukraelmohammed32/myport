@@ -72,7 +72,7 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-2 pt-6 text-xs text-white/42 sm:flex-row sm:items-center sm:justify-between">
             <p>
-              © {year} {siteConfig.name}. Built with Next.js, Tailwind CSS, and a sharp red glow.
+              (c) {year} {siteConfig.name}. Built with Next.js, Tailwind CSS, and a sharp red glow.
             </p>
             <p className="font-semibold uppercase tracking-[0.22em]">Premium AI Portfolio</p>
           </div>

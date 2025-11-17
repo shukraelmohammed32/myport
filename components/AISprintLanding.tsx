@@ -88,21 +88,12 @@ const particles = [
   { left: "78%", top: "42%", delay: "1.1s", duration: "8.4s", size: 8 }
 ] as const;
 
-const tentacles = [
-  { left: "32%", rotation: "-10deg", duration: "4.8s", delay: "0s", width: 3, height: "220px" },
-  { left: "38%", rotation: "-6deg", duration: "4.2s", delay: "0.4s", width: 2, height: "240px" },
-  { left: "44%", rotation: "-2deg", duration: "5.2s", delay: "0.7s", width: 3, height: "260px" },
-  { left: "50%", rotation: "0deg", duration: "4.6s", delay: "0.2s", width: 4, height: "280px" },
-  { left: "56%", rotation: "2deg", duration: "5.4s", delay: "0.5s", width: 3, height: "250px" },
-  { left: "62%", rotation: "7deg", duration: "4.4s", delay: "1s", width: 2, height: "230px" },
-  { left: "68%", rotation: "12deg", duration: "5s", delay: "0.8s", width: 3, height: "210px" }
-] as const;
-
-function JellyfishVisual() {
+function HeroProfileVisual() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,42,42,0.3)_0%,rgba(255,42,42,0.1)_36%,transparent_72%)] blur-3xl" />
       <div className="absolute left-1/2 top-1/2 h-[23rem] w-[23rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(255,255,255,0.16)_0%,rgba(255,42,42,0.12)_48%,transparent_76%)] blur-2xl" />
+      <div className="absolute left-1/2 top-[14%] h-[7rem] w-[7rem] -translate-x-1/2 rounded-full bg-[#ff5b5b]/30 blur-3xl" />
 
       {particles.map((particle) => (
         <span
@@ -120,32 +111,35 @@ function JellyfishVisual() {
         />
       ))}
 
-      <div className="absolute left-1/2 top-[17%] h-[26rem] w-[24rem] -translate-x-1/2 jelly-drift">
-        <div className="absolute inset-x-[18%] top-[3%] h-[8rem] rounded-full bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.85),rgba(255,126,126,0.62)_18%,rgba(255,42,42,0.42)_44%,rgba(255,42,42,0.18)_70%,transparent_86%)] blur-xl" />
-        <div className="absolute inset-x-[16%] top-[6%] h-[11.5rem] rounded-t-[999px] rounded-b-[42%] border border-[#ffb1b1]/20 bg-[radial-gradient(circle_at_50%_15%,rgba(255,255,255,0.82),rgba(255,92,92,0.48)_22%,rgba(255,42,42,0.22)_52%,rgba(255,42,42,0.05)_78%,transparent_92%)] shadow-[inset_0_10px_40px_rgba(255,255,255,0.16),0_0_50px_rgba(255,42,42,0.22),0_24px_80px_rgba(0,0,0,0.5)]" />
-        <div className="absolute left-1/2 top-[17%] h-[5rem] w-[11rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.25)_0%,rgba(255,255,255,0.08)_48%,transparent_70%)] blur-xl" />
-
-        {tentacles.map((tentacle) => (
-          <span
-            aria-hidden
-            className="tentacle absolute top-[38%] rounded-full"
-            key={`${tentacle.left}-${tentacle.rotation}`}
-            style={{
-              left: tentacle.left,
-              width: tentacle.width,
-              height: tentacle.height,
-              transform: `translateX(-50%) rotate(${tentacle.rotation})`,
-              animationDuration: tentacle.duration,
-              animationDelay: tentacle.delay
-            }}
+      <div className="hero-float absolute left-1/2 top-[10%] h-[29rem] w-[21rem] -translate-x-1/2 sm:h-[31rem] sm:w-[23rem]">
+        <div className="absolute inset-0 rounded-[34px] border border-[#ff8a8a]/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] shadow-[0_0_80px_rgba(255,42,42,0.14),0_28px_80px_rgba(0,0,0,0.44),inset_0_1px_0_rgba(255,255,255,0.12)]" />
+        <div className="absolute inset-[5%] overflow-hidden rounded-[28px] border border-white/12 bg-black/40 shadow-[0_22px_60px_rgba(0,0,0,0.45)]">
+          <Image
+            alt={siteConfig.profileImageAlt}
+            className="object-cover object-center"
+            fill
+            priority
+            sizes="(min-width: 1280px) 24rem, (min-width: 640px) 23rem, 80vw"
+            src={siteConfig.profileImage}
           />
-        ))}
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,42,42,0.2),transparent_28%,transparent_54%,rgba(0,0,0,0.88)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 px-6 pb-6 pt-20">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/52">
+              {siteConfig.location}
+            </p>
+            <p className="mt-2 text-3xl font-semibold tracking-[-0.03em] text-white">
+              {siteConfig.name}
+            </p>
+            <p className="mt-2 text-sm leading-6 text-white/70">{siteConfig.role}</p>
+          </div>
+        </div>
 
-        <span
-          aria-hidden
-          className="absolute left-1/2 top-[35%] h-[18rem] w-[18rem] -translate-x-1/2 rounded-full border border-[#ff2a2a]/10"
-          style={{ boxShadow: "0 0 80px rgba(255, 42, 42, 0.18)" }}
-        />
+        <div className="absolute -left-8 top-10 hidden rounded-full border border-white/10 bg-black/42 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/72 shadow-[0_14px_32px_rgba(0,0,0,0.32)] backdrop-blur-xl sm:block">
+          Premium AI Build
+        </div>
+        <div className="absolute -right-8 bottom-14 hidden rounded-[20px] border border-[#ff6b6b]/20 bg-[linear-gradient(135deg,rgba(255,42,42,0.24),rgba(255,255,255,0.04))] px-4 py-3 text-sm font-medium text-white shadow-[0_18px_40px_rgba(255,42,42,0.18)] backdrop-blur-xl sm:block">
+          Open for sprints
+        </div>
       </div>
     </div>
   );
@@ -290,7 +284,7 @@ export function AISprintLanding() {
                       backgroundSize: "40px 40px"
                     }}
                   />
-                  <JellyfishVisual />
+                  <HeroProfileVisual />
 
                   <div className="relative z-10 flex min-h-[31rem] items-end p-5 sm:p-6">
                     <div className="max-w-xs rounded-[26px] border border-white/10 bg-black/32 p-5 shadow-[0_18px_42px_rgba(0,0,0,0.48),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-xl">

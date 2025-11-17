@@ -9,6 +9,8 @@ type ButtonLinkProps = {
   className?: string;
   variant?: "primary" | "secondary" | "ghost";
   download?: boolean;
+  target?: string;
+  rel?: string;
 };
 
 export function ButtonLink({
@@ -16,7 +18,9 @@ export function ButtonLink({
   children,
   className,
   variant = "primary",
-  download = false
+  download = false,
+  target,
+  rel
 }: ButtonLinkProps) {
   const base =
     "inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.97]";
@@ -27,6 +31,8 @@ export function ButtonLink({
         className={cn(base, "bg-[var(--ink)] text-[var(--bg)] hover:opacity-80", className)}
         download={download}
         href={href}
+        rel={rel}
+        target={target}
       >
         {children}
       </Link>
@@ -43,6 +49,8 @@ export function ButtonLink({
         )}
         download={download}
         href={href}
+        rel={rel}
+        target={target}
       >
         {children}
       </Link>
@@ -59,6 +67,8 @@ export function ButtonLink({
       )}
       download={download}
       href={href}
+      rel={rel}
+      target={target}
     >
       {children}
     </Link>
