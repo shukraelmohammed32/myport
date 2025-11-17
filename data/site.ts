@@ -2,16 +2,16 @@ import type { NavItem, SocialItem } from "@/types/portfolio";
 
 export const siteConfig = {
   name: "Shukreal",
-  role: "AI Product Engineer",
-  roles: ["AI Product Engineer", "Full-Stack Developer", "UI Systems Builder"],
+  role: "Full-Stack Developer",
+  roles: ["Full-Stack Developer", "React Specialist", "UI Systems Builder"],
   intro:
-    "I build AI-native web experiences with premium UI direction, strong frontend systems, and dependable full-stack delivery.",
+    "I build modern full-stack web applications with clean UI direction, reliable backend systems, and scalable product thinking.",
   email: "shukraelmohammed32@gmail.com",
   profileImage: "/images/profile-picture.png",
   profileImageAlt: "Shukreal profile photo",
   location: "Dire Dawa, Ethiopia",
   featuredPlace: "East Africa Tech Hub",
-  availability: "Available for AI product sprints, modern full-stack builds, and design-forward delivery work.",
+  availability: "Available for full-stack web development, modern product builds, and design-forward delivery work.",
   resumePath: "/Shukrael_Resume.pdf"
 };
 

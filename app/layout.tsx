@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { Manrope, Sora } from "next/font/google";
 import Script from "next/script";
 import type { ReactNode } from "react";
 
@@ -14,7 +14,7 @@ const sans = Manrope({
   display: "swap"
 });
 
-const display = Space_Grotesk({
+const display = Sora({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap"

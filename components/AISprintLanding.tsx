@@ -158,23 +158,27 @@ export function AISprintLanding() {
             <div className="space-y-8">
               <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl">
                 <Sparkles className="h-3.5 w-3.5 text-[#ff6b6b]" />
-                AI Delivery Studio
+                Full-Stack Portfolio
               </div>
 
               <div className="space-y-6">
                 <p className="max-w-xl text-sm font-medium uppercase tracking-[0.32em] text-[#ff7a7a]">
-                  Built for ambitious founders and modern product teams
+                  Modern web apps, premium UI, and scalable backend delivery
                 </p>
-                <h1 className="max-w-4xl font-display text-5xl font-bold leading-[0.92] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
-                  Your AI Sprint Team
-                  <span className="block text-[#ff5b5b] drop-shadow-[0_0_28px_rgba(255,42,42,0.45)]">
-                    On Demand
+                <h1 className="max-w-4xl font-display text-[clamp(3.2rem,8vw,6.8rem)] font-semibold leading-[0.88] tracking-[-0.06em] text-white">
+                  <span className="block text-white">Shukrael</span>
+                  <span className="block bg-[linear-gradient(180deg,#ffffff_0%,#ffb3b3_46%,#ff5b5b_100%)] bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(255,42,42,0.28)]">
+                    Mohammed
+                  </span>
+                  <span className="mt-4 block text-base font-medium uppercase tracking-[0.42em] text-[#ff7a7a] sm:text-lg">
+                    Full-Stack Developer
                   </span>
                 </h1>
                 <p className="max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                  Futuristic AI product design, fast-moving sprint execution, and full-stack delivery
-                  wrapped into one premium workflow. {siteConfig.name} blends visual craft, product
-                  strategy, and engineering depth to turn AI ideas into launch-ready experiences.
+                  Design-forward interfaces, solid frontend architecture, and dependable backend
+                  systems brought together in one polished portfolio. {siteConfig.name} blends visual
+                  craft, product thinking, and engineering depth to turn ideas into launch-ready web
+                  experiences.
                 </p>
               </div>
 
