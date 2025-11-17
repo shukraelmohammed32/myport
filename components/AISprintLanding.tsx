@@ -135,10 +135,10 @@ function HeroProfileVisual() {
         </div>
 
         <div className="absolute -left-8 top-10 hidden rounded-full border border-white/10 bg-black/42 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/72 shadow-[0_14px_32px_rgba(0,0,0,0.32)] backdrop-blur-xl sm:block">
-          Premium AI Build
+          Modern Web Build
         </div>
         <div className="absolute -right-8 bottom-14 hidden rounded-[20px] border border-[#ff6b6b]/20 bg-[linear-gradient(135deg,rgba(255,42,42,0.24),rgba(255,255,255,0.04))] px-4 py-3 text-sm font-medium text-white shadow-[0_18px_40px_rgba(255,42,42,0.18)] backdrop-blur-xl sm:block">
-          Open for sprints
+          Open for work
         </div>
       </div>
     </div>
@@ -163,7 +163,7 @@ export function AISprintLanding() {
 
               <div className="space-y-6">
                 <p className="max-w-xl text-sm font-medium uppercase tracking-[0.32em] text-[#ff7a7a]">
-                  Modern web apps, premium UI, and scalable backend delivery
+                  Modern web apps, polished UI, and dependable backend systems
                 </p>
                 <h1 className="max-w-4xl font-display text-[clamp(3.2rem,8vw,6.8rem)] font-semibold leading-[0.88] tracking-[-0.06em] text-white">
                   <span className="block text-white">Shukrael</span>
@@ -185,16 +185,16 @@ export function AISprintLanding() {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Link
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#ff6b6b]/45 bg-[linear-gradient(135deg,rgba(255,42,42,0.9),rgba(110,0,0,0.96))] px-6 py-4 text-sm font-semibold text-white shadow-[0_0_0_1px_rgba(255,84,84,0.2),0_16px_40px_rgba(255,42,42,0.28),inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,84,84,0.28),0_24px_48px_rgba(255,42,42,0.34),inset_0_1px_0_rgba(255,255,255,0.22)]"
-                  href="/#services"
+                  href="/#skills"
                 >
-                  Explore Services
+                  View Skills
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-4 text-sm font-semibold text-white/86 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_18px_48px_rgba(0,0,0,0.34)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-[#ff6b6b]/30 hover:text-white"
-                  href="/#pricing"
+                  href="/#projects"
                 >
-                  View Pricing Plans
+                  Browse Projects
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -215,18 +215,18 @@ export function AISprintLanding() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/50">
-                      Client Note
+                      Client Feedback
                     </p>
                     <p className="mt-1 max-w-xl text-sm leading-6 text-white/76 sm:text-base">
-                      &quot;We moved from idea to polished AI workflow in two tight iterations and the
-                      product finally looked as sharp as the strategy deck.&quot;
+                      &quot;Shukrael delivered a clean full-stack build with thoughtful UI decisions,
+                      reliable features, and communication that made the project easy to move forward.&quot;
                     </p>
                   </div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-right shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                   <p className="text-sm font-semibold text-white">Amina Yusuf</p>
                   <p className="text-xs uppercase tracking-[0.22em] text-white/45">
-                    Product Lead
+                    Product Manager
                   </p>
                 </div>
               </div>
@@ -260,19 +260,19 @@ export function AISprintLanding() {
 
                 <div className="relative z-20 ml-auto max-w-[15rem] rounded-[28px] border border-white/10 bg-black/35 p-5 shadow-[0_18px_46px_rgba(0,0,0,0.44),inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl">
                   <p className="text-xs font-semibold uppercase tracking-[0.26em] text-white/45">
-                    Sprint Dashboard
+                    Portfolio Snapshot
                   </p>
                   <div className="mt-5 grid gap-4">
                     <div className="rounded-2xl border border-white/8 bg-white/[0.04] p-4">
                       <p className="text-3xl font-bold tracking-tight text-white">230+</p>
                       <p className="mt-2 text-sm leading-6 text-white/56">
-                        automation blocks, prompt flows, and product-ready components launched
+                        interface states, reusable components, and product screens crafted
                       </p>
                     </div>
                     <div className="rounded-2xl border border-white/8 bg-white/[0.04] p-4">
                       <p className="text-3xl font-bold tracking-tight text-white">400+</p>
                       <p className="mt-2 text-sm leading-6 text-white/56">
-                        delivery tasks accelerated across discovery, build, QA, and launch polish
+                        development tasks completed across frontend, backend, testing, and polish
                       </p>
                     </div>
                   </div>
@@ -293,13 +293,13 @@ export function AISprintLanding() {
                   <div className="relative z-10 flex min-h-[31rem] items-end p-5 sm:p-6">
                     <div className="max-w-xs rounded-[26px] border border-white/10 bg-black/32 p-5 shadow-[0_18px_42px_rgba(0,0,0,0.48),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-xl">
                       <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/45">
-                        Delivery Rhythm
+                        Development Workflow
                       </p>
                       <div className="mt-4 grid gap-3">
                         {[
-                          "Discovery and product framing",
-                          "AI UX prototype and workflow design",
-                          "Launch-ready development and iteration"
+                          "Planning, structure, and feature breakdown",
+                          "Responsive frontend implementation",
+                          "Backend logic, APIs, and deployment"
                         ].map((item) => (
                           <div className="flex items-center gap-3" key={item}>
                             <span className="h-2.5 w-2.5 rounded-full bg-[#ff5c5c] shadow-[0_0_14px_rgba(255,42,42,0.9)]" />
@@ -318,11 +318,11 @@ export function AISprintLanding() {
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
-                  Selected Works
+                  Featured Projects
                 </p>
                 <p className="mt-2 text-sm leading-6 text-white/64 sm:text-base">
-                  Monochrome wordmarks inspired by your shipped projects, styled like a premium
-                  client strip for the landing page.
+                  Project names pulled from the portfolio and styled as a clean visual strip across
+                  the landing page.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-3 lg:grid-cols-6">
@@ -340,19 +340,19 @@ export function AISprintLanding() {
         </Container>
       </section>
 
-      <section className="section-gap relative" id="services">
+      <section className="section-gap relative" id="skills">
         <Container className="space-y-10">
           <div className="max-w-3xl space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#ff7a7a]">
-              Services
+              Skills
             </p>
             <h2 className="font-display text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl">
-              End-to-End AI Services
+              End-to-End Full-Stack Services
             </h2>
             <p className="max-w-2xl text-base leading-8 text-white/68 sm:text-lg">
-              Strategy, interface design, automation thinking, and production development working
-              together in one red-lit sprint system. The goal is simple: fewer handoff gaps and
-              faster momentum from concept to release.
+              Frontend development, backend systems, database work, and production polish brought
+              together in one portfolio-focused workflow. The goal is simple: build reliable web
+              products that look good and work well.
             </p>
           </div>
 
@@ -362,7 +362,7 @@ export function AISprintLanding() {
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="inline-flex items-center gap-2 rounded-full border border-[#ff7f7f]/25 bg-[#ff2a2a]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#ff8e8e]">
                     <BrainCircuit className="h-3.5 w-3.5" />
-                    AI Strategy Card
+                    Development Focus
                   </span>
                   <span className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/46">
                     Rounded corners + soft neon shadows
@@ -371,21 +371,21 @@ export function AISprintLanding() {
 
                 <div className="space-y-4">
                   <h3 className="font-display text-3xl font-bold tracking-[-0.03em] text-white">
-                    Shape the roadmap before the build sprint burns time.
+                    Build products with strong structure before features start stacking up.
                   </h3>
                   <p className="max-w-2xl text-sm leading-7 text-white/64 sm:text-base">
-                    Every engagement starts with product framing, technical choices, and the exact
-                    user flow that AI needs to support. That means cleaner prompts, sharper UX, and
-                    a build plan that fits startup speed without feeling improvised.
+                    Each project starts with practical planning, clean technical decisions, and a
+                    user experience that can scale. That means clearer code, sharper interfaces, and
+                    full-stack delivery that stays maintainable as the product grows.
                   </p>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   {[
-                    "Opportunity mapping for AI features and workflow automation",
-                    "Prompt, data, and system requirements aligned early",
-                    "Premium UI direction before implementation starts",
-                    "Delivery slices sized for tight, high-output sprints"
+                    "Responsive frontend interfaces designed for clarity and speed",
+                    "REST APIs, server logic, and business rules planned early",
+                    "Database structure and data flow aligned with product needs",
+                    "Feature delivery broken into maintainable, realistic milestones"
                   ].map((item) => (
                     <div
                       className="rounded-[24px] border border-white/8 bg-white/[0.03] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
@@ -398,11 +398,11 @@ export function AISprintLanding() {
 
                 <div className="rounded-[28px] border border-[#ff5b5b]/18 bg-[linear-gradient(135deg,rgba(255,42,42,0.18),rgba(255,255,255,0.02))] p-6 shadow-[0_18px_40px_rgba(255,42,42,0.12)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/50">
-                    Best For
+                    Best Fit
                   </p>
                   <p className="mt-3 text-base leading-7 text-white/76">
-                    Founders shaping a new AI product, agencies that need a technical design partner,
-                    and internal teams pushing for a faster design-to-development loop.
+                    Business websites, admin dashboards, portfolio platforms, internal tools, and
+                    product teams that need a developer comfortable across the full stack.
                   </p>
                 </div>
               </div>
@@ -423,35 +423,35 @@ export function AISprintLanding() {
                 );
               })}
 
-              <div className="neo-panel rounded-[30px] p-6 sm:col-span-2" id="pricing">
+              <div className="neo-panel rounded-[30px] p-6 sm:col-span-2">
                 <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#ff7a7a]">
-                      Pricing Plans
+                      Development Focus
                     </p>
                     <h3 className="mt-3 text-2xl font-semibold text-white">
-                      Flexible sprint models for different stages of the build.
+                      The kind of work I enjoy building from start to finish.
                     </h3>
                   </div>
                   <p className="max-w-md text-sm leading-7 text-white/58">
-                    Rates stay tailored to scope, but the structure stays clear so teams know how
-                    discovery, delivery, and iteration fit together.
+                    The focus stays on useful products, readable code, and interfaces that feel
+                    polished on both desktop and mobile.
                   </p>
                 </div>
 
                 <div className="mt-6 grid gap-4 lg:grid-cols-3">
                   {[
                     {
-                      title: "Discovery Sprint",
-                      detail: "Fast product framing, AI opportunity mapping, and UX direction."
+                      title: "Frontend Systems",
+                      detail: "Responsive layouts, reusable UI components, and polished user flows."
                     },
                     {
-                      title: "Build Sprint",
-                      detail: "High-focus design and development for a polished release slice."
+                      title: "Backend Features",
+                      detail: "API development, authentication flows, and dependable server logic."
                     },
                     {
-                      title: "Ongoing Partner",
-                      detail: "Retainer-style support for teams shipping AI features continuously."
+                      title: "Launch Readiness",
+                      detail: "Performance cleanup, production checks, and deployment-minded finishing touches."
                     }
                   ].map((plan) => (
                     <div
@@ -471,19 +471,19 @@ export function AISprintLanding() {
         </Container>
       </section>
 
-      <section className="section-gap relative" id="works">
+      <section className="section-gap relative" id="projects">
         <Container className="space-y-10">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#ff7a7a]">
-                Works
+                Projects
               </p>
               <h2 className="font-display text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl">
-                Portfolio work, reframed like a premium AI product studio.
+                Selected full-stack projects built with product thinking and clean execution.
               </h2>
               <p className="text-base leading-8 text-white/66 sm:text-lg">
-                A few standout builds that connect the futuristic landing-page concept back to your
-                actual portfolio and project detail pages.
+                A few standout builds from the portfolio, covering frontend experience, backend
+                functionality, and practical problem solving across real product scenarios.
               </p>
             </div>
 
@@ -575,19 +575,18 @@ export function AISprintLanding() {
                 About
               </p>
               <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl">
-                A portfolio-first identity with a sharper AI agency edge.
+                A full-stack portfolio with strong design taste and practical engineering focus.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-white/66 sm:text-lg">
-                This landing page keeps your personal brand visible while presenting you as the kind
-                of modern operator who can guide strategy, shape the interface, and build the system
-                without losing speed or taste.
+                This portfolio presents you as a developer who can shape the interface, build the
+                backend, and keep the final product polished from the first screen to deployment.
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {[
                   "Product-minded execution with a strong UI and UX lens",
                   "Modern frontend systems paired with dependable backend delivery",
-                  "Fast iteration for startups, internal tools, and AI-native products",
+                  "Fast iteration for startups, internal tools, and business web apps",
                   "Clean communication, premium visuals, and portfolio-backed credibility"
                 ].map((item) => (
                   <div
@@ -629,11 +628,11 @@ export function AISprintLanding() {
                   Contact
                 </p>
                 <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl">
-                  Need a high-speed AI product sprint with premium UI polish?
+                  Need a full-stack developer for your next product or website build?
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/66 sm:text-lg">
-                  Let&apos;s shape the next release around stronger UX, sharper execution, and a build
-                  plan that actually ships.
+                  Let&apos;s talk about responsive interfaces, backend logic, scalable features, and the
+                  kind of product quality that makes a portfolio worth remembering.
                 </p>
               </div>
 

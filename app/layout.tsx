@@ -23,15 +23,15 @@ const display = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio.example.com"),
   title: {
-    default: "Shukreal | Senior Software Engineer",
-    template: "%s | Shukreal"
+    default: "Shukrael Mohammed | Full-Stack Developer",
+    template: "%s | Shukrael Mohammed"
   },
   description:
-    "Elite software engineer portfolio built with Next.js, showcasing modern product engineering, UI craftsmanship, and scalable architecture.",
+    "Full-stack developer portfolio showcasing modern web applications, clean UI craftsmanship, scalable backend systems, and thoughtful product engineering.",
   openGraph: {
-    title: "Shukreal | Senior Software Engineer",
+    title: "Shukrael Mohammed | Full-Stack Developer",
     description:
-      "Elite software engineer portfolio built with Next.js, showcasing modern product engineering, UI craftsmanship, and scalable architecture.",
+      "Full-stack developer portfolio showcasing modern web applications, clean UI craftsmanship, scalable backend systems, and thoughtful product engineering.",
     type: "website"
   }
 };
