@@ -59,7 +59,7 @@ export function SiteHeader() {
                   {siteConfig.name}
                 </span>
                 <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-white/40">
-                  AI Sprint Studio
+                  Full-Stack Portfolio
                 </span>
               </div>
             </Link>

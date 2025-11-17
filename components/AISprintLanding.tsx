@@ -19,16 +19,16 @@ import { siteConfig, socialLinks } from "@/data/site";
 
 const heroStats = [
   {
-    value: "3M+",
-    label: "tokens and prompts mapped into rapid prototypes, automations, and launch-ready AI flows"
+    value: "4+",
+    label: "years building full-stack products with a focus on clean architecture and practical delivery"
   },
   {
-    value: "95%",
-    label: "sprint clarity across strategy, UX, development, and polish before handoff"
+    value: "25+",
+    label: "projects shipped across dashboards, business tools, portfolio sites, and product interfaces"
   },
   {
-    value: "88%",
-    label: "design-to-development fidelity when turning concepts into high-contrast production UI"
+    value: "12",
+    label: "engineers and teammates supported through collaboration, standards, and code reviews"
   }
 ] as const;
 
@@ -44,27 +44,27 @@ const clientWordmarks = [
 const serviceCards = [
   {
     icon: BrainCircuit,
-    title: "AI Strategy",
+    title: "System Architecture",
     description:
-      "Turn rough ideas into a focused roadmap with product discovery, workflow mapping, prompt direction, and launch priorities."
+      "Plan scalable application structure, feature boundaries, and maintainable code organization before the build grows complex."
   },
   {
     icon: Layers3,
-    title: "AI Interface Design",
+    title: "Frontend Development",
     description:
-      "Craft premium AI-native dashboards, onboarding flows, and design systems that feel clear, cinematic, and conversion-ready."
+      "Build responsive interfaces with React, Next.js, and Tailwind CSS that feel polished, fast, and easy to use."
   },
   {
     icon: Workflow,
-    title: "Automation Systems",
+    title: "Backend Development",
     description:
-      "Connect APIs, back-office workflows, and operational tooling so AI features create real business speed, not just demos."
+      "Create dependable APIs, server-side logic, authentication flows, and business features that support real product needs."
   },
   {
     icon: WandSparkles,
-    title: "Full-Stack Delivery",
+    title: "Deployment and Polish",
     description:
-      "Ship polished web products with modern frontend architecture, robust backend services, and a production-minded handoff."
+      "Optimize performance, improve UX details, and ship production-ready applications with a strong finish."
   }
 ] as const;
 

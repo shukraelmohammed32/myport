@@ -74,7 +74,7 @@ export function SiteFooter() {
             <p>
               (c) {year} {siteConfig.name}. Built with Next.js, Tailwind CSS, and a sharp red glow.
             </p>
-            <p className="font-semibold uppercase tracking-[0.22em]">Premium AI Portfolio</p>
+            <p className="font-semibold uppercase tracking-[0.22em]">Premium Full-Stack Portfolio</p>
           </div>
         </div>
       </Container>

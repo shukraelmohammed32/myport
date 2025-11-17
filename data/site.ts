@@ -1,24 +1,24 @@
 import type { NavItem, SocialItem } from "@/types/portfolio";
 
 export const siteConfig = {
-  name: "Shukreal",
+  name: "Shukrael Mohammed",
   role: "Full-Stack Developer",
   roles: ["Full-Stack Developer", "React Specialist", "UI Systems Builder"],
   intro:
     "I build modern full-stack web applications with clean UI direction, reliable backend systems, and scalable product thinking.",
   email: "shukraelmohammed32@gmail.com",
   profileImage: "/images/profile-picture.png",
-  profileImageAlt: "Shukreal profile photo",
+  profileImageAlt: "Shukrael Mohammed profile photo",
   location: "Dire Dawa, Ethiopia",
   featuredPlace: "East Africa Tech Hub",
-  availability: "Available for full-stack web development, modern product builds, and design-forward delivery work.",
+  availability: "Available for full-stack web development roles, freelance projects, and collaborative product work.",
   resumePath: "/Shukrael_Resume.pdf"
 };
 
 export const navigation: NavItem[] = [
   { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
-  { label: "Works", href: "/#works" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "/#projects" },
   { label: "About", href: "/#about" },
   { label: "Contact", href: "/#contact" }
 ];
