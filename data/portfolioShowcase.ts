@@ -146,27 +146,27 @@ export const serviceHighlights = [
 
 export const certificateShowcase = [
   {
-    id: "frontend-certificate-slot",
-    title: "Frontend Certificate Slot",
-    issuer: "Add your verified frontend credential",
+    id: "frontend-foundations",
+    title: "Frontend Foundations",
+    issuer: "Ready for your verified frontend credential",
     year: "PDF or image preview ready",
     summary:
-      "Use this card to showcase a real frontend certificate with a clean modal preview and verification link.",
+      "Attach a real frontend certificate here with a polished modal preview and a future verification link.",
     checkpoints: ["Certificate title", "Issuer name", "Verification URL"]
   },
   {
-    id: "backend-certificate-slot",
-    title: "Backend Certificate Slot",
-    issuer: "Add your verified backend credential",
+    id: "backend-systems",
+    title: "Backend Systems",
+    issuer: "Ready for your verified backend credential",
     year: "PDF or image preview ready",
     summary:
-      "Use this card for backend, API, security, or database certifications you want highlighted in the portfolio.",
+      "Use this space for backend, API, security, or database credentials you want highlighted in the portfolio.",
     checkpoints: ["Credential details", "Credential date", "Verification URL"]
   },
   {
-    id: "tools-certificate-slot",
-    title: "Cloud and Tools Slot",
-    issuer: "Add your verified tooling credential",
+    id: "cloud-and-tooling",
+    title: "Cloud and Tooling",
+    issuer: "Ready for your verified tooling credential",
     year: "PDF or image preview ready",
     summary:
       "Use this card for DevOps, cloud, workflow, or tooling certificates with a polished modal presentation.",
@@ -175,10 +175,10 @@ export const certificateShowcase = [
 ] as const;
 
 export const achievementMetrics = [
-  { label: "Years Experience", value: 4, suffix: "+" },
-  { label: "Projects Shipped", value: 25, suffix: "+" },
-  { label: "Mentored Engineers", value: 12, suffix: "" },
-  { label: "Core Technologies", value: 16, suffix: "+" }
+  { label: "Portfolio Projects", value: 7, suffix: "+" },
+  { label: "Skill Categories", value: 4, suffix: "" },
+  { label: "Core Technologies", value: 16, suffix: "+" },
+  { label: "Service Focus Areas", value: 4, suffix: "" }
 ] as const;
 
 export const testimonialSlides = [
