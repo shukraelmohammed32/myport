@@ -319,19 +319,18 @@ function SectionHeading({
   center?: boolean;
 }) {
   return (
-    <div className={cn("space-y-4", center ? "mx-auto max-w-3xl text-center" : "max-w-3xl") }>
-      <div className={cn("flex items-center gap-4", center ? "justify-center" : "justify-start") }>
+    <div className={cn("space-y-6", center ? "mx-auto max-w-3xl text-center" : "max-w-3xl")}>
+      <div className={cn("flex items-center gap-4", center ? "justify-center" : "justify-start")}>
         <span className="section-kicker">
           <Sparkles className="h-3.5 w-3.5" />
           {eyebrow}
         </span>
-        <span className="section-rule" />
       </div>
-      <h2 className="font-display text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+      <h2 className="text-4xl font-black tracking-tight text-foreground sm:text-5xl lg:text-6xl">
         {title}
       </h2>
       {description ? (
-        <p className="max-w-2xl text-base leading-8 text-white/68 sm:text-lg">
+        <p className="max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
           {description}
         </p>
       ) : null}
@@ -391,31 +390,31 @@ function AnimatedCounter({
 function SkillMeter({ item }: { item: SkillItem }) {
   return (
     <motion.div
-      className="group rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition duration-300 hover:border-cyan-300/25 hover:bg-white/[0.06]"
+      className="group rounded-2xl border border-border bg-surface-muted p-4 transition duration-300 hover:border-accent/25 hover:bg-surface-glint"
       whileHover={{ y: -3, scale: 1.01 }}
     >
       <div className="flex items-center gap-4">
         <div
           className="relative h-16 w-16 shrink-0 rounded-full p-[2px]"
           style={{
-            background: `conic-gradient(rgba(0, 224, 255, 0.92) ${item.percentage}%, rgba(255,255,255,0.08) 0)`
+            background: `conic-gradient(var(--accent) ${item.percentage}%, var(--border) 0)`
           }}
         >
-          <div className="grid h-full w-full place-items-center rounded-full bg-[var(--background)] text-sm font-semibold text-white">
+          <div className="grid h-full w-full place-items-center rounded-full bg-background text-sm font-semibold text-foreground">
             {item.percentage}%
           </div>
         </div>
 
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-3">
-            <p className="truncate text-sm font-semibold text-white">{item.label}</p>
-            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/40">
+            <p className="truncate text-sm font-black text-foreground uppercase tracking-tight">{item.label}</p>
+            <span className="text-[0.65rem] font-bold uppercase tracking-[0.24em] text-muted">
               level
             </span>
           </div>
-          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/8">
+          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-border">
             <motion.div
-              className="h-full rounded-full bg-[linear-gradient(90deg,rgba(0,224,255,0.92),rgba(90,230,255,0.84),rgba(255,45,85,0.82))]"
+              className="h-full rounded-full bg-accent"
               initial={{ width: 0 }}
               whileInView={{ width: `${item.percentage}%` }}
               viewport={{ once: true, margin: "-20% 0px" }}
@@ -431,86 +430,50 @@ function SkillMeter({ item }: { item: SkillItem }) {
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.article
-      className="tilt-card group overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02)),rgba(8,14,28,0.72)]"
+      className="neo-panel group overflow-hidden p-3"
       style={{ perspective: 1600 }}
-      whileHover={{ y: -10, rotateX: 6, rotateY: index % 2 === 0 ? -6 : 6, scale: 1.01 }}
+      whileHover={{ y: -8, rotateX: 2, rotateY: index % 2 === 0 ? -2 : 2, scale: 1.01 }}
       transition={{ duration: 0.35, ease: [0.2, 0.7, 0.3, 1] }}
     >
-      <div className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top,rgba(0,224,255,0.16),transparent_60%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01))] p-4">
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-white/10 bg-black/30">
+      <div className="relative overflow-hidden rounded-[24px]">
+        <div className="relative aspect-[16/10] overflow-hidden">
           <Image
             alt={`${project.title} preview`}
-            className="object-cover transition duration-700 group-hover:scale-105"
+            className="object-cover transition duration-700 group-hover:scale-110 group-hover:blur-[2px]"
             fill
             sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
             src={project.image}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1)_40%,rgba(3,8,18,0.92)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
           <div className="absolute left-4 top-4">
-            <span className="section-kicker bg-black/35 text-white/80">
+            <span className="section-kicker bg-background/50 text-foreground border-none backdrop-blur-md">
               Case 0{index + 1}
             </span>
           </div>
-          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3">
-            <div className="rounded-2xl border border-white/10 bg-black/45 px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/60 backdrop-blur-xl">
-              {project.stack.slice(0, 2).join(" / ")}
-            </div>
-            <div className="rounded-2xl border border-cyan-300/20 bg-cyan-400/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
-              Live Ready
-            </div>
-          </div>
+        </div>
+
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <Link
+            href={`/projects/${project.slug}`}
+            className="h-14 w-14 rounded-full bg-accent text-white flex items-center justify-center shadow-accent-20xl scale-0 group-hover:scale-100 transition-transform duration-300"
+          >
+            <ArrowUpRight className="h-6 w-6" />
+          </Link>
         </div>
       </div>
 
-      <div className="space-y-5 p-6">
-        <div className="space-y-3">
-          <div className="flex items-start justify-between gap-4">
-            <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-white">
-              {project.title}
-            </h3>
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/46">
-              Product
-            </span>
-          </div>
-          <p className="text-sm leading-7 text-white/64">
-            {project.summary}
-          </p>
-        </div>
-
+      <div className="space-y-4 p-5">
+        <h3 className="text-2xl font-black tracking-tight text-foreground">{project.title}</h3>
+        <p className="line-clamp-2 text-sm leading-relaxed text-muted font-medium">
+          {project.summary}
+        </p>
+        
         <div className="flex flex-wrap gap-2">
-          {project.stack.map((item) => (
-            <span className="chip text-[0.68rem]" key={item}>
+          {project.stack.slice(0, 3).map((item) => (
+            <span key={item} className="text-[10px] uppercase font-black tracking-widest text-accent">
               {item}
             </span>
           ))}
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3 pt-2">
-          <Link
-            className="inline-flex items-center gap-2 rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(0,224,255,0.88),rgba(0,122,255,0.72))] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_36px_rgba(0,224,255,0.18)] transition duration-300 hover:-translate-y-0.5"
-            href={project.demo || project.github}
-            rel="noreferrer"
-            target="_blank"
-          >
-            Live Demo
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
-          <Link
-            className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-white/84 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/25 hover:text-white"
-            href={project.github}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Github className="h-4 w-4" />
-            GitHub
-          </Link>
-          <Link
-            className="ml-auto inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition duration-300 hover:text-white"
-            href={`/projects/${project.slug}`}
-          >
-            Details
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </div>
     </motion.article>
@@ -810,425 +773,119 @@ export function FuturisticPortfolio() {
         ) : null}
       </AnimatePresence>
 
-      <section id="about" className="relative pt-8 sm:pt-10">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top,rgba(0,224,255,0.18),transparent_36%),radial-gradient(circle_at_80%_15%,rgba(255,45,85,0.14),transparent_32%),radial-gradient(circle_at_50%_40%,rgba(0,224,255,0.08),transparent_55%)]" />
-        <div className="pointer-events-none absolute left-1/2 top-20 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,224,255,0.18)_0%,rgba(0,224,255,0.06)_36%,transparent_70%)] blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 top-36 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
-        <div className="pointer-events-none absolute -right-20 top-64 h-80 w-80 rounded-full bg-pink-500/10 blur-3xl" />
-
-        <div className={cn(shellClass, "relative") }>
-          <div className="grid items-center gap-12 xl:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] xl:gap-16">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.2, 0.7, 0.3, 1] }}
-            >
-              <span className="section-kicker">
-                <Rocket className="h-3.5 w-3.5" />
-                Futuristic full-stack portfolio
-              </span>
-
-              <div className="mt-8 space-y-6">
-                <h1 className="max-w-4xl font-display text-[clamp(3.5rem,10vw,7rem)] font-semibold leading-[0.88] tracking-[-0.07em] text-white">
-                  Full-Stack Developer
-                </h1>
-                <p className="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
-                  I design and build scalable, secure, and high-performance applications with a premium interface language, cinematic lighting, and an immersive product feel.
-                </p>
-                <p className="max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
-                  {siteConfig.name} blends frontend craftsmanship, backend systems, and launch-ready delivery into one polished experience tuned for modern SaaS, portfolios, and product-driven teams.
-                </p>
-              </div>
-
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                <Link
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(0,224,255,0.95),rgba(0,122,255,0.72))] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_42px_rgba(0,224,255,0.18)] transition duration-300 hover:-translate-y-0.5"
-                  href="#projects"
-                >
-                  View Projects
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-4 text-sm font-semibold text-white/88 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/25 hover:text-white"
-                  href={`mailto:${siteConfig.email}`}
-                >
-                  Hire Me
-                  <Mail className="h-4 w-4" />
-                </Link>
-                <Link
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-pink-300/20 bg-[linear-gradient(135deg,rgba(255,45,85,0.9),rgba(17,24,39,0.95))] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_42px_rgba(255,45,85,0.16)] transition duration-300 hover:-translate-y-0.5"
-                  href={siteConfig.resumePath}
-                  download
-                >
-                  Download CV
-                  <Download className="h-4 w-4" />
-                </Link>
-              </div>
-
-              <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {heroStats.map((stat) => (
-                  <motion.div
-                    className="metric-chip rounded-[24px] p-5"
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.55, ease: [0.2, 0.7, 0.3, 1] }}
-                  >
-                    <p className="text-3xl font-semibold tracking-[-0.04em] text-white">
-                      <AnimatedCounter suffix={stat.suffix} value={stat.value} />
-                    </p>
-                    <p className="mt-3 text-sm leading-6 text-white/64">{stat.label}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-white/56">
-                <span className="chip">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-cyan-300" />
-                  Dark mode first
-                </span>
-                <span className="chip">
-                  <Zap className="h-3.5 w-3.5 text-cyan-300" />
-                  Motion-rich UI
-                </span>
-                <span className="chip">
-                  <Globe2 className="h-3.5 w-3.5 text-cyan-300" />
-                  SaaS-ready systems
-                </span>
-              </div>
-            </motion.div>
-
-            <div className="relative min-h-[46rem]">
-              <div className="absolute inset-0 rounded-[40px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015)),rgba(5,10,20,0.72)] shadow-[0_30px_90px_rgba(0,0,0,0.42)] backdrop-blur-3xl" />
-              <div className="absolute inset-0 surface-grid rounded-[40px] opacity-25" />
-              <div className="absolute inset-0 rounded-[40px] bg-[radial-gradient(circle_at_top,rgba(0,224,255,0.14),transparent_42%),radial-gradient(circle_at_bottom,rgba(255,45,85,0.1),transparent_40%)]" />
-
+      <section id="about" className="relative pt-12 sm:pt-20 pb-20 lg:pb-32 min-h-[90dvh] flex items-center">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top,var(--glow-a),transparent_40%),radial-gradient(circle_at_80%_15%,var(--glow-b),transparent_35%)] opacity-40 dark:opacity-100" />
+        
+        <div className={cn(shellClass, "relative")}>
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            {/* Left Column: Portrait Card */}
+            <div className="relative order-1">
               <motion.div
-                className="relative z-10 flex h-full min-h-[46rem] flex-col gap-5 p-4 sm:p-5"
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, ease: [0.2, 0.7, 0.3, 1], delay: 0.08 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+                className="neo-panel relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden p-3 shadow-3xl"
               >
-                <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-                  <div className="glass-panel relative overflow-hidden rounded-[32px] p-3">
-                    <div className="absolute inset-0 hero-scanline opacity-25" />
-                    <div className="absolute inset-0 surface-grid opacity-20" />
-                    <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-black/40">
-                      <Image
-                        alt={siteConfig.profileImageAlt}
-                        className="object-cover object-center"
-                        fill
-                        priority
-                        sizes="(min-width: 1280px) 40vw, 100vw"
-                        src={siteConfig.profileImage}
-                      />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,224,255,0.12),transparent_28%,transparent_62%,rgba(4,8,18,0.9)_100%)]" />
-                      <div className="absolute inset-x-0 bottom-0 p-6">
-                        <div className="flex items-end justify-between gap-4">
-                          <div>
-                            <span className="section-kicker bg-black/35 text-white/80">
-                              Elite mode
-                            </span>
-                            <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                              {siteConfig.name}
-                            </h2>
-                            <p className="mt-2 text-sm leading-6 text-white/72 sm:text-base">
-                              {siteConfig.role}
-                            </p>
-                          </div>
-                          <div className="rounded-2xl border border-cyan-300/18 bg-cyan-400/10 px-4 py-3 text-right">
-                            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-white/42">
-                              Availability
-                            </p>
-                            <p className="mt-1 text-sm font-semibold text-cyan-200">
-                              Open for projects
-                            </p>
-                          </div>
-                        </div>
+                <div className="absolute inset-0 hero-scanline opacity-10" />
+                <div className="relative h-full w-full overflow-hidden rounded-[2rem]">
+                  <Image
+                    alt={siteConfig.profileImageAlt}
+                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                    fill
+                    priority
+                    sizes="(min-width: 1280px) 40vw, 100vw"
+                    src={siteConfig.profileImage}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                  
+                  <div className="absolute inset-x-0 bottom-0 p-8">
+                    <div className="flex items-end justify-between">
+                      <div className="space-y-2">
+                        <span className="section-kicker bg-black/40 text-red-400 border-none">
+                          <Rocket className="h-3 w-3" />
+                          System Online
+                        </span>
+                        <h2 className="text-3xl font-black text-white tracking-tight">{siteConfig.name}</h2>
+                        <p className="text-white/70 font-medium tracking-wide">{siteConfig.role}</p>
                       </div>
-                    </div>
-
-                    {heroSignals.map((signal) => {
-                      const Icon = signal.icon;
-
-                      return (
-                        <motion.div
-                          className="absolute hidden rounded-full border border-white/10 bg-black/45 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/74 shadow-[0_18px_40px_rgba(0,0,0,0.3)] backdrop-blur-xl lg:flex lg:items-center lg:gap-2"
-                          key={signal.label}
-                          style={{
-                            top: signal.top,
-                            bottom: signal.bottom,
-                            left: signal.left,
-                            right: signal.right
-                          }}
-                          animate={reduceMotion ? { opacity: 1 } : { y: [0, -8, 0] }}
-                          transition={{
-                            duration: 4.5,
-                            repeat: reduceMotion ? 0 : Infinity,
-                            ease: "easeInOut",
-                            delay: signal.delay
-                          }}
-                        >
-                          <Icon className="h-3.5 w-3.5 text-cyan-200" />
-                          {signal.label}
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-
-                  <div className="space-y-5">
-                    <div className="glass-panel rounded-[30px] p-5">
-                      <div className="flex items-center justify-between gap-4">
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-[0.26em] text-white/42">
-                            Mission control
-                          </p>
-                          <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-0.03em] text-white">
-                            Premium build system
-                          </h3>
-                        </div>
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/18 bg-cyan-400/10 text-cyan-200">
-                          <Terminal className="h-5 w-5" />
-                        </div>
-                      </div>
-
-                      <div className="mt-5 rounded-[24px] border border-white/10 bg-black/35 p-4 font-mono text-[0.82rem] leading-7 text-white/80">
-                        <p><span className="text-cyan-300">&gt;</span> design scalable interfaces</p>
-                        <p><span className="text-cyan-300">&gt;</span> build secure APIs and data flows</p>
-                        <p><span className="text-cyan-300">&gt;</span> ship high-performance products</p>
-                      </div>
-
-                      <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                        {[
-                          { label: "Frontend", value: "Motion-rich, accessible UI" },
-                          { label: "Backend", value: "Stable logic and APIs" },
-                          { label: "Database", value: "Fast, structured data" },
-                          { label: "Delivery", value: "Launch-ready polish" }
-                        ].map((item) => (
-                          <div
-                            className="rounded-[22px] border border-white/10 bg-white/[0.03] p-4"
-                            key={item.label}
-                          >
-                            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/42">
-                              {item.label}
-                            </p>
-                            <p className="mt-2 text-sm leading-6 text-white/72">
-                              {item.value}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="glass-panel rounded-[30px] p-5">
-                      <div className="flex items-center justify-between gap-3">
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-[0.26em] text-white/42">
-                            Dev stack
-                          </p>
-                          <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-white">
-                            Floating tech signals
-                          </h3>
-                        </div>
-                        <Sparkles className="h-5 w-5 text-cyan-200" />
-                      </div>
-                      <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                        {[
-                          { icon: Code2, label: "React / Next.js" },
-                          { icon: Server, label: "Node / APIs" },
-                          { icon: Database, label: "SQL / NoSQL" },
-                          { icon: GitBranch, label: "Git / GitHub" }
-                        ].map((item) => {
-                          const Icon = item.icon;
-
-                          return (
-                            <div
-                              className="flex items-center gap-3 rounded-[20px] border border-white/10 bg-white/[0.03] p-4 transition duration-300 hover:border-cyan-300/20 hover:bg-white/[0.06]"
-                              key={item.label}
-                            >
-                              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-cyan-300/18 bg-cyan-400/10 text-cyan-200">
-                                <Icon className="h-4.5 w-4.5" />
-                              </div>
-                              <p className="text-sm font-semibold text-white/82">{item.label}</p>
-                            </div>
-                          );
-                        })}
+                      <div className="h-12 w-12 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
+                        <Cpu className="h-6 w-6 text-red-500" />
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="glass-panel rounded-[30px] p-5">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.26em] text-white/42">
-                        Profile matrix
-                      </p>
-                      <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-white">
-                        Holographic presence with layered depth
-                      </h3>
-                    </div>
-                    <div className="flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-400/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100">
-                      <Play className="h-3.5 w-3.5" />
-                      motion active
-                    </div>
-                  </div>
-                  <div className="mt-5 grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
-                    <div className="rounded-[26px] border border-white/10 bg-black/25 p-5">
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/42">
-                        Terminal status
-                      </p>
-                      <div className="mt-4 space-y-3 font-mono text-sm text-white/72">
-                        <p>&gt; focus: scalable apps</p>
-                        <p>&gt; mode: secure and maintainable</p>
-                        <p>&gt; output: premium user experiences</p>
-                      </div>
-                    </div>
-                    <div className="rounded-[26px] border border-white/10 bg-[linear-gradient(135deg,rgba(0,224,255,0.12),rgba(255,45,85,0.08))] p-5">
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/42">
-                        Delivery stance
-                      </p>
-                      <p className="mt-4 text-sm leading-7 text-white/74">
-                        Product thinking, interface craft, and backend discipline all move together. The outcome is a site that feels expensive without losing clarity.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      <div className="mt-20 sm:mt-24">
-        <div className={shellClass}>
-          <div className="grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
-            <motion.div
-              className="glass-panel overflow-hidden rounded-[34px]"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-18% 0px" }}
-              transition={{ duration: 0.65, ease: [0.2, 0.7, 0.3, 1] }}
-            >
-              <div className="relative min-h-[34rem]">
-                <Image
-                  alt={siteConfig.profileImageAlt}
-                  className="object-cover object-center"
-                  fill
-                  sizes="(min-width: 1280px) 42vw, 100vw"
-                  src={siteConfig.profileImage}
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,224,255,0.06),transparent_28%,transparent_58%,rgba(3,8,18,0.9)_100%)]" />
-                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                  <div className="rounded-[28px] border border-white/10 bg-black/40 p-5 backdrop-blur-2xl">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/42">
-                      {siteConfig.location}
-                    </p>
-                    <p className="mt-3 font-display text-3xl font-semibold tracking-[-0.04em] text-white">
-                      {siteConfig.name}
-                    </p>
-                    <p className="mt-2 text-sm leading-7 text-white/70">
-                      {siteConfig.role} focused on modern products, visual clarity, and dependable engineering.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="space-y-8"
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-18% 0px" }}
-              transition={{ duration: 0.65, ease: [0.2, 0.7, 0.3, 1] }}
-            >
-              <SectionHeading
-                eyebrow="About Me"
-                title="Clean structure, immersive visuals, and practical delivery in one portfolio system."
-                description="I combine product thinking with engineering discipline so the final result is not just attractive, but stable, scalable, and easy to keep evolving."
-              />
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  {
-                    icon: Globe2,
-                    title: "Product-first thinking",
-                    description:
-                      "I organize work around clarity, user flow, and what the product actually needs to do."
-                  },
-                  {
-                    icon: ShieldCheck,
-                    title: "Secure implementation",
-                    description:
-                      "Authentication, permissions, and data safety are considered early, not after launch."
-                  },
-                  {
-                    icon: Layers3,
-                    title: "Reusable design systems",
-                    description:
-                      "Components, tokens, and interaction patterns are structured for consistent scaling."
-                  },
-                  {
-                    icon: Zap,
-                    title: "Fast execution",
-                    description:
-                      "I move quickly without sacrificing quality, which keeps product momentum high."
-                  }
-                ].map((item) => {
-                  const Icon = item.icon;
-
+                {/* Floating Signals */}
+                {heroSignals.map((signal, idx) => {
+                  const Icon = signal.icon;
                   return (
                     <motion.div
-                      className="glass-panel rounded-[24px] p-5"
-                      key={item.title}
-                      whileHover={{ y: -4, scale: 1.01 }}
+                      key={signal.label}
+                      className="absolute hidden lg:flex items-center gap-2 rounded-2xl border border-white/10 bg-surface/80 px-4 py-2.5 text-[0.6rem] font-black uppercase tracking-[0.2em] text-foreground shadow-2xl backdrop-blur-2xl"
+                      style={{ top: signal.top, bottom: signal.bottom, left: signal.left, right: signal.right }}
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, delay: idx * 0.5 }}
                     >
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/18 bg-cyan-400/10 text-cyan-200">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="mt-4 text-lg font-semibold text-white">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-7 text-white/62">{item.description}</p>
+                      <Icon className="h-4 w-4 text-red-500" />
+                      {signal.label}
                     </motion.div>
-                  );
+                  )
                 })}
+              </motion.div>
+            </div>
+
+            {/* Right Column: Text Content */}
+            <motion.div
+              className="order-2 space-y-8 text-center lg:text-left"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="space-y-4">
+                <span className="section-kicker">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  About Me
+                </span>
+                <h1 className="section-title">
+                  Futuristic <span className="text-red-500">full-stack</span> portfolio
+                </h1>
+                <p className="mx-auto lg:mx-0 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
+                  I specialize in bridging the gap between high-end design and scalable product engineering. 
+                  Focused on delivering immersive digital ecosystems that stay dependable at scale.
+                </p>
               </div>
 
-              <div className="glass-panel rounded-[28px] p-6">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/42">
-                      What I bring
-                    </p>
-                    <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-white">
-                      A sharp interface sense with delivery-minded engineering.
-                    </h3>
-                  </div>
-                  <div className="hidden rounded-2xl border border-cyan-300/18 bg-cyan-400/10 p-3 text-cyan-200 sm:flex">
-                    <BadgeCheck className="h-5 w-5" />
-                  </div>
-                </div>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {[
-                    "Premium visual polish with a grounded product mindset",
-                    "Scalable component architecture that stays readable",
-                    "Responsive full-stack delivery from idea to deployment",
-                    "Strong communication and clean implementation habits"
-                  ].map((item) => (
-                    <div
-                      className="rounded-[22px] border border-white/10 bg-white/[0.03] p-4"
-                      key={item}
-                    >
-                      <p className="flex items-start gap-3 text-sm leading-7 text-white/72">
-                        <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-cyan-300" />
-                        {item}
-                      </p>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                <Link
+                  href="#projects"
+                  className="group relative inline-flex h-16 items-center gap-3 overflow-hidden rounded-2xl bg-red-500 px-8 font-black text-white transition-all hover:scale-105 active:scale-95 shadow-[0_20px_40px_-10px_rgba(239,68,68,0.5)]"
+                >
+                  <span className="relative z-10">Explore Work</span>
+                  <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-400 opacity-0 transition-opacity group-hover:opacity-100" />
+                </Link>
+                <Link
+                  href="#contact"
+                  className="inline-flex h-16 items-center gap-3 rounded-2xl border border-border bg-surface-muted px-8 font-black text-foreground transition-all hover:bg-surface hover:shadow-xl active:scale-95"
+                >
+                  Contact Me
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 lg:pt-8 pt-4">
+                {heroStats.slice(0, 2).map((stat) => (
+                  <div key={stat.label} className="panel-muted p-6 space-y-2">
+                    <div className="text-3xl font-black text-foreground">
+                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                     </div>
-                  ))}
-                </div>
+                    <p className="text-xs uppercase tracking-widest text-muted font-bold">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       <section id="skills" className="section-gap relative">
         <div className={shellClass}>
