@@ -22,7 +22,6 @@ import {
   FileText,
   GitBranch,
   Github,
-  Globe2,
   Layers3,
   Linkedin,
   Mail,
@@ -33,11 +32,9 @@ import {
   Sparkles,
   Terminal,
   Workflow,
-  Zap,
   MessageSquareQuote,
   X,
   Cpu,
-  Play,
   Users
 } from "lucide-react";
 
@@ -773,8 +770,8 @@ export function FuturisticPortfolio() {
         ) : null}
       </AnimatePresence>
 
-      <section id="about" className="relative pt-12 sm:pt-20 pb-20 lg:pb-32 min-h-[90dvh] flex items-center">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top,var(--glow-a),transparent_40%),radial-gradient(circle_at_80%_15%,var(--glow-b),transparent_35%)] opacity-40 dark:opacity-100" />
+      <section id="about" className="relative pt-12 sm:pt-20 pb-20 lg:pb-32 min-h-[90dvh] flex items-center bg-background">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top,rgba(255,0,0,0.15),transparent_40%),radial-gradient(circle_at_80%_15%,rgba(255,42,42,0.1),transparent_35%)] opacity-100" />
         
         <div className={cn(shellClass, "relative")}>
           <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -784,10 +781,10 @@ export function FuturisticPortfolio() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
-                className="neo-panel relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden p-3 shadow-3xl"
+                className="neo-panel relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden p-3 shadow-[0_0_50px_rgba(255,0,0,0.15)] border-accent/20 bg-background/80"
               >
-                <div className="absolute inset-0 hero-scanline opacity-10" />
-                <div className="relative h-full w-full overflow-hidden rounded-[2rem]">
+                <div className="absolute inset-0 hero-scanline opacity-[0.15] bg-red-500/5" />
+                <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-accent/20">
                   <Image
                     alt={siteConfig.profileImageAlt}
                     className="object-cover object-center transition-transform duration-700 hover:scale-105"
@@ -796,20 +793,20 @@ export function FuturisticPortfolio() {
                     sizes="(min-width: 1280px) 40vw, 100vw"
                     src={siteConfig.profileImage}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
                   
                   <div className="absolute inset-x-0 bottom-0 p-8">
                     <div className="flex items-end justify-between">
                       <div className="space-y-2">
-                        <span className="section-kicker bg-black/40 text-red-400 border-none">
+                        <span className="section-kicker bg-accent/20 text-accent-strong border-accent/30 backdrop-blur-md">
                           <Rocket className="h-3 w-3" />
-                          System Online
+                          Core Protocol
                         </span>
-                        <h2 className="text-3xl font-black text-white tracking-tight">{siteConfig.name}</h2>
-                        <p className="text-white/70 font-medium tracking-wide">{siteConfig.role}</p>
+                        <h2 className="text-3xl font-black text-foreground tracking-tight">{siteConfig.name}</h2>
+                        <p className="text-muted font-medium tracking-wide uppercase text-xs">{siteConfig.role}</p>
                       </div>
-                      <div className="h-12 w-12 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
-                        <Cpu className="h-6 w-6 text-red-500" />
+                      <div className="h-12 w-12 rounded-2xl bg-accent/10 backdrop-blur-xl border border-accent/20 flex items-center justify-center shadow-glow">
+                        <Cpu className="h-6 w-6 text-accent" />
                       </div>
                     </div>
                   </div>
@@ -821,12 +818,12 @@ export function FuturisticPortfolio() {
                   return (
                     <motion.div
                       key={signal.label}
-                      className="absolute hidden lg:flex items-center gap-2 rounded-2xl border border-white/10 bg-surface/80 px-4 py-2.5 text-[0.6rem] font-black uppercase tracking-[0.2em] text-foreground shadow-2xl backdrop-blur-2xl"
+                      className="absolute hidden lg:flex items-center gap-2 rounded-2xl border border-accent/20 bg-background/90 px-4 py-2.5 text-[0.6rem] font-black uppercase tracking-[0.2em] text-foreground shadow-glow-accent backdrop-blur-2xl"
                       style={{ top: signal.top, bottom: signal.bottom, left: signal.left, right: signal.right }}
                       animate={{ y: [0, -10, 0] }}
                       transition={{ duration: 4, repeat: Infinity, delay: idx * 0.5 }}
                     >
-                      <Icon className="h-4 w-4 text-red-500" />
+                      <Icon className="h-4 w-4 text-accent" />
                       {signal.label}
                     </motion.div>
                   )
@@ -842,33 +839,32 @@ export function FuturisticPortfolio() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="space-y-4">
-                <span className="section-kicker">
+                <span className="section-kicker border-accent/30 text-accent-strong uppercase font-black">
                   <Sparkles className="h-3.5 w-3.5" />
-                  About Me
+                  Initiating Contact
                 </span>
-                <h1 className="section-title">
-                  Futuristic <span className="text-red-500">full-stack</span> portfolio
+                <h1 className="text-5xl lg:text-7xl font-black tracking-tighter text-foreground uppercase italic underline decoration-accent/40 decoration-4 underline-offset-8">
+                  ELITE <span className="text-accent underline decoration-white/20">FULL-STACK</span> SYSTEMS
                 </h1>
-                <p className="mx-auto lg:mx-0 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-                  I specialize in bridging the gap between high-end design and scalable product engineering. 
-                  Focused on delivering immersive digital ecosystems that stay dependable at scale.
+                <p className="mx-auto lg:mx-0 max-w-xl text-lg leading-relaxed text-muted sm:text-xl font-medium">
+                  Architecting secure, high-performance product ecosystems. Bridging high-end aesthetic logic with aggressive engineering discipline.
                 </p>
               </div>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 <Link
                   href="#projects"
-                  className="group relative inline-flex h-16 items-center gap-3 overflow-hidden rounded-2xl bg-red-500 px-8 font-black text-white transition-all hover:scale-105 active:scale-95 shadow-[0_20px_40px_-10px_rgba(239,68,68,0.5)]"
+                  className="group relative inline-flex h-16 items-center gap-4 overflow-hidden rounded-2xl bg-gradient-to-r from-accent to-accent-secondary px-10 font-black text-white transition-all hover:scale-105 active:scale-95 shadow-glow-accent"
                 >
-                  <span className="relative z-10">Explore Work</span>
+                  <span className="relative z-10 text-sm uppercase tracking-widest">Access Projects</span>
                   <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-400 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-white/10 opacity-0 transition-opacity group-hover:opacity-100" />
                 </Link>
                 <Link
                   href="#contact"
-                  className="inline-flex h-16 items-center gap-3 rounded-2xl border border-border bg-surface-muted px-8 font-black text-foreground transition-all hover:bg-surface hover:shadow-xl active:scale-95"
+                  className="inline-flex h-16 items-center gap-3 rounded-2xl border-2 border-accent/20 bg-background-accent/50 px-8 font-black text-foreground transition-all hover:bg-background-accent hover:border-accent/40 active:scale-95 shadow-glow"
                 >
-                  Contact Me
+                  Direct Msg
                 </Link>
               </div>
 
@@ -887,7 +883,7 @@ export function FuturisticPortfolio() {
         </div>
       </section>
 
-      <section id="skills" className="section-gap relative">
+      <section id="skills" className="section-gap relative bg-background-accent/20">
         <div className={shellClass}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -896,19 +892,19 @@ export function FuturisticPortfolio() {
             transition={{ duration: 0.65, ease: [0.2, 0.7, 0.3, 1] }}
           >
             <SectionHeading
-              eyebrow="Skills"
-              title="Interactive skill layers with circular meters, motion, and category depth."
-              description="Each group is organized around the part of the stack it serves, giving the page a cleaner information hierarchy and a better visual rhythm."
+              eyebrow="System Components"
+              title="Interactive Skill Layers"
+              description="Engineered modules organized by stack layer. High-contrast meters and motion-aware depth for complex technical visualization."
             />
           </motion.div>
 
-          <div className="mt-10 grid gap-6 xl:grid-cols-2">
+          <div className="mt-16 grid gap-6 xl:grid-cols-2">
             {skillGroups.map((group) => {
               const Icon = group.icon;
 
               return (
                 <motion.div
-                  className="glass-panel rounded-[30px] p-6 sm:p-7"
+                  className="neo-panel bg-background/60 rounded-[30px] p-8 border-accent/10 hover:border-accent/30 transition-all shadow-glow hover:shadow-glow-accent group"
                   key={group.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -917,21 +913,21 @@ export function FuturisticPortfolio() {
                   whileHover={{ y: -5, scale: 1.01 }}
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="section-kicker">
+                    <div className="space-y-4">
+                      <span className="section-kicker border-accent/20 bg-accent/5 font-black text-accent-strong uppercase">
                         <Icon className="h-3.5 w-3.5" />
                         {group.title}
                       </span>
-                      <p className="mt-4 max-w-xl text-sm leading-7 text-white/62">
+                      <p className="max-w-xl text-sm leading-8 text-muted font-medium">
                         {group.description}
                       </p>
                     </div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/18 bg-cyan-400/10 text-cyan-200">
-                      <Icon className="h-5 w-5" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent group-hover:shadow-glow-accent transition-all">
+                      <Icon className="h-6 w-6" />
                     </div>
                   </div>
 
-                  <div className="mt-6 grid gap-4">
+                  <div className="mt-8 grid gap-5">
                     {group.items.map((item) => (
                       <SkillMeter item={item} key={item.label} />
                     ))}
@@ -1383,6 +1379,7 @@ export function FuturisticPortfolio() {
                 <div className="flex gap-2">
                   {testimonials.map((_, index) => (
                     <button
+                      key={index}
                       aria-label={`Show testimonial ${index + 1}`}
                       className={cn(
                         "h-2.5 rounded-full transition-all duration-300",

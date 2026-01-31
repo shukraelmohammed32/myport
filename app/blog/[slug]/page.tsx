@@ -42,7 +42,7 @@ const blogPosts = [
 <h2>Component-Based Styling</h2>
 <p>While Tailwind is a utility-first framework, that doesn't mean you can't create reusable components. We'll show you how to use Tailwind's <code>@apply</code> directive to create component classes.</p>
 `
-  },
+  }
 ];
 
 type BlogPostPageProps = {
@@ -63,9 +63,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <main className="section-gap">
       <Container>
         <article className="prose prose-lg mx-auto dark:prose-invert">
-          <h1 className="font-display text-4xl font-bold tracking-tight">
-            {post.title}
-          </h1>
+          <h1 className="font-display text-4xl font-bold tracking-tight">{post.title}</h1>
           <p className="text-sm" style={{ color: "var(--muted)" }}>
             Published on {post.date}
           </p>
