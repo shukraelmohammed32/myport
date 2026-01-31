@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   },
   description:
     "A futuristic full-stack developer portfolio with premium motion, cinematic lighting, neon glass UI, and polished product storytelling.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }]
+  },
   openGraph: {
     title: "Shukrael Mohammed | Futuristic Full-Stack Developer Portfolio",
     description:
