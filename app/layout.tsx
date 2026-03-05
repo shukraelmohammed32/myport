@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import type { ReactNode } from "react";
 
 import "@/styles/globals.css";
@@ -38,12 +39,38 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
+const themeInitializerScript = `
+(() => {
+  try {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme =
+      storedTheme === "light" || storedTheme === "dark"
+        ? storedTheme
+        : systemPrefersDark
+          ? "dark"
+          : "light";
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    root.style.colorScheme = theme;
+  } catch {}
+})();
+`;
+
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html className={`${sans.variable} ${display.variable}`} lang="en">
+    <html className={`${sans.variable} ${display.variable}`} lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
+        <Script id="theme-initializer" strategy="beforeInteractive">
+          {themeInitializerScript}
+        </Script>
         <div className="relative">
-          <div className="pointer-events-none fixed inset-0 -z-10 bg-dot-grid [background-size:24px_24px] opacity-[0.2]" />
+          <div
+            className="pointer-events-none fixed inset-0 -z-10 [background-size:24px_24px] opacity-[0.2]"
+            style={{
+              backgroundImage: "radial-gradient(circle at center, var(--dot-color) 1px, transparent 1px)"
+            }}
+          />
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />

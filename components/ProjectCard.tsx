@@ -10,8 +10,8 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="panel group overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <div className="relative h-52 overflow-hidden border-b border-slate-200">
+    <article className="panel group overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-none">
+      <div className="relative h-52 overflow-hidden border-b border-slate-200 dark:border-slate-800">
         <Image
           alt={`${project.title} project preview`}
           className="object-cover transition duration-700 group-hover:scale-[1.03]"
@@ -22,8 +22,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="space-y-4 p-6">
         <div>
-          <h3 className="font-display text-xl font-semibold text-slate-900">{project.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600">{project.summary}</p>
+          <h3 className="font-display text-xl font-semibold text-slate-900 dark:text-slate-100">
+            {project.title}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            {project.summary}
+          </p>
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -36,7 +40,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="flex flex-wrap gap-3">
           <Link
-            className="inline-flex items-center gap-1 text-sm font-semibold text-slate-700 transition hover:text-slate-900"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-slate-700 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
             href={project.github}
             rel="noreferrer"
             target="_blank"
@@ -46,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Link>
           {project.demo ? (
             <Link
-              className="inline-flex items-center gap-1 text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-teal-700 transition hover:text-teal-800 dark:text-teal-300 dark:hover:text-teal-200"
               href={project.demo}
               rel="noreferrer"
               target="_blank"

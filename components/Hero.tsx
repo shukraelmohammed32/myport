@@ -14,14 +14,14 @@ export function HeroSection() {
           <p className="chip">{siteConfig.availability}</p>
 
           <div className="space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
               Elite Software Engineer
             </p>
-            <h1 className="font-display text-4xl leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl leading-tight text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-6xl">
               {siteConfig.name}
               <span className="text-gradient mt-2 block">{siteConfig.role}</span>
             </h1>
-            <p className="max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
               {siteConfig.intro}
             </p>
           </div>
@@ -51,7 +51,7 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(15,118,110,0.2),transparent_48%),radial-gradient(circle_at_bottom_left,rgba(249,115,22,0.15),transparent_55%)]" />
             <div className="relative space-y-6">
               <div className="flex items-center gap-4">
-                <div className="relative h-20 w-20 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                <div className="relative h-20 w-20 overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800">
                   <Image
                     alt={`${siteConfig.name} profile illustration`}
                     className="object-cover"
@@ -61,9 +61,11 @@ export function HeroSection() {
                   />
                 </div>
                 <div>
-                  <p className="font-display text-xl font-semibold text-slate-900">{siteConfig.name}</p>
-                  <p className="text-sm text-slate-600">{siteConfig.role}</p>
-                  <p className="mt-1 inline-flex items-center gap-1 text-xs text-slate-500">
+                  <p className="font-display text-xl font-semibold text-slate-900 dark:text-slate-100">
+                    {siteConfig.name}
+                  </p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">{siteConfig.role}</p>
+                  <p className="mt-1 inline-flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
                     <MapPin className="h-3.5 w-3.5" />
                     {siteConfig.location}
                   </p>
@@ -73,11 +75,11 @@ export function HeroSection() {
               <dl className="grid grid-cols-3 gap-3">
                 {impactStats.map((stat) => (
                   <div
-                    className="rounded-2xl border border-slate-200 bg-white/90 px-3 py-3 text-center"
+                    className="rounded-2xl border border-slate-200 bg-white/90 px-3 py-3 text-center dark:border-slate-700 dark:bg-slate-800/90"
                     key={stat.label}
                   >
-                    <dt className="text-xs text-slate-500">{stat.label}</dt>
-                    <dd className="mt-1 font-display text-lg font-semibold text-slate-900">
+                    <dt className="text-xs text-slate-500 dark:text-slate-400">{stat.label}</dt>
+                    <dd className="mt-1 font-display text-lg font-semibold text-slate-900 dark:text-slate-100">
                       {stat.value}
                     </dd>
                   </div>

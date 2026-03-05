@@ -32,8 +32,12 @@ export function SkillsSection({
         <div className="grid gap-5 md:grid-cols-2">
           {categories.map((category, index) => (
             <FadeIn className="panel p-6 sm:p-7" delay={index * 0.05} key={category.title}>
-              <h3 className="font-display text-xl font-semibold text-slate-900">{category.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{category.summary}</p>
+              <h3 className="font-display text-xl font-semibold text-slate-900 dark:text-slate-100">
+                {category.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                {category.summary}
+              </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {category.tools.map((tool) => (
                   <span className="chip" key={tool}>
