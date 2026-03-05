@@ -22,13 +22,13 @@ const display = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio.example.com"),
   title: {
-    default: "Aarav Mehta | Senior Software Engineer",
-    template: "%s | Aarav Mehta"
+    default: "Shukreal | Senior Software Engineer",
+    template: "%s | Shukreal"
   },
   description:
     "Elite software engineer portfolio built with Next.js, showcasing modern product engineering, UI craftsmanship, and scalable architecture.",
   openGraph: {
-    title: "Aarav Mehta | Senior Software Engineer",
+    title: "Shukreal | Senior Software Engineer",
     description:
       "Elite software engineer portfolio built with Next.js, showcasing modern product engineering, UI craftsmanship, and scalable architecture.",
     type: "website"

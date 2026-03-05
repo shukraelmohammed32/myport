@@ -1,7 +1,7 @@
 import type { NavItem, SocialItem } from "@/types/portfolio";
 
 export const siteConfig = {
-  name: "Aarav Mehta",
+  name: "Shukreal",
   role: "Senior Software Engineer",
   intro:
     "I build performant digital products with elegant interfaces, clean architecture, and measurable business impact.",
