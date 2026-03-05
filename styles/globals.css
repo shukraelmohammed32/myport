@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f5f6f2;
+  --surface: #ffffff;
+  --ink: #0f172a;
+  --muted: #566074;
+  --primary: #0f766e;
+  --accent: #f97316;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 8% 8%, rgba(15, 118, 110, 0.17), transparent 34%),
+    radial-gradient(circle at 92% 12%, rgba(249, 115, 22, 0.17), transparent 32%),
+    linear-gradient(180deg, #f9faf7 0%, #f5f6f2 100%);
+}
+
+::selection {
+  color: #082f49;
+  background: rgba(45, 212, 191, 0.45);
+}
+
+@layer components {
+  .section-gap {
+    @apply py-16 sm:py-20;
+  }
+
+  .panel {
+    @apply rounded-3xl border border-slate-200/80 bg-white/75 shadow-soft backdrop-blur;
+  }
+
+  .panel-muted {
+    @apply rounded-3xl border border-slate-200 bg-slate-50/90;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-700;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-teal-700 via-sky-600 to-orange-500 bg-clip-text text-transparent;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.profile-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
