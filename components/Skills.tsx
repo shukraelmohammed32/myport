@@ -33,7 +33,7 @@ export function SkillsSection({
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {visibleSkills.map((skill, index) => (
-            <FadeIn className="panel p-5" delay={index * 0.03} key={skill.name}>
+            <FadeIn className="panel tilt-surface p-5" delay={index * 0.03} key={skill.name}>
               <div className="flex items-center gap-4">
                 <Image
                   alt={`${skill.name} icon`}
@@ -57,10 +57,10 @@ export function SkillsSection({
                 </div>
               </div>
 
-              <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-slate-200/80 dark:bg-slate-700/60">
+              <div className="skill-meter mt-4 h-2.5 rounded-full bg-slate-200/80 dark:bg-slate-700/60">
                 <div
                   aria-hidden
-                  className="h-full rounded-full bg-gradient-to-r from-teal-500 via-sky-500 to-orange-400"
+                  className="skill-meter-fill h-full rounded-full bg-gradient-to-r from-teal-500 via-sky-500 to-orange-400"
                   style={{ width: `${skill.percentage}%` }}
                 />
               </div>

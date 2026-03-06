@@ -61,13 +61,16 @@ export function HeroSection() {
           </div>
         </FadeIn>
 
-        <FadeIn className="profile-float relative" delay={0.08}>
+        <FadeIn className="profile-float perspective-wrap relative" delay={0.08}>
           <div className="relative">
+            <div aria-hidden className="hero-orb hero-orb-a" />
+            <div aria-hidden className="hero-orb hero-orb-b" />
+            <div aria-hidden className="hero-orb hero-orb-c" />
             <div
               aria-hidden
               className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_top,rgba(15,118,110,0.35),transparent_55%),radial-gradient(circle_at_bottom,rgba(249,115,22,0.25),transparent_52%)] blur-3xl dark:opacity-80"
             />
-            <div className="relative isolate mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2.7rem] border border-slate-200/70 bg-white/20 shadow-2xl sm:max-w-md dark:border-slate-800">
+            <div className="tilt-surface relative isolate mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2.7rem] border border-slate-200/70 bg-white/20 shadow-2xl sm:max-w-md dark:border-slate-800">
               <Image
                 alt={siteConfig.profileImageAlt}
                 className="object-cover object-center"
