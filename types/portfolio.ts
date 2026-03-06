@@ -14,6 +14,13 @@ export type SkillCategory = {
   tools: string[];
 };
 
+export type Skill = {
+  name: string;
+  category: string;
+  percentage: number;
+  icon: string;
+};
+
 export type Project = {
   title: string;
   summary: string;

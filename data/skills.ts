@@ -1,43 +1,25 @@
-import type { SkillCategory } from "@/types/portfolio";
+import type { Skill } from "@/types/portfolio";
 
-export const skillCategories: SkillCategory[] = [
+export const skills: Skill[] = [
+  { name: "JavaScript", category: "Frontend", percentage: 92, icon: "/images/skills/javascript.png" },
+  { name: "CSS3", category: "Frontend", percentage: 93, icon: "/images/skills/css.png" },
+  { name: "Bootstrap", category: "Frontend", percentage: 89, icon: "/images/skills/bootstrap.png" },
+  { name: "TypeScript", category: "Frontend", percentage: 88, icon: "/images/skills/typescript.png" },
+  { name: "React", category: "Frontend", percentage: 90, icon: "/images/skills/react.png" },
+  { name: "Next.js", category: "Frontend", percentage: 85, icon: "/images/skills/nextjs.png" },
   {
-    title: "Frontend Development",
-    summary:
-      "Building responsive, user-friendly interfaces with clean layouts and reusable UI components.",
-    tools: [
-      "HTML5",
-      "CSS3",
-      "JavaScript (ES6+)",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Bootstrap",
-      "Tailwind CSS"
-    ]
+    name: "React Native",
+    category: "Mobile",
+    percentage: 80,
+    icon: "/images/skills/react-native.png"
   },
-  {
-    title: "Mobile Development",
-    summary:
-      "Creating smooth cross-platform mobile apps with shared logic, strong performance, and modern tooling.",
-    tools: ["React Native", "Expo", "Dart", "Flutter", "Firebase"]
-  },
-  {
-    title: "Backend & APIs",
-    summary:
-      "Designing APIs and backend services for authentication, business logic, and scalable application workflows.",
-    tools: ["Node.js", "Express.js", "REST APIs", "JWT", "Prisma", "GraphQL"]
-  },
-  {
-    title: "Databases & Storage",
-    summary:
-      "Working with SQL and NoSQL databases to store data efficiently and support real-world app requirements.",
-    tools: ["MySQL", "MongoDB", "PostgreSQL", "Firebase Firestore", "Redis"]
-  },
-  {
-    title: "Tools & Workflow",
-    summary:
-      "Shipping projects with version control, debugging tools, and deployment platforms for reliable delivery.",
-    tools: ["Git", "GitHub", "Postman", "Vercel", "Docker", "Figma"]
-  }
+  { name: "Dart", category: "Mobile", percentage: 78, icon: "/images/skills/dart.png" },
+  { name: "Flutter", category: "Mobile", percentage: 74, icon: "/images/skills/flutter.png" },
+  { name: "Node.js", category: "Backend", percentage: 84, icon: "/images/skills/nodejs.png" },
+  { name: "Express.js", category: "Backend", percentage: 79, icon: "/images/skills/express.png" },
+  { name: "MySQL", category: "Database", percentage: 86, icon: "/images/skills/mysql.png" },
+  { name: "MongoDB", category: "Database", percentage: 83, icon: "/images/skills/mongodb.png" },
+  { name: "Tailwind CSS", category: "Frontend", percentage: 87, icon: "/images/skills/tailwind.png" },
+  { name: "HTML5", category: "Frontend", percentage: 95, icon: "/images/skills/html.png" },
+  { name: "Git", category: "Tools", percentage: 88, icon: "/images/skills/git.png" }
 ];
