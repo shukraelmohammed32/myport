@@ -1,0 +1,71 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F172A" />
+      <stop offset="0.55" stop-color="#111C34" />
+      <stop offset="1" stop-color="#051320" />
+    </linearGradient>
+    <linearGradient id="screen" x1="120" y1="200" x2="780" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1E293B" />
+      <stop offset="0.7" stop-color="#0F172A" />
+      <stop offset="1" stop-color="#0B1222" />
+    </linearGradient>
+    <linearGradient id="desk" x1="150" y1="640" x2="750" y2="730" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A3F55" />
+      <stop offset="1" stop-color="#0F766E" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F97316" />
+      <stop offset="1" stop-color="#FCD34D" />
+    </linearGradient>
+    <filter id="glow" x="-50" y="-50" width="1000" height="1200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="80" result="blur" />
+    </filter>
+  </defs>
+
+  <rect width="900" height="1100" rx="72" fill="url(#bg)" />
+
+  <ellipse cx="700" cy="160" rx="210" ry="120" fill="#0F766E" opacity="0.18" filter="url(#glow)" />
+  <ellipse cx="220" cy="250" rx="180" ry="130" fill="#F97316" opacity="0.14" filter="url(#glow)" />
+
+  <rect x="90" y="180" width="720" height="400" rx="48" fill="url(#screen)" stroke="#1E293B" stroke-width="2" />
+  <rect x="150" y="240" width="600" height="280" rx="32" fill="#0B1526" opacity="0.75" />
+
+  <rect x="190" y="280" width="140" height="16" rx="8" fill="#14B8A6" opacity="0.9" />
+  <rect x="190" y="310" width="220" height="10" rx="5" fill="#CBD5F5" opacity="0.8" />
+  <rect x="190" y="335" width="260" height="10" rx="5" fill="#CBD5F5" opacity="0.65" />
+  <rect x="190" y="360" width="200" height="10" rx="5" fill="#CBD5F5" opacity="0.5" />
+
+  <rect x="470" y="290" width="210" height="150" rx="26" fill="#111F36" stroke="#233552" stroke-width="2" />
+  <path d="M500 375C520 350 540 365 560 330C580 295 600 305 620 325C640 345 660 355 680 315" stroke="#2DD4BF" stroke-width="6" stroke-linecap="round" fill="none" />
+  <circle cx="540" cy="420" r="18" fill="#F97316" opacity="0.9" />
+
+  <rect x="120" y="630" width="660" height="120" rx="38" fill="url(#desk)" />
+  <rect x="160" y="650" width="580" height="40" rx="20" fill="#04232F" opacity="0.75" />
+
+  <rect x="260" y="690" width="120" height="36" rx="18" fill="#0F172A" opacity="0.65" />
+  <rect x="420" y="690" width="120" height="36" rx="18" fill="#0F172A" opacity="0.65" />
+
+  <rect x="280" y="760" width="340" height="220" rx="48" fill="#101B2F" stroke="#1E2C43" stroke-width="2" />
+  <rect x="310" y="790" width="280" height="30" rx="15" fill="#16243A" />
+  <rect x="310" y="830" width="140" height="12" rx="6" fill="#22D3EE" opacity="0.85" />
+  <rect x="310" y="852" width="200" height="10" rx="5" fill="#CBD5F5" opacity="0.75" />
+  <rect x="310" y="872" width="180" height="10" rx="5" fill="#CBD5F5" opacity="0.6" />
+
+  <rect x="330" y="910" width="240" height="60" rx="30" fill="#0B1222" />
+  <rect x="350" y="930" width="90" height="16" rx="8" fill="#2DD4BF" />
+  <rect x="450" y="930" width="90" height="16" rx="8" fill="#F97316" opacity="0.8" />
+
+  <circle cx="680" cy="760" r="70" fill="#0F766E" opacity="0.25" />
+  <circle cx="220" cy="780" r="50" fill="#F97316" opacity="0.2" />
+
+  <rect x="640" y="420" width="160" height="70" rx="18" fill="#F97316" opacity="0.85" />
+  <rect x="660" y="440" width="80" height="30" rx="15" fill="#051726" />
+  <rect x="120" y="420" width="160" height="70" rx="18" fill="#0F766E" opacity="0.75" />
+  <rect x="140" y="440" width="80" height="30" rx="15" fill="#051726" />
+
+  <circle cx="150" cy="150" r="12" fill="#2DD4BF" />
+  <circle cx="210" cy="120" r="6" fill="#F97316" />
+  <circle cx="760" cy="180" r="10" fill="#F97316" />
+  <circle cx="820" cy="220" r="5" fill="#2DD4BF" />
+</svg>

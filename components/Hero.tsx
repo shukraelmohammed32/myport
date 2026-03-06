@@ -8,14 +8,24 @@ import { FadeIn } from "@/components/FadeIn";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-14 sm:pt-20" id="home">
-      <Container className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+    <section className="relative isolate overflow-hidden pb-12 pt-16 sm:pt-24" id="home">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-teal-50/70 via-white to-transparent dark:from-slate-900/70 dark:via-slate-950"
+      />
+      <Container className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <FadeIn className="space-y-8">
-          <p className="chip">{siteConfig.availability}</p>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+            <p className="chip">{siteConfig.availability}</p>
+            <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400">
+              <MapPin className="h-4 w-4" />
+              {siteConfig.location}
+            </span>
+          </div>
 
           <div className="space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
-              Elite Software Engineer
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
+              Designing resilient product systems
             </p>
             <h1 className="font-display text-4xl leading-tight text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-6xl">
               {siteConfig.name}
@@ -37,54 +47,65 @@ export function HeroSection() {
             </ButtonLink>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {keyTech.map((tech) => (
-              <span className="chip" key={tech}>
-                {tech}
-              </span>
-            ))}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
+              Core Stack
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {keyTech.map((tech) => (
+                <span className="chip" key={tech}>
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </FadeIn>
 
         <FadeIn className="profile-float relative" delay={0.08}>
-          <div className="panel relative overflow-hidden p-6 sm:p-7">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(15,118,110,0.2),transparent_48%),radial-gradient(circle_at_bottom_left,rgba(249,115,22,0.15),transparent_55%)]" />
-            <div className="relative space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="relative h-20 w-20 overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800">
-                  <Image
-                    alt={`${siteConfig.name} profile illustration`}
-                    className="object-cover"
-                    fill
-                    priority
-                    src="/images/profile.svg"
-                  />
+          <div className="relative">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_top,rgba(15,118,110,0.35),transparent_55%),radial-gradient(circle_at_bottom,rgba(249,115,22,0.25),transparent_52%)] blur-3xl dark:opacity-80"
+            />
+            <div className="relative isolate mx-auto max-w-sm overflow-hidden rounded-[2.7rem] border border-slate-200/60 bg-slate-950/80 shadow-2xl sm:max-w-md dark:border-slate-800">
+              <Image
+                alt="Shukreal collaborating with a product team"
+                className="object-cover object-top"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 480px"
+                src="/images/hero-visual.svg"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/10 to-slate-950/60"
+              />
+
+              <div className="panel absolute left-6 top-6 flex items-center gap-3 border-slate-200/70 bg-white/85 px-4 py-3 text-sm text-slate-900 shadow-lg dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-100">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-500/15 text-teal-600 dark:bg-teal-400/15 dark:text-teal-300">
+                  <MapPin className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="font-display text-xl font-semibold text-slate-900 dark:text-slate-100">
-                    {siteConfig.name}
-                  </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">{siteConfig.role}</p>
-                  <p className="mt-1 inline-flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
-                    <MapPin className="h-3.5 w-3.5" />
-                    {siteConfig.location}
-                  </p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Based in</p>
+                  <p className="font-semibold">{siteConfig.location}</p>
                 </div>
               </div>
 
-              <dl className="grid grid-cols-3 gap-3">
-                {impactStats.map((stat) => (
-                  <div
-                    className="rounded-2xl border border-slate-200 bg-white/90 px-3 py-3 text-center dark:border-slate-700 dark:bg-slate-800/90"
-                    key={stat.label}
-                  >
-                    <dt className="text-xs text-slate-500 dark:text-slate-400">{stat.label}</dt>
-                    <dd className="mt-1 font-display text-lg font-semibold text-slate-900 dark:text-slate-100">
-                      {stat.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+              <div className="panel absolute left-6 right-6 bottom-6 bg-white/90 p-5 text-slate-900 shadow-xl dark:bg-slate-900/90 dark:text-slate-100">
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
+                  Impact
+                </p>
+                <dl className="mt-4 grid grid-cols-3 gap-3">
+                  {impactStats.map((stat) => (
+                    <div key={stat.label}>
+                      <dt className="text-xs text-slate-500 dark:text-slate-400">{stat.label}</dt>
+                      <dd className="font-display text-lg font-semibold text-slate-900 dark:text-slate-100">
+                        {stat.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </div>
           </div>
         </FadeIn>
