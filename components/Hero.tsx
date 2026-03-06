@@ -67,18 +67,19 @@ export function HeroSection() {
               aria-hidden
               className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_top,rgba(15,118,110,0.35),transparent_55%),radial-gradient(circle_at_bottom,rgba(249,115,22,0.25),transparent_52%)] blur-3xl dark:opacity-80"
             />
-            <div className="relative isolate mx-auto max-w-sm overflow-hidden rounded-[2.7rem] border border-slate-200/60 bg-slate-950/80 shadow-2xl sm:max-w-md dark:border-slate-800">
+            <div className="relative isolate mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2.7rem] border border-slate-200/70 bg-white/20 shadow-2xl sm:max-w-md dark:border-slate-800">
               <Image
-                alt="Shukreal collaborating with a product team"
-                className="object-cover object-top"
+                alt={siteConfig.profileImageAlt}
+                className="object-cover object-center"
                 fill
                 priority
+                quality={95}
                 sizes="(max-width: 1024px) 100vw, 480px"
-                src="/images/hero-visual.svg"
+                src={siteConfig.profileImage}
               />
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/10 to-slate-950/60"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/35"
               />
 
               <div className="panel absolute left-6 top-6 flex items-center gap-3 border-slate-200/70 bg-white/85 px-4 py-3 text-sm text-slate-900 shadow-lg dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-100">
