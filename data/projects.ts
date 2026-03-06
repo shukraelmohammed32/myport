@@ -54,5 +54,14 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "Node.js", "MongoDB", "Cloudinary"],
     github: "https://github.com/",
     demo: "https://example.com"
+  },
+  {
+    title: "OpsDesk CRM Platform",
+    summary:
+      "A full-stack CRM platform for managing leads, sales pipelines, follow-ups, and team activity dashboards in one workspace.",
+    image: "/images/project-opsdesk.svg",
+    stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
+    github: "https://github.com/",
+    demo: "https://example.com"
   }
 ];
