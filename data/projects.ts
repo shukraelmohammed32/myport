@@ -63,5 +63,23 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
     github: "https://github.com/",
     demo: "https://example.com"
+  },
+  {
+    title: "E-commerce Website",
+    summary:
+      "A modern online store with product catalog, cart management, and secure checkout flow for a smooth customer experience.",
+    image: "/images/project-ecommerce.svg",
+    stack: ["Next.js", "Node.js", "MySQL"],
+    github: "https://github.com/",
+    demo: "https://example.com"
+  },
+  {
+    title: "Book Library Store",
+    summary:
+      "An online bookstore platform with searchable catalog, category filters, cart management, and order tracking.",
+    image: "/images/project-book-library-store.svg",
+    stack: ["React", "Node.js", "MongoDB"],
+    github: "https://github.com/",
+    demo: "https://example.com"
   }
 ];
