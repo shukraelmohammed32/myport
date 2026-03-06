@@ -2,34 +2,42 @@ import type { SkillCategory } from "@/types/portfolio";
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend Engineering",
+    title: "Frontend Development",
     summary:
-      "Building highly interactive and accessible interfaces with strong performance fundamentals.",
+      "Building responsive, user-friendly interfaces with clean layouts and reusable UI components.",
     tools: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
       "TypeScript",
       "React",
-      "Next.js App Router",
-      "Redux Toolkit",
-      "Tailwind CSS",
-      "Framer Motion"
+      "Next.js",
+      "Bootstrap",
+      "Tailwind CSS"
     ]
+  },
+  {
+    title: "Mobile Development",
+    summary:
+      "Creating smooth cross-platform mobile apps with shared logic, strong performance, and modern tooling.",
+    tools: ["React Native", "Expo", "Dart", "Flutter", "Firebase"]
   },
   {
     title: "Backend & APIs",
     summary:
-      "Designing scalable services and APIs with predictable contracts and observability.",
-    tools: ["Node.js", "Express", "NestJS", "PostgreSQL", "Prisma", "GraphQL"]
+      "Designing APIs and backend services for authentication, business logic, and scalable application workflows.",
+    tools: ["Node.js", "Express.js", "REST APIs", "JWT", "Prisma", "GraphQL"]
   },
   {
-    title: "Dev Experience",
+    title: "Databases & Storage",
     summary:
-      "Improving delivery speed and reliability through automation, tooling, and strong CI practices.",
-    tools: ["Jest", "Playwright", "GitHub Actions", "Docker", "ESLint", "Turborepo"]
+      "Working with SQL and NoSQL databases to store data efficiently and support real-world app requirements.",
+    tools: ["MySQL", "MongoDB", "PostgreSQL", "Firebase Firestore", "Redis"]
   },
   {
-    title: "Cloud & Architecture",
+    title: "Tools & Workflow",
     summary:
-      "Deploying resilient systems with clear operational visibility and performance monitoring.",
-    tools: ["AWS", "Vercel", "Terraform", "Redis", "Sentry", "Datadog"]
+      "Shipping projects with version control, debugging tools, and deployment platforms for reliable delivery.",
+    tools: ["Git", "GitHub", "Postman", "Vercel", "Docker", "Figma"]
   }
 ];

@@ -2,12 +2,12 @@ import type { NavItem, SocialItem } from "@/types/portfolio";
 
 export const siteConfig = {
   name: "Shukreal",
-  role: "Senior Software Engineer",
+  role: "Full-Stack & Mobile Developer",
   intro:
-    "I build performant digital products with elegant interfaces, clean architecture, and measurable business impact.",
-  email: "aarav.mehta.dev@gmail.com",
+    "I build responsive web and mobile apps with clean UI, reliable backend logic, and practical user-focused features.",
+  email: "shukrael.dev@gmail.com",
   location: "Seattle, WA",
-  availability: "Available for senior frontend and full-stack opportunities.",
+  availability: "Available for frontend, mobile, and full-stack opportunities.",
   resumePath: "/resume.txt"
 };
 
@@ -19,19 +19,23 @@ export const navigation: NavItem[] = [
 ];
 
 export const socialLinks: SocialItem[] = [
-  { label: "GitHub", href: "https://github.com/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
+  { label: "GitHub", href: "https://github.com/shukrael" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shukrael" },
   { label: "Email", href: `mailto:${siteConfig.email}` }
 ];
 
 export const keyTech = [
+  "JavaScript",
+  "CSS3",
+  "Bootstrap",
+  "MySQL",
+  "MongoDB",
   "TypeScript",
   "React",
+  "React Native",
+  "Dart",
   "Next.js",
-  "Node.js",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "AWS"
+  "Node.js"
 ];
 
 export const impactStats = [

@@ -2,38 +2,57 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
-    title: "Atlas Commerce Platform",
+    title: "Campus Connect Portal",
     summary:
-      "Multi-tenant B2B commerce platform with role-based workflows, analytics, and enterprise-grade performance.",
-    image: "/images/project-atlas.svg",
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "Tailwind CSS"],
+      "A role-based web portal for students and teachers with course updates, assignment tracking, and secure authentication.",
+    image: "/images/project-campus-connect.svg",
+    stack: ["React", "TypeScript", "Bootstrap", "Node.js", "MySQL"],
     github: "https://github.com/",
     demo: "https://example.com"
   },
   {
-    title: "Pulse Observability Dashboard",
+    title: "Foodie Finder App",
     summary:
-      "Real-time monitoring suite that consolidates logs, traces, and product metrics into a single operational workspace.",
-    image: "/images/project-pulse.svg",
-    stack: ["React", "D3", "Node.js", "Redis", "WebSockets"],
+      "A cross-platform mobile app for discovering local restaurants with location search, ratings, and favorites.",
+    image: "/images/project-foodie-finder.svg",
+    stack: ["React Native", "TypeScript", "Expo", "MongoDB", "Node.js"],
     github: "https://github.com/",
     demo: "https://example.com"
   },
   {
-    title: "Flow Board Collaboration Suite",
+    title: "Freelance Invoice Manager",
     summary:
-      "Collaborative planning application with drag-and-drop workflows, comments, and robust permission controls.",
-    image: "/images/project-flow.svg",
-    stack: ["Next.js", "Prisma", "tRPC", "Framer Motion", "Zod"],
+      "A full-stack dashboard that helps freelancers generate invoices, track payments, and export monthly reports.",
+    image: "/images/project-invoice-manager.svg",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Prisma"],
     github: "https://github.com/",
     demo: "https://example.com"
   },
   {
-    title: "Insight Design System",
+    title: "DevForum Community",
     summary:
-      "Reusable component library and documentation platform that standardized UI delivery across multiple products.",
-    image: "/images/project-insight.svg",
-    stack: ["Storybook", "TypeScript", "Tailwind CSS", "Vitest", "Changesets"],
-    github: "https://github.com/"
+      "A discussion platform with topic channels, threaded comments, and moderation tools for developer communities.",
+    image: "/images/project-devforum.svg",
+    stack: ["JavaScript", "React", "Bootstrap", "MongoDB", "Express.js"],
+    github: "https://github.com/",
+    demo: "https://example.com"
+  },
+  {
+    title: "LinguaGo Mobile",
+    summary:
+      "A language learning mobile app with daily lessons, progress tracking, and quiz-based revision.",
+    image: "/images/project-linguago.svg",
+    stack: ["Dart", "Flutter", "Firebase", "REST API", "Provider"],
+    github: "https://github.com/",
+    demo: "https://example.com"
+  },
+  {
+    title: "Portfolio Builder CMS",
+    summary:
+      "A content management tool to create portfolio pages with editable sections, media uploads, and instant preview.",
+    image: "/images/project-portfolio-cms.svg",
+    stack: ["React", "TypeScript", "Node.js", "MongoDB", "Cloudinary"],
+    github: "https://github.com/",
+    demo: "https://example.com"
   }
 ];

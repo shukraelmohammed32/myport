@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <linearGradient id="forum-bg" x1="40" y1="10" x2="1160" y2="710" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827" />
+      <stop offset="1" stop-color="#7C2D12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#forum-bg)" />
+  <rect x="96" y="82" width="1008" height="556" rx="32" fill="#F8FAFC" fill-opacity="0.96" />
+  <rect x="140" y="130" width="300" height="36" rx="10" fill="#0F172A" fill-opacity="0.1" />
+  <rect x="140" y="198" width="290" height="364" rx="20" fill="#1E293B" fill-opacity="0.08" />
+  <rect x="452" y="198" width="612" height="106" rx="20" fill="#F97316" fill-opacity="0.18" />
+  <rect x="452" y="322" width="612" height="106" rx="20" fill="#1D4ED8" fill-opacity="0.14" />
+  <rect x="452" y="446" width="612" height="116" rx="20" fill="#0F172A" fill-opacity="0.08" />
+  <circle cx="520" cy="252" r="26" fill="#FB923C" fill-opacity="0.7" />
+  <circle cx="520" cy="376" r="26" fill="#3B82F6" fill-opacity="0.7" />
+  <circle cx="520" cy="504" r="26" fill="#0F172A" fill-opacity="0.35" />
+  <text
+    x="140"
+    y="602"
+    fill="#0F172A"
+    font-family="Arial, sans-serif"
+    font-size="38"
+    font-weight="700"
+  >
+    DevForum Community
+  </text>
+</svg>
