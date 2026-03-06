@@ -6,7 +6,8 @@ export const siteConfig = {
   intro:
     "I build responsive web and mobile apps with clean UI, reliable backend logic, and practical user-focused features.",
   email: "shukrael.dev@gmail.com",
-  location: "Seattle, WA",
+  location: "San Francisco Bay Area, California",
+  featuredPlace: "Silicon Valley Innovation District",
   availability: "Available for frontend, mobile, and full-stack opportunities.",
   resumePath: "/resume.txt"
 };

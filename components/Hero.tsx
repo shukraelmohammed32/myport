@@ -19,7 +19,7 @@ export function HeroSection() {
             <p className="chip">{siteConfig.availability}</p>
             <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400">
               <MapPin className="h-4 w-4" />
-              {siteConfig.location}
+              {siteConfig.featuredPlace}
             </span>
           </div>
 
@@ -86,8 +86,11 @@ export function HeroSection() {
                   <MapPin className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Based in</p>
-                  <p className="font-semibold">{siteConfig.location}</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
+                    Profile Place
+                  </p>
+                  <p className="font-semibold">{siteConfig.featuredPlace}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{siteConfig.location}</p>
                 </div>
               </div>
 
