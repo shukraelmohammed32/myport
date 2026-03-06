@@ -31,7 +31,6 @@ export const keyTech = [
   "HTML5",
   "JavaScript",
   "CSS3",
-  "Bootstrap",
   "TypeScript",
   "React",
   "Next.js",
@@ -40,11 +39,8 @@ export const keyTech = [
   "Express.js",
   "REST API",
   "MySQL",
-  "PostgreSQL",
   "MongoDB",
-  "Prisma",
-  "Docker",
-  "AWS"
+  "Git"
 ];
 
 export const impactStats = [
