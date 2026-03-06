@@ -2,13 +2,13 @@ import type { NavItem, SocialItem } from "@/types/portfolio";
 
 export const siteConfig = {
   name: "Shukreal",
-  role: "Full-Stack & Mobile Developer",
+  role: "Full-Stack Developer",
   intro:
-    "I build responsive web and mobile apps with clean UI, reliable backend logic, and practical user-focused features.",
+    "I build modern full-stack web applications with clean frontend architecture, robust backend APIs, and reliable database design.",
   email: "shukrael.dev@gmail.com",
   location: "San Francisco Bay Area, California",
   featuredPlace: "Silicon Valley Innovation District",
-  availability: "Available for frontend, mobile, and full-stack opportunities.",
+  availability: "Available for full-stack web development opportunities.",
   resumePath: "/resume.txt"
 };
 
@@ -26,17 +26,23 @@ export const socialLinks: SocialItem[] = [
 ];
 
 export const keyTech = [
+  "HTML5",
   "JavaScript",
   "CSS3",
   "Bootstrap",
-  "MySQL",
-  "MongoDB",
   "TypeScript",
   "React",
-  "React Native",
-  "Dart",
   "Next.js",
-  "Node.js"
+  "Tailwind CSS",
+  "Node.js",
+  "Express.js",
+  "REST API",
+  "MySQL",
+  "PostgreSQL",
+  "MongoDB",
+  "Prisma",
+  "Docker",
+  "AWS"
 ];
 
 export const impactStats = [
