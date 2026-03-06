@@ -11,7 +11,7 @@ export const siteConfig = {
   location: "San Francisco Bay Area, California",
   featuredPlace: "Silicon Valley Innovation District",
   availability: "Available for full-stack web development opportunities.",
-  resumePath: "/resume.txt"
+  resumePath: "/Shukrael_Resume.pdf"
 };
 
 export const navigation: NavItem[] = [
