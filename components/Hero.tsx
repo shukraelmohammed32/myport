@@ -15,23 +15,23 @@ export function HeroSection() {
       />
       <Container className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <FadeIn className="space-y-8">
-          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300 dark:text-slate-300">
             <p className="chip">{siteConfig.availability}</p>
-            <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400">
+            <span className="inline-flex items-center gap-1 text-slate-400 dark:text-slate-400">
               <MapPin className="h-4 w-4" />
               {siteConfig.featuredPlace}
             </span>
           </div>
 
           <div className="space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400 dark:text-slate-400">
               Designing resilient product systems
             </p>
-            <h1 className="font-display text-4xl leading-tight text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl leading-tight text-slate-100 dark:text-slate-100 sm:text-5xl lg:text-6xl">
               {siteConfig.name}
               <span className="text-gradient mt-2 block">{siteConfig.role}</span>
             </h1>
-            <p className="max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
+            <p className="max-w-2xl text-base leading-relaxed text-slate-300 dark:text-slate-300 sm:text-lg">
               {siteConfig.intro}
             </p>
           </div>

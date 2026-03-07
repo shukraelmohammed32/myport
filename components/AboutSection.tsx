@@ -32,10 +32,10 @@ export function AboutSection({
 
         <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           <FadeIn className="panel p-6 sm:p-7">
-            <h3 className="font-display text-xl font-semibold text-slate-900 dark:text-slate-100">
+            <h3 className="font-display text-xl font-semibold text-slate-100 dark:text-slate-100">
               Professional background
             </h3>
-            <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
+            <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-300 dark:text-slate-300 sm:text-base">
               {paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -43,13 +43,13 @@ export function AboutSection({
           </FadeIn>
 
           <FadeIn className="panel-muted p-6 sm:p-7" delay={0.08}>
-            <h3 className="font-display text-xl font-semibold text-slate-900 dark:text-slate-100">
+            <h3 className="font-display text-xl font-semibold text-slate-100 dark:text-slate-100">
               Working principles
             </h3>
-            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300 sm:text-base">
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-300 dark:text-slate-300 sm:text-base">
               {values.map((principle) => (
                 <li className="flex gap-3" key={principle}>
-                  <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-teal-600 dark:bg-teal-400" />
+                  <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400" />
                   <span>{principle}</span>
                 </li>
               ))}
