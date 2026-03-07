@@ -38,6 +38,18 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes bg-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -47,6 +59,8 @@ body {
     radial-gradient(circle at 8% 8%, var(--glow-a), transparent 34%),
     radial-gradient(circle at 92% 12%, var(--glow-b), transparent 32%),
     linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  background-size: 150% 150%;
+  animation: bg-shift 40s ease-in-out infinite alternate;
 }
 
 ::selection {
@@ -77,7 +91,7 @@ body {
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-teal-700 via-sky-600 to-orange-500 bg-clip-text text-transparent dark:from-teal-300 dark:via-sky-300 dark:to-orange-300;
+    @apply bg-gradient-to-r from-teal-700 via-sky-600 to-orange-500 bg-clip-text text-transparent dark:from-teal-300 dark:via-sky-300 dark:to-orange-300 animate-gradient bg-[length:200%_auto];
   }
 
   .input-field {
@@ -93,6 +107,42 @@ body {
   50% {
     transform: translateY(-8px);
   }
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient-flow 6s ease infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--muted);
+  border-radius: 9999px;
+  border: 3px solid var(--bg);
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
 }
 
 .profile-float {

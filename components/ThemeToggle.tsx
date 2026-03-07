@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -38,15 +39,27 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     <button
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       className={cn(
-        "inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-slate-100",
+        "inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-slate-100",
         className
       )}
       onClick={toggleTheme}
       type="button"
     >
-      {!mounted ? <span className="h-4 w-4" /> : null}
-      {mounted && theme === "dark" ? <Sun className="h-4 w-4" /> : null}
-      {mounted && theme === "light" ? <Moon className="h-4 w-4" /> : null}
+      {!mounted ? (
+        <span className="h-4 w-4" />
+      ) : (
+        <AnimatePresence initial={false} mode="wait">
+          <motion.div
+            animate={{ scale: 1, opacity: 1, rotate: 0 }}
+            exit={{ scale: 0.5, opacity: 0, rotate: 90 }}
+            initial={{ scale: 0.5, opacity: 0, rotate: -90 }}
+            key={theme}
+            transition={{ duration: 0.2 }}
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </motion.div>
+        </AnimatePresence>
+      )}
     </button>
   );
 }

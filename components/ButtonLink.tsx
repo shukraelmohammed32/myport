@@ -13,10 +13,10 @@ type ButtonLinkProps = {
 
 const variantClasses: Record<NonNullable<ButtonLinkProps["variant"]>, string> = {
   primary:
-    "bg-slate-900 text-white shadow-[0_10px_26px_-18px_rgba(15,23,42,0.9)] hover:bg-slate-800 dark:bg-teal-400 dark:text-slate-900 dark:hover:bg-teal-300",
+    "bg-slate-900 text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800 hover:shadow-xl hover:shadow-slate-900/30 dark:bg-teal-500 dark:text-slate-950 dark:shadow-teal-500/20 dark:hover:bg-teal-400 dark:hover:shadow-teal-400/30",
   secondary:
-    "border border-slate-300 bg-white text-slate-900 hover:border-slate-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-slate-600",
-  ghost: "text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+    "border border-slate-300 bg-white text-slate-900 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-800",
+  ghost: "text-slate-700 hover:text-slate-900 hover:bg-slate-100/50 dark:text-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-800/50"
 };
 
 export function ButtonLink({
@@ -29,7 +29,7 @@ export function ButtonLink({
   return (
     <Link
       className={cn(
-        "inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition duration-200",
+        "inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.98]",
         variantClasses[variant],
         className
       )}

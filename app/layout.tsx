@@ -4,6 +4,7 @@ import Script from "next/script";
 import type { ReactNode } from "react";
 
 import "@/styles/globals.css";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {themeInitializerScript}
         </Script>
         <div className="relative">
+          <ScrollProgress />
           <div
             className="pointer-events-none fixed inset-0 -z-10 [background-size:24px_24px] opacity-[0.2]"
             style={{
