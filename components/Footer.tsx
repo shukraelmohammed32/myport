@@ -7,7 +7,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-16 border-t border-slate-200/80 bg-gradient-to-b from-white/75 to-slate-100/60 py-10 dark:border-slate-800 dark:from-slate-950/70 dark:to-slate-950/30">
+    <footer className="relative mt-16 border-t border-slate-200/80 bg-gradient-to-b from-sky-50/85 to-sky-100/70 py-10 dark:border-slate-800 dark:from-slate-950/72 dark:to-slate-950/38">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-500/45 to-orange-400/45 dark:via-teal-400/50 dark:to-orange-300/50" />
 
       <Container className="relative space-y-8">
@@ -49,7 +49,7 @@ export function SiteFooter() {
                 return (
                   <li key={link.label}>
                     <Link
-                      className="inline-flex items-center rounded-full border border-slate-200/90 px-3 py-1.5 text-sm font-medium text-slate-600 transition hover:border-teal-500/45 hover:bg-teal-500/10 hover:text-teal-700 dark:border-slate-700/80 dark:text-slate-300 dark:hover:border-teal-300/40 dark:hover:bg-teal-300/10 dark:hover:text-teal-200"
+                      className="inline-flex items-center rounded-full border border-slate-200/90 bg-sky-50/80 px-3 py-1.5 text-sm font-medium text-slate-600 transition hover:border-teal-500/45 hover:bg-teal-500/10 hover:text-teal-700 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-300 dark:hover:border-teal-300/40 dark:hover:bg-teal-300/10 dark:hover:text-teal-200"
                       href={link.href}
                       rel={isExternal ? "noreferrer" : undefined}
                       target={isExternal ? "_blank" : undefined}

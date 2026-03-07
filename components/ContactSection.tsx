@@ -108,7 +108,7 @@ export function ContactSection({
                   />
                 </div>
                 <button
-                  className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-teal-400 dark:text-slate-900 dark:hover:bg-teal-300"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:from-teal-500 hover:to-cyan-500 dark:from-teal-500 dark:to-sky-400 dark:text-slate-900 dark:hover:from-teal-400 dark:hover:to-sky-300"
                   type="submit"
                 >
                   <SendHorizontal className="h-4 w-4" />
@@ -133,7 +133,7 @@ export function ContactSection({
 
                   return (
                     <Link
-                      className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-slate-100"
+                      className="flex items-center justify-between rounded-2xl border border-slate-200 bg-sky-50 px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-sky-100/80 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-100"
                       href={link.href}
                       key={link.label}
                       rel="noreferrer"
@@ -146,7 +146,7 @@ export function ContactSection({
                 })}
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+              <div className="rounded-2xl border border-slate-200 bg-sky-50 p-4 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
                 <p>
                   Email:{" "}
                   <Link

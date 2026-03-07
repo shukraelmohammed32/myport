@@ -11,7 +11,7 @@ export function HeroSection() {
     <section className="relative isolate overflow-hidden pb-12 pt-16 sm:pt-24" id="home">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-teal-50/70 via-white to-transparent dark:from-slate-900/70 dark:via-slate-950"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-sky-100/70 via-sky-50 to-transparent dark:from-slate-900/70 dark:via-slate-950"
       />
       <Container className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <FadeIn className="space-y-8">
@@ -70,7 +70,7 @@ export function HeroSection() {
               aria-hidden
               className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_top,rgba(15,118,110,0.35),transparent_55%),radial-gradient(circle_at_bottom,rgba(249,115,22,0.25),transparent_52%)] blur-3xl dark:opacity-80"
             />
-            <div className="tilt-surface relative isolate mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2.7rem] border border-slate-200/70 bg-white/20 shadow-2xl sm:max-w-md dark:border-slate-800">
+            <div className="tilt-surface relative isolate mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2.7rem] border border-slate-200/70 bg-sky-100/25 shadow-2xl sm:max-w-md dark:border-slate-800">
               <Image
                 alt={siteConfig.profileImageAlt}
                 className="object-cover object-center"
@@ -85,7 +85,7 @@ export function HeroSection() {
                 className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/35"
               />
 
-              <div className="panel absolute left-6 top-6 flex items-center gap-3 border-slate-200/70 bg-white/85 px-4 py-3 text-sm text-slate-900 shadow-lg dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-100">
+              <div className="panel absolute left-6 top-6 flex items-center gap-3 border-slate-200/70 bg-sky-50/85 px-4 py-3 text-sm text-slate-900 shadow-lg dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-100">
                 <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-500/15 text-teal-600 dark:bg-teal-400/15 dark:text-teal-300">
                   <MapPin className="h-4 w-4" />
                 </div>
@@ -98,7 +98,7 @@ export function HeroSection() {
                 </div>
               </div>
 
-              <div className="panel absolute left-6 right-6 bottom-6 bg-white/90 p-5 text-slate-900 shadow-xl dark:bg-slate-900/90 dark:text-slate-100">
+              <div className="panel absolute left-6 right-6 bottom-6 bg-sky-50/90 p-5 text-slate-900 shadow-xl dark:bg-slate-900/90 dark:text-slate-100">
                 <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
                   Impact
                 </p>

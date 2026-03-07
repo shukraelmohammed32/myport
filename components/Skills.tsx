@@ -57,7 +57,7 @@ export function SkillsSection({
                 </div>
               </div>
 
-              <div className="skill-meter mt-4 h-2.5 rounded-full bg-slate-200/80 dark:bg-slate-700/60">
+              <div className="skill-meter mt-4 h-2.5 rounded-full bg-sky-200/85 dark:bg-slate-700/60">
                 <div
                   aria-hidden
                   className="skill-meter-fill h-full rounded-full bg-gradient-to-r from-teal-500 via-sky-500 to-orange-400"

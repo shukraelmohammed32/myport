@@ -13,10 +13,10 @@ type ButtonLinkProps = {
 
 const variantClasses: Record<NonNullable<ButtonLinkProps["variant"]>, string> = {
   primary:
-    "bg-slate-900 text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800 hover:shadow-xl hover:shadow-slate-900/30 dark:bg-teal-500 dark:text-slate-950 dark:shadow-teal-500/20 dark:hover:bg-teal-400 dark:hover:shadow-teal-400/30",
+    "bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-lg shadow-teal-800/20 hover:from-teal-500 hover:to-cyan-500 hover:shadow-xl hover:shadow-teal-800/30 dark:from-teal-500 dark:to-sky-400 dark:text-slate-950 dark:shadow-teal-500/25 dark:hover:from-teal-400 dark:hover:to-sky-300 dark:hover:shadow-teal-400/30",
   secondary:
-    "border border-slate-300 bg-white text-slate-900 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-800",
-  ghost: "text-slate-700 hover:text-slate-900 hover:bg-slate-100/50 dark:text-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-800/50"
+    "border border-slate-300 bg-sky-50 text-slate-900 hover:border-slate-400 hover:bg-sky-100/80 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-800",
+  ghost: "text-slate-700 hover:text-slate-900 hover:bg-sky-100/70 dark:text-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-800/60"
 };
 
 export function ButtonLink({
