@@ -20,7 +20,10 @@ module.exports = {
         accent: "var(--accent)"
       },
       boxShadow: {
-        soft: "0 12px 30px -18px rgba(15, 23, 42, 0.35)"
+        soft: "0 12px 30px -18px rgba(139, 92, 246, 0.25)",
+        glow: "0 0 40px rgba(139, 92, 246, 0.15), 0 0 80px rgba(236, 72, 153, 0.1)",
+        "glow-lg": "0 0 60px rgba(139, 92, 246, 0.2), 0 0 120px rgba(236, 72, 153, 0.15)",
+        "glow-xl": "0 0 80px rgba(139, 92, 246, 0.25), 0 0 160px rgba(236, 72, 153, 0.2)"
       },
       backgroundImage: {
         "dot-grid":

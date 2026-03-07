@@ -47,39 +47,42 @@ export function SkillsSection({
           {visibleCategories.map(([category, categorySkills], categoryIndex) => (
             <FadeIn key={category} delay={categoryIndex * 0.05}>
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700 pb-2">
+                <h2 className="text-2xl font-bold text-purple-100 dark:text-purple-100 border-b border-purple-500/30 dark:border-purple-400/30 pb-2">
                   {category}
                 </h2>
                 <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {categorySkills.map((skill, skillIndex) => (
                     <div 
-                      className="panel tilt-surface p-5 transition-all duration-300 hover:scale-105" 
+                      className="panel tilt-surface p-5 transition-all duration-300 hover:scale-105 hover:shadow-glow-lg" 
                       key={skill.name}
+                      style={{
+                        animationDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.05)}s`
+                      }}
                     >
                       <div className="flex items-center gap-4">
                         <Image
                           alt={`${skill.name} icon`}
-                          className="rounded-xl border border-slate-200/70 dark:border-slate-700/80"
+                          className="rounded-xl border border-purple-500/30 transition-transform duration-300 hover:scale-110"
                           height={56}
                           src={skill.icon}
                           width={56}
                         />
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center justify-between gap-3">
-                            <h3 className="truncate font-display text-lg font-semibold text-slate-900 dark:text-slate-100">
+                            <h3 className="truncate font-display text-lg font-semibold text-purple-100 dark:text-purple-100">
                               {skill.name}
                             </h3>
-                            <span className="text-sm font-semibold text-teal-700 dark:text-teal-300">
+                            <span className="text-sm font-semibold text-purple-400 dark:text-purple-300">
                               {skill.percentage}%
                             </span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="skill-meter mt-4 h-2.5 rounded-full bg-sky-200/85 dark:bg-slate-700/60">
+                      <div className="skill-meter mt-4 h-2.5 rounded-full bg-purple-900/60 dark:bg-purple-800/60">
                         <div
                           aria-hidden
-                          className="skill-meter-fill h-full rounded-full bg-gradient-to-r from-teal-500 via-sky-500 to-orange-400"
+                          className="skill-meter-fill h-full rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 hover:from-purple-400 hover:via-pink-400 hover:to-blue-400 transition-all duration-300"
                           style={{ width: `${skill.percentage}%` }}
                         />
                       </div>
