@@ -85,28 +85,28 @@ export function HeroSection() {
                 className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/35"
               />
 
-              <div className="panel absolute left-6 top-6 flex items-center gap-3 border-slate-200/70 bg-sky-50/85 px-4 py-3 text-sm text-slate-900 shadow-lg dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-100">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-500/15 text-teal-600 dark:bg-teal-400/15 dark:text-teal-300">
+              <div className="panel absolute left-6 top-6 flex items-center gap-3 border-purple-500/30 bg-slate-800/85 px-4 py-3 text-sm text-slate-100 shadow-lg dark:border-purple-400/30 dark:bg-slate-900/90 dark:text-slate-100">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-purple-500/20 text-purple-300 dark:bg-purple-400/20 dark:text-purple-300">
                   <MapPin className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-400 dark:text-slate-400">
                     Profile Place
                   </p>
-                  <p className="font-semibold">{siteConfig.featuredPlace}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">{siteConfig.location}</p>
+                  <p className="font-semibold text-slate-100 dark:text-slate-100">{siteConfig.featuredPlace}</p>
+                  <p className="text-xs text-slate-400 dark:text-slate-400">{siteConfig.location}</p>
                 </div>
               </div>
 
-              <div className="panel absolute left-6 right-6 bottom-6 bg-sky-50/90 p-5 text-slate-900 shadow-xl dark:bg-slate-900/90 dark:text-slate-100">
-                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
+              <div className="panel absolute left-6 right-6 bottom-6 bg-slate-800/90 p-5 text-slate-100 shadow-xl dark:bg-slate-900/95 dark:text-slate-100">
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-400">
                   Impact
                 </p>
                 <dl className="mt-4 grid grid-cols-3 gap-3">
                   {impactStats.map((stat) => (
                     <div key={stat.label}>
-                      <dt className="text-xs text-slate-500 dark:text-slate-400">{stat.label}</dt>
-                      <dd className="font-display text-lg font-semibold text-slate-900 dark:text-slate-100">
+                      <dt className="text-xs text-slate-400 dark:text-slate-400">{stat.label}</dt>
+                      <dd className="font-display text-lg font-semibold text-slate-100 dark:text-slate-100">
                         {stat.value}
                       </dd>
                     </div>

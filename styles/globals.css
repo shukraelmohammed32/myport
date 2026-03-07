@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0a0e27;
-  --surface: #151932;
-  --ink: #e8e9f3;
-  --muted: #6b7280;
+  --bg: #1a1b3a;
+  --surface: #2d2e5f;
+  --ink: #f8fafc;
+  --muted: #94a3b8;
   --primary: #8b5cf6;
   --accent: #ec4899;
   --glow-a: rgba(139, 92, 246, 0.25);
   --glow-b: rgba(236, 72, 153, 0.22);
   --glow-c: rgba(59, 130, 246, 0.18);
-  --bg-start: #0f1729;
-  --bg-end: #0a0e27;
+  --bg-start: #2d2e5f;
+  --bg-end: #1a1b3a;
   --dot-color: rgba(139, 92, 246, 0.12);
 }
 
 .dark {
-  --bg: #030712;
-  --surface: #0f172a;
+  --bg: #0f172a;
+  --surface: #1e293b;
   --ink: #f1f5f9;
   --muted: #94a3b8;
   --primary: #a78bfa;
@@ -27,8 +27,8 @@
   --glow-a: rgba(167, 139, 250, 0.18);
   --glow-b: rgba(244, 114, 182, 0.16);
   --glow-c: rgba(96, 165, 250, 0.14);
-  --bg-start: #0f172a;
-  --bg-end: #030712;
+  --bg-start: #1e293b;
+  --bg-end: #0f172a;
   --dot-color: rgba(167, 139, 250, 0.08);
 }
 
@@ -116,19 +116,19 @@ body::before {
   }
 
   .panel {
-    @apply rounded-3xl border border-purple-500/30 bg-purple-950/40 shadow-glow backdrop-blur-xl dark:border-purple-400/20 dark:bg-purple-950/60 dark:shadow-glow-lg;
+    @apply rounded-3xl border border-purple-500/30 bg-slate-800/80 shadow-glow backdrop-blur-xl dark:border-purple-400/20 dark:bg-slate-900/85 dark:shadow-glow-lg;
     position: relative;
     z-index: 10;
   }
 
   .panel-muted {
-    @apply rounded-3xl border border-purple-500/20 bg-purple-950/30 dark:border-purple-400/15 dark:bg-purple-950/40;
+    @apply rounded-3xl border border-purple-500/20 bg-slate-700/70 dark:border-purple-400/15 dark:bg-slate-800/75;
     position: relative;
     z-index: 10;
   }
 
   .chip {
-    @apply inline-flex items-center rounded-full border border-purple-500/30 bg-purple-900/60 px-3 py-1 text-sm font-medium text-purple-100 dark:border-purple-400/30 dark:bg-purple-800/60 dark:text-purple-100;
+    @apply inline-flex items-center rounded-full border border-purple-500/30 bg-slate-700/80 px-3 py-1 text-sm font-medium text-slate-100 dark:border-purple-400/30 dark:bg-slate-800/80 dark:text-slate-100;
     backdrop-filter: blur(8px);
     position: relative;
     z-index: 10;
@@ -139,7 +139,7 @@ body::before {
   }
 
   .input-field {
-    @apply w-full rounded-2xl border border-purple-500/30 bg-purple-950/60 px-4 py-3 text-sm text-purple-100 outline-none transition focus:border-purple-400 focus:ring-4 focus:ring-purple-500/20 dark:border-purple-400/30 dark:bg-purple-950/80 dark:text-purple-50 dark:placeholder:text-purple-400 dark:focus:border-purple-300 dark:focus:ring-purple-400/30;
+    @apply w-full rounded-2xl border border-purple-500/30 bg-slate-800/80 px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-purple-400 focus:ring-4 focus:ring-purple-500/20 dark:border-purple-400/30 dark:bg-slate-900/85 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus:border-purple-300 dark:focus:ring-purple-400/30;
     backdrop-filter: blur(12px);
   }
 }
