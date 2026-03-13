@@ -16,27 +16,42 @@ export function SkillsSection({
   sectionId = "skills",
   showTitle = true
 }: SkillsSectionProps) {
-  // Group skills by category
-  const skillsByCategory = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) {
-      acc[skill.category] = [];
+  // Group all skills into exactly three parts.
+  const frontendCategories = ["Frontend Frameworks", "CSS Frameworks", "Markup Languages"];
+  const backendCategories = [
+    "Programming Languages",
+    "Backend Runtime",
+    "Backend Frameworks",
+    "Databases",
+    "Database Tools",
+    "API Development",
+    "Mobile Development"
+  ];
+
+  const groupedSkills = [
+    {
+      category: "Frontend",
+      items: skills
+        .filter((skill) => frontendCategories.includes(skill.category))
+        .sort((first, second) => first.name.localeCompare(second.name))
+    },
+    {
+      category: "Backend",
+      items: skills
+        .filter((skill) => backendCategories.includes(skill.category))
+        .sort((first, second) => first.name.localeCompare(second.name))
+    },
+    {
+      category: "Tools & DevOps",
+      items: skills
+        .filter(
+          (skill) => !frontendCategories.includes(skill.category) && !backendCategories.includes(skill.category)
+        )
+        .sort((first, second) => first.name.localeCompare(second.name))
     }
-    acc[skill.category].push(skill);
-    return acc;
-  }, {} as Record<string, typeof skills>);
+  ];
 
-  const orderedCategories = Object.entries(skillsByCategory)
-    .map(([category, categorySkills]) => {
-      const orderedSkills = [...categorySkills].sort((first, second) =>
-        first.name.localeCompare(second.name)
-      );
-
-      return [category, orderedSkills] as const;
-    })
-    .sort(([firstCategory], [secondCategory]) => firstCategory.localeCompare(secondCategory));
-
-  // If preview, show only first few categories
-  const visibleCategories = preview ? orderedCategories.slice(0, 3) : orderedCategories;
+  const visibleCategories = preview ? groupedSkills.slice(0, 3) : groupedSkills;
 
   return (
     <section className="section-gap" id={sectionId}>
@@ -52,14 +67,14 @@ export function SkillsSection({
         ) : null}
 
         <div className="space-y-12">
-          {visibleCategories.map(([category, categorySkills], categoryIndex) => (
+          {visibleCategories.map(({ category, items }, categoryIndex) => (
             <FadeIn key={category} delay={categoryIndex * 0.05}>
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold text-slate-100 dark:text-slate-100 border-b border-purple-500/30 dark:border-purple-400/30 pb-2">
                   {category}
                 </h2>
                 <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {categorySkills.map((skill, skillIndex) => (
+                  {items.map((skill, skillIndex) => (
                     <div 
                       className="panel tilt-surface p-5 transition-all duration-300 hover:scale-105 hover:shadow-glow-lg" 
                       key={skill.name}
