@@ -1,6 +1,0 @@
-Shukreal
-Senior Software Engineer
-
-This is a placeholder resume file.
-Replace this file with your actual PDF resume at:
-public/resume.pdf
