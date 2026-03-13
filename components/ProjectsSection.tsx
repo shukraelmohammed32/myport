@@ -1,11 +1,16 @@
-import { ArrowRight } from "lucide-react";
+"use client";
 
-import { projects } from "@/data/projects";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+
+import { projects as defaultProjects } from "@/data/projects";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionTitle } from "@/components/SectionTitle";
+import { getStoredProjects } from "@/lib/projectStore";
+import type { Project } from "@/types/portfolio";
 
 type ProjectsSectionProps = {
   limit?: number;
@@ -18,7 +23,17 @@ export function ProjectsSection({
   showTitle = true,
   sectionId = "projects"
 }: ProjectsSectionProps) {
-  const visibleProjects = typeof limit === "number" ? projects.slice(0, limit) : projects;
+  const [projects, setProjects] = useState<Project[]>(defaultProjects);
+
+  useEffect(() => {
+    setProjects(getStoredProjects());
+  }, []);
+
+  const visibleProjects = useMemo(
+    () => (typeof limit === "number" ? projects.slice(0, limit) : projects),
+    [limit, projects]
+  );
+
   const hasMoreProjects = typeof limit === "number" && projects.length > limit;
 
   return (
@@ -36,7 +51,7 @@ export function ProjectsSection({
 
         <div className="grid gap-6 md:grid-cols-2">
           {visibleProjects.map((project, index) => (
-            <FadeIn delay={index * 0.05} key={project.title}>
+            <FadeIn delay={index * 0.05} key={`${project.title}-${index}`}>
               <ProjectCard project={project} />
             </FadeIn>
           ))}
