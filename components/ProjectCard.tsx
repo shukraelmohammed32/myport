@@ -14,6 +14,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
   const [imageSrc, setImageSrc] = useState(project.image);
   const isDataImage = imageSrc.startsWith("data:image/");
+  const imageTarget = project.demo || project.github || imageSrc;
 
   useEffect(() => {
     setImageSrc(project.image);
@@ -22,9 +23,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="panel perspective-wrap tilt-surface group overflow-hidden transition duration-300 hover:shadow-lg dark:hover:shadow-none">
       <Link
-        aria-label={`Open original screenshot for ${project.title}`}
+        aria-label={`Open project link for ${project.title}`}
         className="relative block h-52 overflow-hidden border-b border-slate-200 dark:border-slate-800"
-        href={imageSrc}
+        href={imageTarget}
         rel="noreferrer"
         target="_blank"
       >
