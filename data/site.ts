@@ -45,7 +45,7 @@ export const keyTech = [
 ];
 
 export const impactStats = [
-  { label: "Years Experience", value: "8+" },
+  { label: "Years Experience", value: "4+" },
   { label: "Projects Shipped", value: "25+" },
   { label: "Mentored Engineers", value: "12" }
 ];
