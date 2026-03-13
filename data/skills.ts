@@ -4,6 +4,7 @@ export const skills: Skill[] = [
   // Programming Languages
   { name: "JavaScript", category: "Programming Languages", percentage: 92, icon: "/images/skills/javascript.png" },
   { name: "TypeScript", category: "Programming Languages", percentage: 90, icon: "/images/skills/typescript.png" },
+  { name: "Go", category: "Programming Languages", percentage: 74, icon: "/images/skills/go.svg" },
   { name: "HTML5", category: "Markup Languages", percentage: 95, icon: "/images/skills/html.png" },
   { name: "CSS3", category: "Markup Languages", percentage: 93, icon: "/images/skills/css.png" },
 

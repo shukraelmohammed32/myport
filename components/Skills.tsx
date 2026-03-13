@@ -25,10 +25,18 @@ export function SkillsSection({
     return acc;
   }, {} as Record<string, typeof skills>);
 
+  const orderedCategories = Object.entries(skillsByCategory)
+    .map(([category, categorySkills]) => {
+      const orderedSkills = [...categorySkills].sort((first, second) =>
+        first.name.localeCompare(second.name)
+      );
+
+      return [category, orderedSkills] as const;
+    })
+    .sort(([firstCategory], [secondCategory]) => firstCategory.localeCompare(secondCategory));
+
   // If preview, show only first few categories
-  const visibleCategories = preview 
-    ? Object.entries(skillsByCategory).slice(0, 3) 
-    : Object.entries(skillsByCategory);
+  const visibleCategories = preview ? orderedCategories.slice(0, 3) : orderedCategories;
 
   return (
     <section className="section-gap" id={sectionId}>
