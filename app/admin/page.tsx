@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { SectionTitle } from "@/components/SectionTitle";
-import { addStoredProject, getStoredProjects } from "@/lib/projectStore";
+import { addStoredProject, getStoredProjects, removeStoredProjectAt } from "@/lib/projectStore";
+import type { Project } from "@/types/portfolio";
 
 type FormState = {
   title: string;
@@ -28,11 +29,15 @@ const initialForm: FormState = {
 export default function AdminPage() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [projectCount, setProjectCount] = useState(0);
+  const [storedProjects, setStoredProjects] = useState<Project[]>([]);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [uploadInfo, setUploadInfo] = useState("");
 
   useEffect(() => {
-    setProjectCount(getStoredProjects().length);
+    const projects = getStoredProjects();
+    setStoredProjects(projects);
+    setProjectCount(projects.length);
   }, []);
 
   const handleChange = (field: keyof FormState, value: string) => {
@@ -40,6 +45,45 @@ export default function AdminPage() {
       ...previous,
       [field]: value
     }));
+  };
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      setError("Please upload an image file.");
+      return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      setError("Image is too large. Use an image under 2MB.");
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const result = typeof reader.result === "string" ? reader.result : "";
+
+      if (!result) {
+        setError("Could not read uploaded image.");
+        return;
+      }
+
+      setError("");
+      setUploadInfo(`Uploaded: ${file.name}`);
+      handleChange("image", result);
+    };
+
+    reader.onerror = () => {
+      setError("Could not read uploaded image.");
+    };
+
+    reader.readAsDataURL(file);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -52,8 +96,18 @@ export default function AdminPage() {
       return;
     }
 
-    if (!form.image.trim().startsWith("/")) {
+    const isDataImage = form.image.trim().startsWith("data:image/");
+
+    if (!isDataImage && !form.image.trim().startsWith("/")) {
       setError("Image path should start with /. Example: /images/my-project.svg");
+      return;
+    }
+
+    if (
+      !isDataImage &&
+      /(\.png\.png|\.jpg\.jpg|\.jpeg\.jpeg|\.webp\.webp|\.svg\.svg)$/i.test(form.image.trim())
+    ) {
+      setError("Image path has a duplicate extension. Use single extension like /images/project.png");
       return;
     }
 
@@ -76,9 +130,25 @@ export default function AdminPage() {
       demo: form.demo.trim() || undefined
     });
 
+    setStoredProjects(nextProjects);
     setProjectCount(nextProjects.length);
     setMessage(`Project added. Total projects: ${nextProjects.length}`);
+    setUploadInfo("");
     setForm(initialForm);
+  };
+
+  const handleDeleteProject = (index: number) => {
+    const confirmed = window.confirm("Delete this project?");
+
+    if (!confirmed) {
+      return;
+    }
+
+    const nextProjects = removeStoredProjectAt(index);
+    setStoredProjects(nextProjects);
+    setProjectCount(nextProjects.length);
+    setMessage("Project deleted.");
+    setError("");
   };
 
   return (
@@ -116,10 +186,19 @@ export default function AdminPage() {
               <input
                 className="input-field"
                 onChange={(event) => handleChange("image", event.target.value)}
-                placeholder="Image path (example: /images/project-name.svg)"
+                placeholder="Image path (example: /images/project-name.svg) or upload below"
                 required
                 value={form.image}
               />
+
+              <input
+                accept="image/png,image/jpeg,image/jpg,image/webp,image/svg+xml"
+                className="input-field"
+                onChange={handleImageUpload}
+                type="file"
+              />
+
+              {uploadInfo ? <p className="text-xs text-slate-300">{uploadInfo}</p> : null}
 
               <input
                 className="input-field"
@@ -153,6 +232,28 @@ export default function AdminPage() {
 
             {message ? <p className="mt-4 text-sm text-emerald-300">{message}</p> : null}
             {error ? <p className="mt-4 text-sm text-red-300">{error}</p> : null}
+
+            <div className="mt-8 space-y-3">
+              <p className="text-sm font-semibold text-slate-200">Saved projects</p>
+              {storedProjects.map((project, index) => (
+                <div
+                  className="flex items-center justify-between gap-3 rounded-xl border border-slate-700/70 bg-slate-900/40 px-4 py-3"
+                  key={`${project.title}-${index}`}
+                >
+                  <div>
+                    <p className="text-sm font-medium text-slate-100">{project.title}</p>
+                    <p className="text-xs text-slate-300">{project.image.startsWith("data:image/") ? "Uploaded image" : project.image}</p>
+                  </div>
+                  <button
+                    className="rounded-lg border border-red-500/40 bg-red-600/20 px-3 py-1.5 text-xs font-semibold text-red-200 transition hover:bg-red-600/30"
+                    onClick={() => handleDeleteProject(index)}
+                    type="button"
+                  >
+                    Delete
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </FadeIn>
       </Container>

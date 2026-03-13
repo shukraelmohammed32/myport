@@ -60,3 +60,15 @@ export function addStoredProject(project: Project): Project[] {
   saveProjects(nextProjects);
   return nextProjects;
 }
+
+export function removeStoredProjectAt(index: number): Project[] {
+  const currentProjects = getStoredProjects();
+
+  if (index < 0 || index >= currentProjects.length) {
+    return currentProjects;
+  }
+
+  const nextProjects = currentProjects.filter((_, currentIndex) => currentIndex !== index);
+  saveProjects(nextProjects);
+  return nextProjects;
+}
