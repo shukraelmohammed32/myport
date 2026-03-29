@@ -32,10 +32,7 @@ export function SiteFooter() {
               />
               {siteConfig.name}
             </p>
-            <p
-              className="max-w-xs text-sm leading-relaxed"
-              style={{ color: "var(--muted)" }}
-            >
+            <p className="max-w-xs text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
               {siteConfig.availability}
             </p>
             <p className="text-xs" style={{ color: "var(--muted)", opacity: 0.65 }}>
@@ -55,11 +52,9 @@ export function SiteFooter() {
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link
-                    className="link-hover text-sm font-medium transition-opacity"
-                    style={{ color: "var(--ink)", opacity: 0.65 }}
+                    className="link-hover text-sm font-medium opacity-60 transition-opacity hover:opacity-100"
+                    style={{ color: "var(--ink)" }}
                     href={item.href}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.65")}
                   >
                     {item.label}
                   </Link>
@@ -82,13 +77,11 @@ export function SiteFooter() {
                 return (
                   <li key={link.label}>
                     <Link
-                      className="link-hover inline-flex items-center gap-1.5 text-sm font-medium transition-opacity"
-                      style={{ color: "var(--ink)", opacity: 0.65 }}
+                      className="link-hover inline-flex items-center gap-1.5 text-sm font-medium opacity-60 transition-opacity hover:opacity-100"
+                      style={{ color: "var(--ink)" }}
                       href={link.href}
                       rel={isExternal ? "noreferrer" : undefined}
                       target={isExternal ? "_blank" : undefined}
-                      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-                      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.65")}
                     >
                       {link.label}
                       <ArrowUpRight className="h-3.5 w-3.5" />
@@ -108,9 +101,7 @@ export function SiteFooter() {
           <p>
             © {year} {siteConfig.name}. Crafted with Next.js &amp; Tailwind CSS.
           </p>
-          <p className="uppercase tracking-[0.12em] font-medium">
-            {siteConfig.role}
-          </p>
+          <p className="uppercase tracking-[0.12em] font-medium">{siteConfig.role}</p>
         </div>
 
       </Container>
