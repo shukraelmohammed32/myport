@@ -68,9 +68,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className="relative">
           <ScrollProgress />
           <div
-            className="pointer-events-none fixed inset-0 -z-10 [background-size:24px_24px] opacity-[0.2]"
+            className="pointer-events-none fixed inset-0 -z-10"
             style={{
-              backgroundImage: "radial-gradient(circle at center, var(--dot-color) 1px, transparent 1px)"
+              backgroundImage: "radial-gradient(circle, var(--dot-color) 1px, transparent 1px)",
+              backgroundSize: "44px 44px"
             }}
           />
           <SiteHeader />

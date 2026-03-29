@@ -6,7 +6,7 @@ export const siteConfig = {
   intro:
     "I build modern full-stack web applications with clean frontend architecture, robust backend APIs, and reliable database design.",
   email: "shukrael.dev@gmail.com",
-  profileImage: "/images/profile-photo.jpg",
+  profileImage: "/images/profile-photo.png",
   profileImageAlt: "Shukreal profile photo",
   location: "Dire Dawa, Ethiopia",
   featuredPlace: "East Africa Tech Hub",
