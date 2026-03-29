@@ -18,21 +18,15 @@ export function ButtonLink({
   variant = "primary",
   download = false
 }: ButtonLinkProps) {
+  const base =
+    "inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.97]";
+
   if (variant === "primary") {
     return (
       <Link
-        className={cn(
-          "inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.97]",
-          className
-        )}
-        style={{
-          backgroundColor: "var(--ink)",
-          color: "var(--bg)"
-        }}
+        className={cn(base, "bg-[var(--ink)] text-[var(--bg)] hover:opacity-80", className)}
         download={download}
         href={href}
-        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.82")}
-        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
       >
         {children}
       </Link>
@@ -43,26 +37,12 @@ export function ButtonLink({
     return (
       <Link
         className={cn(
-          "inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.97]",
+          base,
+          "border border-[var(--border)] bg-transparent text-[var(--ink)] hover:bg-[var(--ink)] hover:text-[var(--bg)] hover:border-[var(--ink)]",
           className
         )}
-        style={{
-          borderColor: "var(--border)",
-          color: "var(--ink)",
-          backgroundColor: "transparent"
-        }}
         download={download}
         href={href}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.backgroundColor = "var(--ink)";
-          (e.currentTarget as HTMLElement).style.color = "var(--bg)";
-          (e.currentTarget as HTMLElement).style.borderColor = "var(--ink)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-          (e.currentTarget as HTMLElement).style.color = "var(--ink)";
-          (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-        }}
       >
         {children}
       </Link>
@@ -73,14 +53,12 @@ export function ButtonLink({
   return (
     <Link
       className={cn(
-        "link-hover inline-flex items-center gap-2 rounded-xl px-2 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.97]",
+        base,
+        "link-hover px-2 text-[var(--muted)] hover:text-[var(--ink)]",
         className
       )}
-      style={{ color: "var(--muted)" }}
       download={download}
       href={href}
-      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--ink)")}
-      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--muted)")}
     >
       {children}
     </Link>
