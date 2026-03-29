@@ -52,13 +52,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             fill
             onError={() => setImageSrc("/images/project-ecommerce.svg")}
             src={imageSrc}
-            style={{ filter: "grayscale(5%)" }}
           />
         )}
         <div
           aria-hidden
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{ backgroundColor: "rgba(0,0,0,0.04)" }}
+          className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"
         />
       </Link>
 
@@ -71,10 +69,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           >
             {project.title}
           </h3>
-          <p
-            className="mt-2 text-sm leading-relaxed"
-            style={{ color: "var(--muted)" }}
-          >
+          <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
             {project.summary}
           </p>
         </div>
@@ -90,20 +85,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
           style={{ borderTop: "1px solid var(--border)" }}
         >
           <Link
-            className="link-hover inline-flex items-center gap-1.5 text-sm font-medium transition-opacity"
-            style={{ color: "var(--muted)", opacity: 0.8 }}
+            className="link-hover inline-flex items-center gap-1.5 text-sm font-medium opacity-60 transition-opacity hover:opacity-100"
+            style={{ color: "var(--ink)" }}
             href={project.github}
             rel="noreferrer"
             target="_blank"
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--ink)")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--muted)")}
           >
             <Github className="h-4 w-4" />
             GitHub
           </Link>
           {project.demo ? (
             <Link
-              className="link-hover inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity"
+              className="link-hover inline-flex items-center gap-1.5 text-sm font-semibold"
               style={{ color: "var(--ink)" }}
               href={project.demo}
               rel="noreferrer"
