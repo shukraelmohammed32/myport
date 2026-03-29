@@ -69,6 +69,30 @@ export function HeroSection() {
           {/* Left — headline + sub + CTA */}
           <div className="space-y-10 sm:space-y-12">
 
+            {/* Mobile avatar */}
+            <motion.div {...fadeUp(0.08)} className="lg:hidden">
+              <div
+                style={{
+                  position: "relative",
+                  width: 72,
+                  height: 72,
+                  borderRadius: "9999px",
+                  overflow: "hidden",
+                  border: "2px solid var(--border)"
+                }}
+              >
+                <Image
+                  alt={siteConfig.profileImageAlt}
+                  fill
+                  priority
+                  quality={85}
+                  sizes="72px"
+                  src={siteConfig.profileImage}
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
+                />
+              </div>
+            </motion.div>
+
             {/* Headline */}
             <motion.h1
               {...fadeUp(0.1)}
@@ -121,9 +145,9 @@ export function HeroSection() {
             <div
               style={{
                 position: "relative",
-                width: 190,
-                height: 245,
-                borderRadius: "1rem",
+                width: 210,
+                height: 268,
+                borderRadius: "1.25rem",
                 overflow: "hidden",
                 border: "1px solid var(--border)"
               }}
@@ -133,22 +157,21 @@ export function HeroSection() {
                 fill
                 priority
                 quality={90}
-                sizes="190px"
+                sizes="210px"
                 src={siteConfig.profileImage}
                 style={{
                   objectFit: "cover",
-                  objectPosition: "center top",
-                  filter: "grayscale(15%) contrast(1.04)"
+                  objectPosition: "center top"
                 }}
               />
-              {/* Subtle bottom gradient */}
+              {/* Subtle bottom fade */}
               <div
                 aria-hidden
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "linear-gradient(to bottom, transparent 55%, var(--bg) 100%)",
-                  opacity: 0.55
+                  background: "linear-gradient(to bottom, transparent 60%, var(--bg) 100%)",
+                  opacity: 0.4
                 }}
               />
             </div>

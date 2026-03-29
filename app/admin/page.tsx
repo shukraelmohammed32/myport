@@ -164,7 +164,9 @@ export default function AdminPage() {
 
         <FadeIn>
           <div className="panel p-6 sm:p-8">
-            <p className="text-sm text-slate-300">Current saved projects: {projectCount}</p>
+            <p className="text-sm" style={{ color: "var(--muted)" }}>
+              Current saved projects: <span className="font-semibold" style={{ color: "var(--ink)" }}>{projectCount}</span>
+            </p>
 
             <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
               <input
@@ -198,7 +200,9 @@ export default function AdminPage() {
                 type="file"
               />
 
-              {uploadInfo ? <p className="text-xs text-slate-300">{uploadInfo}</p> : null}
+              {uploadInfo ? (
+                <p className="text-xs" style={{ color: "var(--muted)" }}>{uploadInfo}</p>
+              ) : null}
 
               <input
                 className="input-field"
@@ -225,27 +229,41 @@ export default function AdminPage() {
                 value={form.demo}
               />
 
-              <button className="mt-2 rounded-xl bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-500" type="submit">
+              <button
+                className="mt-2 rounded-xl bg-[var(--ink)] px-5 py-3 text-sm font-semibold text-[var(--bg)] transition hover:opacity-80 active:scale-[0.98]"
+                type="submit"
+              >
                 Add Project
               </button>
             </form>
 
-            {message ? <p className="mt-4 text-sm text-emerald-300">{message}</p> : null}
-            {error ? <p className="mt-4 text-sm text-red-300">{error}</p> : null}
+            {message ? (
+              <p className="mt-4 text-sm font-medium" style={{ color: "var(--ink)" }}>{message}</p>
+            ) : null}
+            {error ? (
+              <p className="mt-4 text-sm font-medium text-red-500">{error}</p>
+            ) : null}
 
             <div className="mt-8 space-y-3">
-              <p className="text-sm font-semibold text-slate-200">Saved projects</p>
+              <p className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
+                Saved projects
+              </p>
               {storedProjects.map((project, index) => (
                 <div
-                  className="flex items-center justify-between gap-3 rounded-xl border border-slate-700/70 bg-slate-900/40 px-4 py-3"
+                  className="flex items-center justify-between gap-3 rounded-xl border px-4 py-3"
+                  style={{ borderColor: "var(--border)", backgroundColor: "var(--bg)" }}
                   key={`${project.title}-${index}`}
                 >
                   <div>
-                    <p className="text-sm font-medium text-slate-100">{project.title}</p>
-                    <p className="text-xs text-slate-300">{project.image.startsWith("data:image/") ? "Uploaded image" : project.image}</p>
+                    <p className="text-sm font-medium" style={{ color: "var(--ink)" }}>
+                      {project.title}
+                    </p>
+                    <p className="text-xs" style={{ color: "var(--muted)" }}>
+                      {project.image.startsWith("data:image/") ? "Uploaded image" : project.image}
+                    </p>
                   </div>
                   <button
-                    className="rounded-lg border border-red-500/40 bg-red-600/20 px-3 py-1.5 text-xs font-semibold text-red-200 transition hover:bg-red-600/30"
+                    className="rounded-lg border border-red-300 px-3 py-1.5 text-xs font-semibold text-red-500 transition hover:bg-red-50 dark:hover:bg-red-950/30"
                     onClick={() => handleDeleteProject(index)}
                     type="button"
                   >
