@@ -79,21 +79,7 @@ export function SiteHeader() {
           <Link
             href={siteConfig.resumePath}
             download
-            className="inline-flex items-center gap-1.5 rounded-lg border px-3.5 py-1.5 text-sm font-medium transition-all active:scale-[0.97]"
-            style={{
-              borderColor: "var(--border)",
-              color: "var(--ink)"
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "var(--ink)";
-              (e.currentTarget as HTMLElement).style.color = "var(--bg)";
-              (e.currentTarget as HTMLElement).style.borderColor = "var(--ink)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-              (e.currentTarget as HTMLElement).style.color = "var(--ink)";
-              (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-            }}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] px-3.5 py-1.5 text-sm font-medium text-[var(--ink)] transition-all hover:bg-[var(--ink)] hover:text-[var(--bg)] hover:border-[var(--ink)] active:scale-[0.97]"
           >
             Resume
           </Link>
