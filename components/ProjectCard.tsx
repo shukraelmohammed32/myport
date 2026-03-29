@@ -21,10 +21,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }, [project.image]);
 
   return (
-    <article className="panel perspective-wrap tilt-surface group overflow-hidden transition duration-300 hover:shadow-lg dark:hover:shadow-none">
+    <article className="panel perspective-wrap tilt-surface group overflow-hidden transition duration-300 hover:shadow-glow-lg">
       <Link
         aria-label={`Open project link for ${project.title}`}
-        className="relative block h-52 overflow-hidden border-b border-slate-200 dark:border-slate-800"
+        className="relative block h-52 overflow-hidden border-b border-purple-500/20"
         href={imageTarget}
         rel="noreferrer"
         target="_blank"
@@ -45,14 +45,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
             src={imageSrc}
           />
         )}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </Link>
 
       <div className="space-y-4 p-6">
         <div>
-          <h3 className="font-display text-xl font-semibold text-slate-900 dark:text-slate-100">
+          <h3 className="font-display text-xl font-semibold text-slate-100">
             {project.title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="mt-2 text-sm leading-relaxed text-slate-300">
             {project.summary}
           </p>
         </div>
@@ -65,9 +66,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 pt-1 border-t border-purple-500/20">
           <Link
-            className="inline-flex items-center gap-1 text-sm font-semibold text-slate-700 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-300 transition hover:text-purple-100"
             href={project.github}
             rel="noreferrer"
             target="_blank"
@@ -77,7 +78,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Link>
           {project.demo ? (
             <Link
-              className="inline-flex items-center gap-1 text-sm font-semibold text-teal-700 transition hover:text-teal-800 dark:text-teal-300 dark:hover:text-teal-200"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-pink-300 transition hover:text-pink-100"
               href={project.demo}
               rel="noreferrer"
               target="_blank"

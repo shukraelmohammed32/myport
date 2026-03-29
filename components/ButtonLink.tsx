@@ -13,10 +13,10 @@ type ButtonLinkProps = {
 
 const variantClasses: Record<NonNullable<ButtonLinkProps["variant"]>, string> = {
   primary:
-    "bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-lg shadow-teal-800/20 hover:from-teal-500 hover:to-cyan-500 hover:shadow-xl hover:shadow-teal-800/30 dark:from-teal-500 dark:to-sky-400 dark:text-slate-950 dark:shadow-teal-500/25 dark:hover:from-teal-400 dark:hover:to-sky-300 dark:hover:shadow-teal-400/30",
+    "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-900/30 hover:from-purple-500 hover:to-pink-500 hover:shadow-xl hover:shadow-purple-800/40 dark:from-purple-500 dark:to-pink-500 dark:shadow-purple-500/25 dark:hover:from-purple-400 dark:hover:to-pink-400",
   secondary:
-    "border border-slate-300 bg-sky-50 text-slate-900 hover:border-slate-400 hover:bg-sky-100/80 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-800",
-  ghost: "text-slate-700 hover:text-slate-900 hover:bg-sky-100/70 dark:text-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-800/60"
+    "border border-purple-600/40 bg-purple-800/50 text-purple-200 hover:border-purple-500/60 hover:bg-purple-700/60 hover:text-purple-100 dark:border-purple-500/40 dark:bg-purple-800/50 dark:text-purple-200 dark:hover:border-purple-400/60 dark:hover:bg-purple-700/60 dark:hover:text-purple-100",
+  ghost: "text-purple-300 hover:text-purple-100 hover:bg-purple-800/50 dark:text-purple-300 dark:hover:text-purple-100 dark:hover:bg-purple-800/60"
 };
 
 export function ButtonLink({

@@ -40,10 +40,10 @@ export function ContactSection({
         {compact ? (
           <FadeIn className="panel flex flex-col items-start justify-between gap-5 p-6 sm:flex-row sm:items-center sm:p-8">
             <div>
-              <h3 className="font-display text-2xl font-semibold text-slate-900 dark:text-slate-100">
+              <h3 className="font-display text-2xl font-semibold text-slate-100">
                 Open to high-impact engineering roles
               </h3>
-              <p className="mt-2 max-w-xl text-sm text-slate-600 dark:text-slate-300 sm:text-base">
+              <p className="mt-2 max-w-xl text-sm text-slate-300 sm:text-base">
                 Reach out for collaboration, consulting, or full-time opportunities.
               </p>
             </div>
@@ -56,7 +56,7 @@ export function ContactSection({
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label
-                      className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
+                      className="mb-2 block text-sm font-medium text-slate-300"
                       htmlFor="name"
                     >
                       Name
@@ -65,7 +65,7 @@ export function ContactSection({
                   </div>
                   <div>
                     <label
-                      className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
+                      className="mb-2 block text-sm font-medium text-slate-300"
                       htmlFor="email"
                     >
                       Email
@@ -81,7 +81,7 @@ export function ContactSection({
                 </div>
                 <div>
                   <label
-                    className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
+                    className="mb-2 block text-sm font-medium text-slate-300"
                     htmlFor="subject"
                   >
                     Subject
@@ -95,7 +95,7 @@ export function ContactSection({
                 </div>
                 <div>
                   <label
-                    className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
+                    className="mb-2 block text-sm font-medium text-slate-300"
                     htmlFor="message"
                   >
                     Message
@@ -108,7 +108,7 @@ export function ContactSection({
                   />
                 </div>
                 <button
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:from-teal-500 hover:to-cyan-500 dark:from-teal-500 dark:to-sky-400 dark:text-slate-900 dark:hover:from-teal-400 dark:hover:to-sky-300"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-900/30 transition hover:from-purple-500 hover:to-pink-500 hover:shadow-xl hover:shadow-purple-800/40 active:scale-[0.98]"
                   type="submit"
                 >
                   <SendHorizontal className="h-4 w-4" />
@@ -119,10 +119,10 @@ export function ContactSection({
 
             <FadeIn className="panel-muted space-y-6 p-6 sm:p-8" delay={0.08}>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-purple-400">
                   Professional Links
                 </p>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                <p className="mt-2 text-sm text-slate-300">
                   Prefer direct outreach? Connect through email or social platforms.
                 </p>
               </div>
@@ -133,7 +133,7 @@ export function ContactSection({
 
                   return (
                     <Link
-                      className="flex items-center justify-between rounded-2xl border border-slate-200 bg-sky-50 px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-sky-100/80 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-100"
+                      className="flex items-center justify-between rounded-2xl border border-purple-500/30 bg-purple-800/40 px-4 py-3 text-sm font-medium text-purple-200 transition hover:border-purple-400/50 hover:bg-purple-700/50 hover:text-purple-100"
                       href={link.href}
                       key={link.label}
                       rel="noreferrer"
@@ -146,11 +146,11 @@ export function ContactSection({
                 })}
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-sky-50 p-4 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+              <div className="rounded-2xl border border-purple-500/20 bg-purple-900/30 p-4 text-sm text-slate-300">
                 <p>
                   Email:{" "}
                   <Link
-                    className="font-semibold text-slate-900 dark:text-slate-100"
+                    className="font-semibold text-purple-300 hover:text-purple-200 transition"
                     href={`mailto:${siteConfig.email}`}
                   >
                     {siteConfig.email}

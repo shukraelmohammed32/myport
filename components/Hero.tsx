@@ -11,27 +11,32 @@ export function HeroSection() {
     <section className="relative isolate overflow-hidden pb-12 pt-16 sm:pt-24" id="home">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-sky-100/70 via-sky-50 to-transparent dark:from-slate-900/70 dark:via-slate-950"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-purple-900/50 via-purple-950/20 to-transparent"
       />
       <Container className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <FadeIn className="space-y-8">
-          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300 dark:text-slate-300">
-            <p className="chip">{siteConfig.availability}</p>
-            <span className="inline-flex items-center gap-1 text-slate-400 dark:text-slate-400">
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <p className="chip relative overflow-hidden">
+              <span className="relative z-10 flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                {siteConfig.availability}
+              </span>
+            </p>
+            <span className="inline-flex items-center gap-1 text-slate-400">
               <MapPin className="h-4 w-4" />
               {siteConfig.featuredPlace}
             </span>
           </div>
 
           <div className="space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400 dark:text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-purple-400">
               Designing resilient product systems
             </p>
-            <h1 className="font-display text-4xl leading-tight text-slate-100 dark:text-slate-100 sm:text-5xl lg:text-6xl">
-              {siteConfig.name}
+            <h1 className="font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+              <span className="text-slate-100">{siteConfig.name}</span>
               <span className="text-gradient mt-2 block">{siteConfig.role}</span>
             </h1>
-            <p className="max-w-2xl text-base leading-relaxed text-slate-300 dark:text-slate-300 sm:text-lg">
+            <p className="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
               {siteConfig.intro}
             </p>
           </div>
@@ -68,9 +73,9 @@ export function HeroSection() {
             <div aria-hidden className="hero-orb hero-orb-c" />
             <div
               aria-hidden
-              className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_top,rgba(15,118,110,0.35),transparent_55%),radial-gradient(circle_at_bottom,rgba(249,115,22,0.25),transparent_52%)] blur-3xl dark:opacity-80"
+              className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.35),transparent_55%),radial-gradient(circle_at_bottom,rgba(236,72,153,0.28),transparent_52%)] blur-3xl"
             />
-            <div className="tilt-surface relative isolate mx-auto aspect-[4/5] w-full max-w-[17rem] overflow-hidden rounded-[2.7rem] border border-slate-200/70 bg-sky-100/25 shadow-2xl sm:max-w-[19rem] lg:max-w-[21rem] dark:border-slate-800">
+            <div className="tilt-surface relative isolate mx-auto aspect-[4/5] w-full max-w-[17rem] overflow-hidden rounded-[2.7rem] border border-purple-500/40 bg-purple-950/30 shadow-glow sm:max-w-[19rem] lg:max-w-[21rem]">
               <Image
                 alt={siteConfig.profileImageAlt}
                 className="object-cover object-center"
