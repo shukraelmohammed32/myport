@@ -38,12 +38,20 @@ export function ContactSection({
         ) : null}
 
         {compact ? (
-          <FadeIn className="panel flex flex-col items-start justify-between gap-5 p-6 sm:flex-row sm:items-center sm:p-8">
+          <FadeIn
+            className="panel flex flex-col items-start justify-between gap-5 p-6 sm:flex-row sm:items-center sm:p-8"
+          >
             <div>
-              <h3 className="font-display text-2xl font-semibold text-slate-100">
+              <h3
+                className="font-display text-2xl font-semibold"
+                style={{ color: "var(--ink)" }}
+              >
                 Open to high-impact engineering roles
               </h3>
-              <p className="mt-2 max-w-xl text-sm text-slate-300 sm:text-base">
+              <p
+                className="mt-2 max-w-xl text-sm sm:text-base"
+                style={{ color: "var(--muted)" }}
+              >
                 Reach out for collaboration, consulting, or full-time opportunities.
               </p>
             </div>
@@ -51,21 +59,29 @@ export function ContactSection({
           </FadeIn>
         ) : (
           <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+            {/* Form */}
             <FadeIn className="panel p-6 sm:p-8">
               <form action="#" className="space-y-4" method="post">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label
-                      className="mb-2 block text-sm font-medium text-slate-300"
+                      className="mb-2 block text-sm font-medium"
+                      style={{ color: "var(--muted)" }}
                       htmlFor="name"
                     >
                       Name
                     </label>
-                    <input className="input-field" id="name" name="name" placeholder="Your name" />
+                    <input
+                      className="input-field"
+                      id="name"
+                      name="name"
+                      placeholder="Your name"
+                    />
                   </div>
                   <div>
                     <label
-                      className="mb-2 block text-sm font-medium text-slate-300"
+                      className="mb-2 block text-sm font-medium"
+                      style={{ color: "var(--muted)" }}
                       htmlFor="email"
                     >
                       Email
@@ -81,7 +97,8 @@ export function ContactSection({
                 </div>
                 <div>
                   <label
-                    className="mb-2 block text-sm font-medium text-slate-300"
+                    className="mb-2 block text-sm font-medium"
+                    style={{ color: "var(--muted)" }}
                     htmlFor="subject"
                   >
                     Subject
@@ -95,7 +112,8 @@ export function ContactSection({
                 </div>
                 <div>
                   <label
-                    className="mb-2 block text-sm font-medium text-slate-300"
+                    className="mb-2 block text-sm font-medium"
+                    style={{ color: "var(--muted)" }}
                     htmlFor="message"
                   >
                     Message
@@ -108,7 +126,8 @@ export function ContactSection({
                   />
                 </div>
                 <button
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-900/30 transition hover:from-purple-500 hover:to-pink-500 hover:shadow-xl hover:shadow-purple-800/40 active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.97] hover:opacity-80"
+                  style={{ backgroundColor: "var(--ink)", color: "var(--bg)" }}
                   type="submit"
                 >
                   <SendHorizontal className="h-4 w-4" />
@@ -117,40 +136,54 @@ export function ContactSection({
               </form>
             </FadeIn>
 
+            {/* Sidebar */}
             <FadeIn className="panel-muted space-y-6 p-6 sm:p-8" delay={0.08}>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-purple-400">
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.22em]"
+                  style={{ color: "var(--muted)" }}
+                >
                   Professional Links
                 </p>
-                <p className="mt-2 text-sm text-slate-300">
-                  Prefer direct outreach? Connect through email or social platforms.
+                <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>
+                  Prefer direct outreach? Connect via email or social platforms.
                 </p>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {socialLinks.map((link) => {
                   const Icon = iconByLabel[link.label as keyof typeof iconByLabel] ?? Mail;
-
                   return (
                     <Link
-                      className="flex items-center justify-between rounded-2xl border border-purple-500/30 bg-purple-800/40 px-4 py-3 text-sm font-medium text-purple-200 transition hover:border-purple-400/50 hover:bg-purple-700/50 hover:text-purple-100"
+                      className="flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-medium transition-all"
+                      style={{ borderColor: "var(--border)", color: "var(--ink)" }}
                       href={link.href}
                       key={link.label}
                       rel="noreferrer"
                       target="_blank"
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.backgroundColor = "var(--surface)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+                      }}
                     >
                       <span>{link.label}</span>
-                      <Icon className="h-4 w-4" />
+                      <Icon className="h-4 w-4" style={{ color: "var(--muted)" }} />
                     </Link>
                   );
                 })}
               </div>
 
-              <div className="rounded-2xl border border-purple-500/20 bg-purple-900/30 p-4 text-sm text-slate-300">
+              <div
+                className="rounded-xl border p-4 text-sm"
+                style={{ borderColor: "var(--border)", color: "var(--muted)" }}
+              >
                 <p>
                   Email:{" "}
                   <Link
-                    className="font-semibold text-purple-300 hover:text-purple-200 transition"
+                    className="font-semibold link-hover"
+                    style={{ color: "var(--ink)" }}
                     href={`mailto:${siteConfig.email}`}
                   >
                     {siteConfig.email}
