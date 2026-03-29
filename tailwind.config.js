@@ -14,20 +14,19 @@ module.exports = {
       },
       colors: {
         surface: "var(--surface)",
-        ink: "var(--ink)",
-        muted: "var(--muted)",
+        ink:     "var(--ink)",
+        muted:   "var(--muted)",
         primary: "var(--primary)",
-        accent: "var(--accent)"
+        accent:  "var(--accent)"
       },
       boxShadow: {
-        soft: "0 12px 30px -18px rgba(139, 92, 246, 0.25)",
-        glow: "0 0 40px rgba(139, 92, 246, 0.15), 0 0 80px rgba(236, 72, 153, 0.1)",
-        "glow-lg": "0 0 60px rgba(139, 92, 246, 0.2), 0 0 120px rgba(236, 72, 153, 0.15)",
-        "glow-xl": "0 0 80px rgba(139, 92, 246, 0.25), 0 0 160px rgba(236, 72, 153, 0.2)"
-      },
-      backgroundImage: {
-        "dot-grid":
-          "radial-gradient(circle at center, rgba(15, 23, 42, 0.09) 1px, transparent 1px)"
+        soft:        "0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.04)",
+        card:        "0 4px 24px -4px rgba(0,0,0,0.08)",
+        "card-hover":"0 8px 36px -8px rgba(0,0,0,0.13)",
+        /* kept for compat with any lingering references */
+        glow:        "0 0 0 1px var(--border)",
+        "glow-lg":   "0 2px 8px rgba(0,0,0,0.06)",
+        "glow-xl":   "0 4px 20px rgba(0,0,0,0.09)"
       }
     }
   },

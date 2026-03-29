@@ -7,13 +7,13 @@ import { Menu, X } from "lucide-react";
 
 import { navigation, siteConfig } from "@/data/site";
 import { cn } from "@/lib/cn";
-import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === href : pathname.startsWith(href);
@@ -22,95 +22,135 @@ export function SiteHeader() {
     setMenuOpen(false);
   }, [pathname]);
 
-  return (
-    <header className="sticky top-0 z-50 border-b border-purple-800/50 bg-purple-900/60 backdrop-blur-xl dark:border-purple-700/60 dark:bg-purple-800/70">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-600/30 to-purple-500/30 dark:via-purple-500/40 dark:to-purple-400/40" />
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-      <Container className="relative flex h-[4.5rem] items-center justify-between">
-        <Link
-          href="/"
-          className="group inline-flex items-center gap-3"
-        >
-          <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 shadow-[0_0_0_6pxrgba(139,92,246,0.15)] dark:shadow-[0_0_0_6pxrgba(167,139,250,0.20)]" />
-          <span className="font-display text-lg font-semibold tracking-tight text-purple-100 transition-colors group-hover:text-purple-300 dark:text-purple-100 dark:group-hover:text-purple-300">
+  return (
+    <header
+      className="sticky top-0 z-50 transition-all duration-300"
+      style={{
+        borderBottom: "1px solid var(--border)",
+        backgroundColor: "var(--bg)",
+        backdropFilter: scrolled ? "blur(14px)" : "none"
+      }}
+    >
+      <Container className="flex h-[4.25rem] items-center justify-between">
+
+        {/* Logo */}
+        <Link href="/" className="group flex items-center gap-2.5">
+          <span
+            className="h-2 w-2 rounded-full transition-transform group-hover:scale-125"
+            style={{ backgroundColor: "var(--ink)" }}
+            aria-hidden
+          />
+          <span
+            className="font-display text-[0.95rem] font-semibold tracking-tight transition-opacity group-hover:opacity-60"
+            style={{ color: "var(--ink)" }}
+          >
             {siteConfig.name}
-          </span>
-          <span className="hidden rounded-full border border-purple-600/30 bg-purple-700/40 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-purple-300 dark:border-purple-600/40 dark:bg-purple-700/50 dark:text-purple-300 lg:inline-flex">
-            {siteConfig.role}
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-full border border-purple-700/60 bg-purple-800/60 p-1 shadow-sm shadow-purple-900/20 dark:border-purple-600/60 dark:bg-purple-700/60 dark:shadow-none md:flex">
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-7">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "rounded-full px-4 py-2 text-sm font-medium transition-all",
+                "link-hover text-sm font-medium transition-opacity",
                 isActive(item.href)
-                  ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-sm shadow-purple-700/30 dark:from-purple-500 dark:to-purple-400 dark:text-purple-900 dark:shadow-purple-600/20"
-                  : "text-purple-300 hover:bg-purple-700/50 hover:text-purple-100 dark:text-purple-300 dark:hover:bg-purple-600/50 dark:hover:text-purple-100"
+                  ? "font-semibold opacity-100"
+                  : "opacity-50 hover:opacity-100"
               )}
+              style={{ color: "var(--ink)" }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <ThemeToggle className="rounded-full" />
-          <ButtonLink
-            className="rounded-full border-purple-600/30 bg-purple-700/40 text-purple-300 hover:border-purple-600/50 hover:bg-purple-700/60 dark:border-purple-600/40 dark:bg-purple-700/50 dark:text-purple-300 dark:hover:border-purple-500/50 dark:hover:bg-purple-600/60"
+        {/* Right actions */}
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
+          <Link
             href={siteConfig.resumePath}
-            variant="secondary"
             download
+            className="inline-flex items-center gap-1.5 rounded-lg border px-3.5 py-1.5 text-sm font-medium transition-all active:scale-[0.97]"
+            style={{
+              borderColor: "var(--border)",
+              color: "var(--ink)"
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor = "var(--ink)";
+              (e.currentTarget as HTMLElement).style.color = "var(--bg)";
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--ink)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+              (e.currentTarget as HTMLElement).style.color = "var(--ink)";
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+            }}
           >
-            Download Resume
-          </ButtonLink>
+            Resume
+          </Link>
         </div>
 
+        {/* Mobile actions */}
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-purple-700 bg-purple-800 text-purple-200 transition hover:border-purple-600/50 hover:bg-purple-700 hover:text-purple-100 dark:border-purple-600 dark:bg-purple-700 dark:text-purple-200 dark:hover:border-purple-500/50 dark:hover:bg-purple-600 dark:hover:text-purple-100"
-            onClick={() => setMenuOpen((previous) => !previous)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border transition-colors active:scale-[0.97]"
+            style={{ borderColor: "var(--border)", color: "var(--ink)" }}
+            onClick={() => setMenuOpen((p) => !p)}
             type="button"
           >
-            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            {menuOpen ? <X size={16} /> : <Menu size={16} />}
           </button>
         </div>
       </Container>
 
-      {menuOpen ? (
-        <div className="border-t border-purple-700/60 bg-purple-800/80 backdrop-blur-xl dark:border-purple-600/60 dark:bg-purple-700/80 md:hidden">
-          <Container className="flex flex-col gap-2 py-4">
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div
+          className="border-t md:hidden"
+          style={{
+            borderColor: "var(--border)",
+            backgroundColor: "var(--bg)"
+          }}
+        >
+          <Container className="flex flex-col gap-1 py-4">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-xl px-3 py-2 text-sm font-medium",
+                  "rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
                   isActive(item.href)
-                    ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-sm shadow-purple-700/30 dark:from-purple-500 dark:to-purple-400 dark:text-purple-900 dark:shadow-purple-600/20"
-                    : "text-purple-300 hover:bg-purple-700/60 dark:text-purple-300 dark:hover:bg-purple-600/60"
+                    ? "font-semibold"
+                    : "opacity-55 hover:opacity-100"
                 )}
+                style={{ color: "var(--ink)" }}
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <ButtonLink
-              className="mt-2 w-full justify-center"
+            <Link
               href={siteConfig.resumePath}
-              variant="secondary"
               download
+              className="mt-2 inline-flex items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium transition-all"
+              style={{ borderColor: "var(--border)", color: "var(--ink)" }}
             >
               Download Resume
-            </ButtonLink>
+            </Link>
           </Container>
         </div>
-      ) : null}
+      )}
     </header>
   );
 }

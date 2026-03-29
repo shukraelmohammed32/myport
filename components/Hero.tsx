@@ -1,126 +1,203 @@
-import Image from "next/image";
-import { ArrowRight, Download, MapPin } from "lucide-react";
+"use client";
 
-import { impactStats, keyTech, siteConfig } from "@/data/site";
+import Image from "next/image";
+import { ArrowUpRight, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+
+import { impactStats, siteConfig } from "@/data/site";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
-import { FadeIn } from "@/components/FadeIn";
+
+function fadeUp(delay = 0) {
+  return {
+    initial: { opacity: 0, y: 22 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.7, delay, ease: [0.22, 0.61, 0.36, 1] }
+  };
+}
 
 export function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden pb-12 pt-16 sm:pt-24" id="home">
+    <section
+      id="home"
+      className="relative flex flex-col justify-center overflow-hidden"
+      style={{ minHeight: "calc(100dvh - 4.25rem)" }}
+    >
+      {/* Subtle dot grid background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-purple-900/50 via-purple-950/20 to-transparent"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          opacity: 0.8
+        }}
       />
-      <Container className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <FadeIn className="space-y-8">
-          <div className="flex flex-wrap items-center gap-3 text-sm">
-            <p className="chip relative overflow-hidden">
-              <span className="relative z-10 flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                {siteConfig.availability}
-              </span>
-            </p>
-            <span className="inline-flex items-center gap-1 text-slate-400">
-              <MapPin className="h-4 w-4" />
-              {siteConfig.featuredPlace}
+
+      <Container className="py-14 sm:py-20">
+
+        {/* ── Status bar ─────────────────────────────────── */}
+        <motion.div
+          {...fadeUp(0)}
+          className="flex items-center justify-between pb-6 mb-12 sm:mb-16"
+          style={{ borderBottom: "1px solid var(--border)" }}
+        >
+          <div className="flex items-center gap-2.5">
+            <span
+              className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"
+              aria-hidden
+            />
+            <span
+              className="text-xs font-semibold uppercase tracking-[0.22em]"
+              style={{ color: "var(--muted)" }}
+            >
+              {siteConfig.availability}
             </span>
           </div>
+          <div
+            className="hidden sm:flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.18em]"
+            style={{ color: "var(--muted)" }}
+          >
+            <MapPin className="h-3.5 w-3.5" />
+            {siteConfig.location}
+          </div>
+        </motion.div>
 
-          <div className="space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-purple-400">
-              Designing resilient product systems
-            </p>
-            <h1 className="font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
-              <span className="text-slate-100">{siteConfig.name}</span>
-              <span className="text-gradient mt-2 block">{siteConfig.role}</span>
-            </h1>
-            <p className="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              {siteConfig.intro}
-            </p>
+        {/* ── Main grid ──────────────────────────────────── */}
+        <div className="grid lg:grid-cols-[1fr_200px] lg:items-end gap-10 lg:gap-0">
+
+          {/* Left — headline + sub + CTA */}
+          <div className="space-y-10 sm:space-y-12">
+
+            {/* Headline */}
+            <motion.h1
+              {...fadeUp(0.1)}
+              className="font-display font-bold leading-[0.88] tracking-[-0.03em] select-none"
+              style={{
+                fontSize: "clamp(3.6rem, 11vw, 9.5rem)",
+                color: "var(--ink)"
+              }}
+            >
+              <span className="block">{siteConfig.name}</span>
+              <span
+                className="block font-light"
+                style={{
+                  color: "var(--muted)",
+                  fontStyle: "italic",
+                  fontSize: "0.8em"
+                }}
+              >
+                {siteConfig.role}
+              </span>
+            </motion.h1>
+
+            {/* Tagline + CTAs */}
+            <motion.div
+              {...fadeUp(0.22)}
+              className="flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-14"
+            >
+              <p
+                className="max-w-[30ch] text-base leading-relaxed sm:text-[1.05rem]"
+                style={{ color: "var(--muted)" }}
+              >
+                {siteConfig.intro}
+              </p>
+              <div className="flex items-center gap-3 shrink-0">
+                <ButtonLink href="/projects">
+                  View Work <ArrowUpRight className="h-4 w-4" />
+                </ButtonLink>
+                <ButtonLink href="/contact" variant="ghost">
+                  Contact Me
+                </ButtonLink>
+              </div>
+            </motion.div>
           </div>
 
-          <div className="flex flex-wrap gap-3">
-            <ButtonLink href="/projects">
-              View Projects
-              <ArrowRight className="h-4 w-4" />
-            </ButtonLink>
-            <ButtonLink href={siteConfig.resumePath} variant="secondary" download>
-              Download Resume
-              <Download className="h-4 w-4" />
-            </ButtonLink>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
-              Core Stack
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {keyTech.map((tech) => (
-                <span className="chip" key={tech}>
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
-
-        <FadeIn className="profile-float perspective-wrap relative" delay={0.08}>
-          <div className="relative">
-            <div aria-hidden className="hero-orb hero-orb-a" />
-            <div aria-hidden className="hero-orb hero-orb-b" />
-            <div aria-hidden className="hero-orb hero-orb-c" />
+          {/* Right — profile photo */}
+          <motion.div
+            {...fadeUp(0.15)}
+            className="hidden lg:block lg:self-end"
+          >
             <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.35),transparent_55%),radial-gradient(circle_at_bottom,rgba(236,72,153,0.28),transparent_52%)] blur-3xl"
-            />
-            <div className="tilt-surface relative isolate mx-auto aspect-[4/5] w-full max-w-[17rem] overflow-hidden rounded-[2.7rem] border border-purple-500/40 bg-purple-950/30 shadow-glow sm:max-w-[19rem] lg:max-w-[21rem]">
+              style={{
+                position: "relative",
+                width: 190,
+                height: 245,
+                borderRadius: "1rem",
+                overflow: "hidden",
+                border: "1px solid var(--border)"
+              }}
+            >
               <Image
                 alt={siteConfig.profileImageAlt}
-                className="object-cover object-center"
                 fill
                 priority
-                quality={95}
-                sizes="(max-width: 1024px) 100vw, 480px"
+                quality={90}
+                sizes="190px"
                 src={siteConfig.profileImage}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  filter: "grayscale(15%) contrast(1.04)"
+                }}
               />
+              {/* Subtle bottom gradient */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/35"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(to bottom, transparent 55%, var(--bg) 100%)",
+                  opacity: 0.55
+                }}
               />
-
-              <div className="panel absolute left-6 top-6 flex items-center gap-3 border-purple-500/30 bg-slate-800/85 px-4 py-3 text-sm text-slate-100 shadow-lg dark:border-purple-400/30 dark:bg-slate-900/90 dark:text-slate-100">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-purple-500/20 text-purple-300 dark:bg-purple-400/20 dark:text-purple-300">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-slate-400 dark:text-slate-400">
-                    Profile Place
-                  </p>
-                  <p className="font-semibold text-slate-100 dark:text-slate-100">{siteConfig.featuredPlace}</p>
-                  <p className="text-xs text-slate-400 dark:text-slate-400">{siteConfig.location}</p>
-                </div>
-              </div>
-
-              <div className="panel absolute left-6 right-6 bottom-6 bg-slate-800/90 p-5 text-slate-100 shadow-xl dark:bg-slate-900/95 dark:text-slate-100">
-                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-400">
-                  Impact
-                </p>
-                <dl className="mt-4 grid grid-cols-3 gap-3">
-                  {impactStats.map((stat) => (
-                    <div key={stat.label}>
-                      <dt className="text-xs text-slate-400 dark:text-slate-400">{stat.label}</dt>
-                      <dd className="font-display text-lg font-semibold text-slate-100 dark:text-slate-100">
-                        {stat.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
             </div>
-          </div>
-        </FadeIn>
+          </motion.div>
+        </div>
+
+        {/* ── Stats bar ──────────────────────────────────── */}
+        <motion.div
+          {...fadeUp(0.35)}
+          className="mt-16 sm:mt-20 pt-8 grid grid-cols-3"
+          style={{ borderTop: "1px solid var(--border)" }}
+        >
+          {impactStats.map((stat, i) => (
+            <div
+              key={stat.label}
+              style={
+                i !== 0
+                  ? { borderLeft: "1px solid var(--border)", paddingLeft: "2rem" }
+                  : { paddingRight: "2rem" }
+              }
+            >
+              <p
+                className="font-display font-bold leading-none tracking-tight"
+                style={{
+                  fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+                  color: "var(--ink)"
+                }}
+              >
+                {stat.value}
+              </p>
+              <p
+                className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em]"
+                style={{ color: "var(--muted)" }}
+              >
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* ── Credibility line ───────────────────────────── */}
+        <motion.p
+          {...fadeUp(0.45)}
+          className="mt-8 text-xs font-medium uppercase tracking-[0.2em]"
+          style={{ color: "var(--muted)", opacity: 0.7 }}
+        >
+          Helping brands grow online · Based in East Africa · Open to remote work
+        </motion.p>
+
       </Container>
     </section>
   );
