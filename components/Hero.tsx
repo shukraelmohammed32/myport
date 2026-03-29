@@ -20,33 +20,30 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-center overflow-hidden"
+      className="relative flex flex-col overflow-hidden"
       style={{ minHeight: "calc(100dvh - 4.25rem)" }}
     >
-      {/* Subtle dot grid background */}
+      {/* Dot grid */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
-          opacity: 0.8
+          opacity: 0.75
         }}
       />
 
-      <Container className="py-14 sm:py-20">
+      <Container className="flex flex-col justify-center py-14 sm:py-20">
 
         {/* ── Status bar ─────────────────────────────────── */}
         <motion.div
           {...fadeUp(0)}
-          className="flex items-center justify-between pb-6 mb-12 sm:mb-16"
+          className="flex items-center justify-between pb-6 mb-12 sm:mb-14"
           style={{ borderBottom: "1px solid var(--border)" }}
         >
           <div className="flex items-center gap-2.5">
-            <span
-              className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"
-              aria-hidden
-            />
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden />
             <span
               className="text-xs font-semibold uppercase tracking-[0.22em]"
               style={{ color: "var(--muted)" }}
@@ -64,29 +61,28 @@ export function HeroSection() {
         </motion.div>
 
         {/* ── Main grid ──────────────────────────────────── */}
-        <div className="grid lg:grid-cols-[1fr_200px] lg:items-end gap-10 lg:gap-0">
+        <div className="grid gap-10 lg:gap-16 lg:grid-cols-[1fr_400px] lg:items-center">
 
-          {/* Left — headline + sub + CTA */}
-          <div className="space-y-10 sm:space-y-12">
+          {/* ── Left — text content ── */}
+          <div className="space-y-10">
 
-            {/* Mobile avatar */}
-            <motion.div {...fadeUp(0.08)} className="lg:hidden">
+            {/* Mobile image */}
+            <motion.div {...fadeUp(0.06)} className="lg:hidden">
               <div
+                className="relative w-full overflow-hidden"
                 style={{
-                  position: "relative",
-                  width: 72,
-                  height: 72,
-                  borderRadius: "9999px",
-                  overflow: "hidden",
-                  border: "2px solid var(--border)"
+                  maxWidth: 340,
+                  aspectRatio: "4 / 5",
+                  borderRadius: "1.25rem",
+                  border: "1px solid var(--border)"
                 }}
               >
                 <Image
                   alt={siteConfig.profileImageAlt}
                   fill
                   priority
-                  quality={85}
-                  sizes="72px"
+                  quality={90}
+                  sizes="(max-width: 1024px) 80vw, 0px"
                   src={siteConfig.profileImage}
                   style={{ objectFit: "cover", objectPosition: "center top" }}
                 />
@@ -96,20 +92,13 @@ export function HeroSection() {
             {/* Headline */}
             <motion.h1
               {...fadeUp(0.1)}
-              className="font-display font-bold leading-[0.88] tracking-[-0.03em] select-none"
-              style={{
-                fontSize: "clamp(3.6rem, 11vw, 9.5rem)",
-                color: "var(--ink)"
-              }}
+              className="font-display font-bold leading-[0.88] tracking-[-0.03em]"
+              style={{ fontSize: "clamp(3.4rem, 9vw, 8.5rem)", color: "var(--ink)" }}
             >
               <span className="block">{siteConfig.name}</span>
               <span
                 className="block font-light"
-                style={{
-                  color: "var(--muted)",
-                  fontStyle: "italic",
-                  fontSize: "0.8em"
-                }}
+                style={{ color: "var(--muted)", fontStyle: "italic", fontSize: "0.8em" }}
               >
                 {siteConfig.role}
               </span>
@@ -118,10 +107,10 @@ export function HeroSection() {
             {/* Tagline + CTAs */}
             <motion.div
               {...fadeUp(0.22)}
-              className="flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-14"
+              className="flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-12"
             >
               <p
-                className="max-w-[30ch] text-base leading-relaxed sm:text-[1.05rem]"
+                className="max-w-[28ch] text-base leading-relaxed sm:text-[1.05rem]"
                 style={{ color: "var(--muted)" }}
               >
                 {siteConfig.intro}
@@ -135,20 +124,58 @@ export function HeroSection() {
                 </ButtonLink>
               </div>
             </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              {...fadeUp(0.35)}
+              className="pt-8 grid grid-cols-3"
+              style={{ borderTop: "1px solid var(--border)" }}
+            >
+              {impactStats.map((stat, i) => (
+                <div
+                  key={stat.label}
+                  style={
+                    i !== 0
+                      ? { borderLeft: "1px solid var(--border)", paddingLeft: "1.75rem" }
+                      : { paddingRight: "1.75rem" }
+                  }
+                >
+                  <p
+                    className="font-display font-bold leading-none tracking-tight"
+                    style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", color: "var(--ink)" }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p
+                    className="mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em]"
+                    style={{ color: "var(--muted)" }}
+                  >
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Credibility */}
+            <motion.p
+              {...fadeUp(0.45)}
+              className="text-xs font-medium uppercase tracking-[0.2em]"
+              style={{ color: "var(--muted)", opacity: 0.65 }}
+            >
+              Helping brands grow online · Based in East Africa · Open to remote work
+            </motion.p>
           </div>
 
-          {/* Right — profile photo */}
+          {/* ── Right — large profile photo (desktop) ── */}
           <motion.div
-            {...fadeUp(0.15)}
-            className="hidden lg:block lg:self-end"
+            {...fadeUp(0.12)}
+            className="hidden lg:block"
           >
             <div
+              className="relative w-full overflow-hidden"
               style={{
-                position: "relative",
-                width: 210,
-                height: 268,
-                borderRadius: "1.25rem",
-                overflow: "hidden",
+                aspectRatio: "3 / 4",
+                borderRadius: "1.5rem",
                 border: "1px solid var(--border)"
               }}
             >
@@ -157,70 +184,36 @@ export function HeroSection() {
                 fill
                 priority
                 quality={90}
-                sizes="210px"
+                sizes="400px"
                 src={siteConfig.profileImage}
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "center top"
-                }}
+                style={{ objectFit: "cover", objectPosition: "center top" }}
               />
-              {/* Subtle bottom fade */}
+              {/* Name overlay at bottom */}
               <div
                 aria-hidden
+                className="absolute inset-x-0 bottom-0 px-6 py-5"
                 style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: "linear-gradient(to bottom, transparent 60%, var(--bg) 100%)",
-                  opacity: 0.4
+                  background: "linear-gradient(to top, var(--bg) 0%, transparent 100%)",
+                  paddingTop: "4rem"
                 }}
-              />
+              >
+                <p
+                  className="font-display text-sm font-semibold tracking-wide"
+                  style={{ color: "var(--ink)" }}
+                >
+                  {siteConfig.name}
+                </p>
+                <p
+                  className="text-xs mt-0.5 uppercase tracking-[0.15em]"
+                  style={{ color: "var(--muted)" }}
+                >
+                  {siteConfig.location}
+                </p>
+              </div>
             </div>
           </motion.div>
+
         </div>
-
-        {/* ── Stats bar ──────────────────────────────────── */}
-        <motion.div
-          {...fadeUp(0.35)}
-          className="mt-16 sm:mt-20 pt-8 grid grid-cols-3"
-          style={{ borderTop: "1px solid var(--border)" }}
-        >
-          {impactStats.map((stat, i) => (
-            <div
-              key={stat.label}
-              style={
-                i !== 0
-                  ? { borderLeft: "1px solid var(--border)", paddingLeft: "2rem" }
-                  : { paddingRight: "2rem" }
-              }
-            >
-              <p
-                className="font-display font-bold leading-none tracking-tight"
-                style={{
-                  fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                  color: "var(--ink)"
-                }}
-              >
-                {stat.value}
-              </p>
-              <p
-                className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em]"
-                style={{ color: "var(--muted)" }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* ── Credibility line ───────────────────────────── */}
-        <motion.p
-          {...fadeUp(0.45)}
-          className="mt-8 text-xs font-medium uppercase tracking-[0.2em]"
-          style={{ color: "var(--muted)", opacity: 0.7 }}
-        >
-          Helping brands grow online · Based in East Africa · Open to remote work
-        </motion.p>
-
       </Container>
     </section>
   );
