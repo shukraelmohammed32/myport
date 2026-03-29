@@ -38,9 +38,7 @@ export function ContactSection({
         ) : null}
 
         {compact ? (
-          <FadeIn
-            className="panel flex flex-col items-start justify-between gap-5 p-6 sm:flex-row sm:items-center sm:p-8"
-          >
+          <FadeIn className="panel flex flex-col items-start justify-between gap-5 p-6 sm:flex-row sm:items-center sm:p-8">
             <div>
               <h3
                 className="font-display text-2xl font-semibold"
@@ -48,10 +46,7 @@ export function ContactSection({
               >
                 Open to high-impact engineering roles
               </h3>
-              <p
-                className="mt-2 max-w-xl text-sm sm:text-base"
-                style={{ color: "var(--muted)" }}
-              >
+              <p className="mt-2 max-w-xl text-sm sm:text-base" style={{ color: "var(--muted)" }}>
                 Reach out for collaboration, consulting, or full-time opportunities.
               </p>
             </div>
@@ -71,12 +66,7 @@ export function ContactSection({
                     >
                       Name
                     </label>
-                    <input
-                      className="input-field"
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
-                    />
+                    <input className="input-field" id="name" name="name" placeholder="Your name" />
                   </div>
                   <div>
                     <label
@@ -126,8 +116,7 @@ export function ContactSection({
                   />
                 </div>
                 <button
-                  className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.97] hover:opacity-80"
-                  style={{ backgroundColor: "var(--ink)", color: "var(--bg)" }}
+                  className="inline-flex items-center gap-2 rounded-xl bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--bg)] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
                   type="submit"
                 >
                   <SendHorizontal className="h-4 w-4" />
@@ -155,18 +144,12 @@ export function ContactSection({
                   const Icon = iconByLabel[link.label as keyof typeof iconByLabel] ?? Mail;
                   return (
                     <Link
-                      className="flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-medium transition-all"
+                      className="flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-medium transition-colors hover:bg-[var(--surface)]"
                       style={{ borderColor: "var(--border)", color: "var(--ink)" }}
                       href={link.href}
                       key={link.label}
                       rel="noreferrer"
                       target="_blank"
-                      onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLElement).style.backgroundColor = "var(--surface)";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-                      }}
                     >
                       <span>{link.label}</span>
                       <Icon className="h-4 w-4" style={{ color: "var(--muted)" }} />
@@ -182,7 +165,7 @@ export function ContactSection({
                 <p>
                   Email:{" "}
                   <Link
-                    className="font-semibold link-hover"
+                    className="link-hover font-semibold"
                     style={{ color: "var(--ink)" }}
                     href={`mailto:${siteConfig.email}`}
                   >
