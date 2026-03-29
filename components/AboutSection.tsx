@@ -31,26 +31,40 @@ export function AboutSection({
         ) : null}
 
         <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-          <FadeIn className="panel p-6 sm:p-7">
-            <h3 className="font-display text-xl font-semibold text-slate-100 dark:text-slate-100">
+          {/* Background */}
+          <FadeIn className="panel p-6 sm:p-8">
+            <h3
+              className="font-display text-xl font-semibold"
+              style={{ color: "var(--ink)" }}
+            >
               Professional background
             </h3>
-            <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-300 dark:text-slate-300 sm:text-base">
+            <div
+              className="mt-4 space-y-4 text-sm leading-relaxed sm:text-base"
+              style={{ color: "var(--muted)" }}
+            >
               {paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
           </FadeIn>
 
-          <FadeIn className="panel-muted p-6 sm:p-7" delay={0.08}>
-            <h3 className="font-display text-xl font-semibold text-slate-100 dark:text-slate-100">
+          {/* Principles */}
+          <FadeIn className="panel-muted p-6 sm:p-8" delay={0.08}>
+            <h3
+              className="font-display text-xl font-semibold"
+              style={{ color: "var(--ink)" }}
+            >
               Working principles
             </h3>
-            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-300 dark:text-slate-300 sm:text-base">
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed sm:text-base">
               {values.map((principle) => (
                 <li className="flex gap-3" key={principle}>
-                  <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400" />
-                  <span>{principle}</span>
+                  <span
+                    className="mt-2 h-2 w-2 shrink-0 rounded-full"
+                    style={{ backgroundColor: "var(--accent)" }}
+                  />
+                  <span style={{ color: "var(--muted)" }}>{principle}</span>
                 </li>
               ))}
             </ul>

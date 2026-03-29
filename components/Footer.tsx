@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 import { navigation, socialLinks, siteConfig } from "@/data/site";
 import { Container } from "@/components/Container";
@@ -7,29 +8,58 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-16 border-t border-purple-800/50 bg-gradient-to-b from-purple-900/60 to-purple-800/50 py-10 dark:border-purple-700/60 dark:from-purple-800/70 dark:to-purple-700/50">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-600/30 to-purple-500/30 dark:via-purple-500/40 dark:to-purple-400/40" />
+    <footer
+      className="mt-20 py-12"
+      style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--bg)" }}
+    >
+      <Container className="space-y-10">
 
-      <Container className="relative space-y-8">
-        <div className="grid gap-8 border-b border-purple-700/50 pb-8 dark:border-purple-600/50 md:grid-cols-[1.4fr_1fr_1fr]">
+        {/* Top grid */}
+        <div
+          className="grid gap-10 pb-10 md:grid-cols-[1.5fr_1fr_1fr]"
+          style={{ borderBottom: "1px solid var(--border)" }}
+        >
+          {/* Brand */}
           <div className="space-y-3">
-            <p className="inline-flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-purple-100 dark:text-purple-100">
-              <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-purple-400 to-purple-500" />
+            <p
+              className="flex items-center gap-2.5 font-display text-base font-semibold"
+              style={{ color: "var(--ink)" }}
+            >
+              <span
+                className="h-2 w-2 rounded-full"
+                style={{ backgroundColor: "var(--ink)" }}
+                aria-hidden
+              />
               {siteConfig.name}
             </p>
-            <p className="max-w-md text-sm text-purple-300 dark:text-purple-300">{siteConfig.availability}</p>
+            <p
+              className="max-w-xs text-sm leading-relaxed"
+              style={{ color: "var(--muted)" }}
+            >
+              {siteConfig.availability}
+            </p>
+            <p className="text-xs" style={{ color: "var(--muted)", opacity: 0.65 }}>
+              {siteConfig.email}
+            </p>
           </div>
 
-          <div className="space-y-3">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-purple-400 dark:text-purple-400">
+          {/* Navigate */}
+          <div className="space-y-4">
+            <h3
+              className="text-[0.7rem] font-bold uppercase tracking-[0.2em]"
+              style={{ color: "var(--muted)" }}
+            >
               Navigate
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link
-                    className="text-sm font-medium text-purple-300 transition hover:text-purple-100 dark:text-purple-300 dark:hover:text-purple-100"
+                    className="link-hover text-sm font-medium transition-opacity"
+                    style={{ color: "var(--ink)", opacity: 0.65 }}
                     href={item.href}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.65")}
                   >
                     {item.label}
                   </Link>
@@ -38,23 +68,30 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="space-y-3">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-purple-400 dark:text-purple-400">
+          {/* Connect */}
+          <div className="space-y-4">
+            <h3
+              className="text-[0.7rem] font-bold uppercase tracking-[0.2em]"
+              style={{ color: "var(--muted)" }}
+            >
               Connect
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {socialLinks.map((link) => {
                 const isExternal = link.href.startsWith("http");
-
                 return (
                   <li key={link.label}>
                     <Link
-                      className="inline-flex items-center rounded-full border border-purple-700/60 bg-purple-800/60 px-3 py-1.5 text-sm font-medium text-purple-300 transition hover:border-purple-600/50 hover:bg-purple-700/50 hover:text-purple-100 dark:border-purple-600/60 dark:bg-purple-700/60 dark:text-purple-300 dark:hover:border-purple-500/50 dark:hover:bg-purple-600/50 dark:hover:text-purple-100"
+                      className="link-hover inline-flex items-center gap-1.5 text-sm font-medium transition-opacity"
+                      style={{ color: "var(--ink)", opacity: 0.65 }}
                       href={link.href}
                       rel={isExternal ? "noreferrer" : undefined}
                       target={isExternal ? "_blank" : undefined}
+                      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.65")}
                     >
                       {link.label}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
                     </Link>
                   </li>
                 );
@@ -63,14 +100,19 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 text-sm text-purple-400 dark:text-purple-400 sm:flex-row sm:items-center sm:justify-between">
+        {/* Bottom bar */}
+        <div
+          className="flex flex-col gap-1 text-xs sm:flex-row sm:items-center sm:justify-between"
+          style={{ color: "var(--muted)" }}
+        >
           <p>
-            (c) {year} {siteConfig.name}. Crafted with Next.js and Tailwind CSS.
+            © {year} {siteConfig.name}. Crafted with Next.js &amp; Tailwind CSS.
           </p>
-          <p className="text-xs font-medium uppercase tracking-[0.08em] text-purple-400 dark:text-purple-400">
+          <p className="uppercase tracking-[0.12em] font-medium">
             {siteConfig.role}
           </p>
         </div>
+
       </Container>
     </footer>
   );

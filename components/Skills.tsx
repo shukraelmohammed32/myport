@@ -16,7 +16,6 @@ export function SkillsSection({
   sectionId = "skills",
   showTitle = true
 }: SkillsSectionProps) {
-  // Group all skills into exactly three parts.
   const frontendCategories = ["Frontend Frameworks", "CSS Frameworks", "Markup Languages"];
   const backendCategories = [
     "Programming Languages",
@@ -32,22 +31,20 @@ export function SkillsSection({
     {
       category: "Frontend",
       items: skills
-        .filter((skill) => frontendCategories.includes(skill.category))
-        .sort((first, second) => first.name.localeCompare(second.name))
+        .filter((s) => frontendCategories.includes(s.category))
+        .sort((a, b) => a.name.localeCompare(b.name))
     },
     {
       category: "Backend",
       items: skills
-        .filter((skill) => backendCategories.includes(skill.category))
-        .sort((first, second) => first.name.localeCompare(second.name))
+        .filter((s) => backendCategories.includes(s.category))
+        .sort((a, b) => a.name.localeCompare(b.name))
     },
     {
       category: "Tools & DevOps",
       items: skills
-        .filter(
-          (skill) => !frontendCategories.includes(skill.category) && !backendCategories.includes(skill.category)
-        )
-        .sort((first, second) => first.name.localeCompare(second.name))
+        .filter((s) => !frontendCategories.includes(s.category) && !backendCategories.includes(s.category))
+        .sort((a, b) => a.name.localeCompare(b.name))
     }
   ];
 
@@ -66,47 +63,63 @@ export function SkillsSection({
           </FadeIn>
         ) : null}
 
-        <div className="space-y-12">
+        <div className="space-y-14">
           {visibleCategories.map(({ category, items }, categoryIndex) => (
-            <FadeIn key={category} delay={categoryIndex * 0.05}>
-              <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-slate-100 dark:text-slate-100 border-b border-purple-500/30 dark:border-purple-400/30 pb-2">
+            <FadeIn key={category} delay={categoryIndex * 0.06}>
+              <div className="space-y-5">
+                <h2
+                  className="font-display text-xl font-bold pb-3"
+                  style={{
+                    color: "var(--ink)",
+                    borderBottom: "1px solid var(--border)"
+                  }}
+                >
                   {category}
                 </h2>
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {items.map((skill, skillIndex) => (
-                    <div 
-                      className="panel tilt-surface p-5 transition-all duration-300 hover:scale-105 hover:shadow-glow-lg" 
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {items.map((skill) => (
+                    <div
                       key={skill.name}
-                      style={{
-                        animationDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.05)}s`
-                      }}
+                      className="panel p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card"
                     >
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3">
                         <Image
                           alt={`${skill.name} icon`}
-                          className="rounded-xl border border-purple-500/30 transition-transform duration-300 hover:scale-110"
-                          height={56}
+                          className="rounded-lg"
+                          height={44}
                           src={skill.icon}
-                          width={56}
+                          width={44}
+                          style={{ border: "1px solid var(--border)" }}
                         />
                         <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-3">
-                            <h3 className="truncate font-display text-lg font-semibold text-slate-100 dark:text-slate-100">
+                          <div className="flex items-center justify-between gap-2">
+                            <h3
+                              className="truncate font-display text-sm font-semibold"
+                              style={{ color: "var(--ink)" }}
+                            >
                               {skill.name}
                             </h3>
-                            <span className="text-sm font-semibold text-purple-400 dark:text-purple-300">
+                            <span
+                              className="text-xs font-semibold tabular-nums"
+                              style={{ color: "var(--muted)" }}
+                            >
                               {skill.percentage}%
                             </span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="skill-meter mt-4 h-2.5 rounded-full bg-slate-700/60 dark:bg-slate-600/60">
+                      {/* Skill bar */}
+                      <div
+                        className="mt-3 h-1.5 rounded-full overflow-hidden"
+                        style={{ backgroundColor: "var(--border)" }}
+                      >
                         <div
-                          aria-hidden
-                          className="skill-meter-fill h-full rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 hover:from-purple-400 hover:via-pink-400 hover:to-blue-400 transition-all duration-300"
-                          style={{ width: `${skill.percentage}%` }}
+                          className="h-full rounded-full transition-all duration-500"
+                          style={{
+                            width: `${skill.percentage}%`,
+                            backgroundColor: "var(--ink)"
+                          }}
                         />
                       </div>
                     </div>
