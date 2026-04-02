@@ -4,36 +4,36 @@
 
 /* ─── Design tokens ──────────────────────────────────────── */
 :root {
-  --bg:        #f7f5f0;
-  --surface:   #edeae3;
-  --ink:       #111111;
-  --muted:     #76746e;
-  --border:    #dbd8d0;
-  --accent:    #b8a88a;
-  --dot-color: rgba(17, 17, 17, 0.055);
+  --background: #ffffff;
+  --background-accent: #f5f5f7;
+  --foreground: #1d1d1f;
+  --muted: #86868b;
+  --border: #d2d2d7;
+  --accent: #0071e3;
+  --dot-color: rgba(0, 0, 0, 0.055);
   /* legacy compat */
-  --primary:   #111111;
-  --bg-start:  #f7f5f0;
-  --bg-end:    #f0ede6;
-  --glow-a:    transparent;
-  --glow-b:    transparent;
-  --glow-c:    transparent;
+  --primary: #1d1d1f;
+  --bg-start: #ffffff;
+  --bg-end: #f5f5f7;
+  --glow-a: transparent;
+  --glow-b: transparent;
+  --glow-c: transparent;
 }
 
 .dark {
-  --bg:        #0d0d0b;
-  --surface:   #181816;
-  --ink:       #efece5;
-  --muted:     #88887a;
-  --border:    #2a2a26;
-  --accent:    #b8a88a;
-  --dot-color: rgba(239, 236, 229, 0.04);
-  --primary:   #efece5;
-  --bg-start:  #0d0d0b;
-  --bg-end:    #111110;
-  --glow-a:    transparent;
-  --glow-b:    transparent;
-  --glow-c:    transparent;
+  --background: #1d1d1f;
+  --background-accent: #2a2a2c;
+  --foreground: #f5f5f7;
+  --muted: #86868b;
+  --border: #424245;
+  --accent: #2997ff;
+  --dot-color: rgba(255, 255, 255, 0.04);
+  --primary: #f5f5f7;
+  --bg-start: #1d1d1f;
+  --bg-end: #2a2a2c;
+  --glow-a: transparent;
+  --glow-b: transparent;
+  --glow-c: transparent;
 }
 
 /* ─── Base ───────────────────────────────────────────────── */
@@ -44,21 +44,21 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   min-height: 100dvh;
-  color: var(--ink);
-  background-color: var(--bg);
+  color: var(--foreground);
+  background-color: var(--background);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: var(--ink);
-  color: var(--bg);
+  background-color: var(--foreground);
+  color: var(--background);
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────── */
 ::-webkit-scrollbar         { width: 5px; }
-::-webkit-scrollbar-track   { background: var(--bg); }
+::-webkit-scrollbar-track   { background: var(--background); }
 ::-webkit-scrollbar-thumb   { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
@@ -86,13 +86,13 @@ body {
   .panel {
     border-radius: 1rem;
     border: 1px solid var(--border);
-    background-color: var(--surface);
+    background-color: var(--background-accent);
   }
 
   .panel-muted {
     border-radius: 1rem;
     border: 1px solid var(--border);
-    background-color: var(--bg);
+    background-color: var(--background);
   }
 
   .chip {

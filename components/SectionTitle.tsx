@@ -18,7 +18,7 @@ export function SectionTitle({ eyebrow, title, description, centered = false }: 
       </p>
       <h2
         className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
-        style={{ color: "var(--ink)" }}
+        style={{ color: "var(--foreground)" }}
       >
         {title}
       </h2>

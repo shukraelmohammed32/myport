@@ -42,7 +42,7 @@ export function ContactSection({
             <div>
               <h3
                 className="font-display text-2xl font-semibold"
-                style={{ color: "var(--ink)" }}
+                style={{ color: "var(--foreground)" }}
               >
                 Open to high-impact engineering roles
               </h3>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 
 import { impactStats, siteConfig } from "@/data/site";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -23,6 +24,14 @@ export function HeroSection() {
       className="relative flex flex-col overflow-hidden"
       style={{ minHeight: "calc(100dvh - 4.25rem)" }}
     >
+      {/* Animated background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-20"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, var(--background) 0%, var(--background-accent) 100%)",
+        }}
+      />
       {/* Dot grid */}
       <div
         aria-hidden
@@ -92,11 +101,17 @@ export function HeroSection() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
+                  <p className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>
                     {siteConfig.name}
                   </p>
                   <p className="text-xs" style={{ color: "var(--muted)" }}>
-                    {siteConfig.role}
+                    <Typewriter
+                      options={{
+                        strings: siteConfig.roles,
+                        autoStart: true,
+                        loop: true,
+                      }}
+                    />
                   </p>
                 </div>
               </motion.div>

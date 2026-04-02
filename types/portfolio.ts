@@ -22,6 +22,7 @@ export type Skill = {
 };
 
 export type Project = {
+  slug: string;
   title: string;
   summary: string;
   image: string;

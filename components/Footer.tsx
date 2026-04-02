@@ -10,7 +10,7 @@ export function SiteFooter() {
   return (
     <footer
       className="mt-20 py-12"
-      style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--bg)" }}
+      style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--background)" }}
     >
       <Container className="space-y-10">
 
@@ -23,11 +23,11 @@ export function SiteFooter() {
           <div className="space-y-3">
             <p
               className="flex items-center gap-2.5 font-display text-base font-semibold"
-              style={{ color: "var(--ink)" }}
+              style={{ color: "var(--foreground)" }}
             >
               <span
                 className="h-2 w-2 rounded-full"
-                style={{ backgroundColor: "var(--ink)" }}
+                style={{ backgroundColor: "var(--foreground)" }}
                 aria-hidden
               />
               {siteConfig.name}
@@ -53,7 +53,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     className="link-hover text-sm font-medium opacity-60 transition-opacity hover:opacity-100"
-                    style={{ color: "var(--ink)" }}
+                    style={{ color: "var(--foreground)" }}
                     href={item.href}
                   >
                     {item.label}
@@ -78,7 +78,7 @@ export function SiteFooter() {
                   <li key={link.label}>
                     <Link
                       className="link-hover inline-flex items-center gap-1.5 text-sm font-medium opacity-60 transition-opacity hover:opacity-100"
-                      style={{ color: "var(--ink)" }}
+                      style={{ color: "var(--foreground)" }}
                       href={link.href}
                       rel={isExternal ? "noreferrer" : undefined}
                       target={isExternal ? "_blank" : undefined}

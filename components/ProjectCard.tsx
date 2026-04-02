@@ -22,12 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      className="group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
-      style={{
-        borderRadius: "1rem",
-        border: "1px solid var(--border)",
-        backgroundColor: "var(--surface)"
-      }}
+      className="group overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--background-accent)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
     >
       {/* Image */}
       <Link
@@ -41,14 +36,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {isDataImage ? (
           <img
             alt={`${project.title} project preview`}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]"
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
             onError={() => setImageSrc("/images/project-ecommerce.svg")}
             src={imageSrc}
           />
         ) : (
           <Image
             alt={`${project.title} project preview`}
-            className="object-cover transition duration-700 group-hover:scale-[1.05]"
+            className="object-cover transition duration-700 group-hover:scale-105"
             fill
             onError={() => setImageSrc("/images/project-ecommerce.svg")}
             src={imageSrc}
@@ -56,16 +51,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
         <div
           aria-hidden
-          className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"
+          className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5"
         />
       </Link>
 
       {/* Content */}
-      <div className="space-y-4 p-6">
+      <div className="space-y-5 p-6">
         <div>
           <h3
-            className="font-display text-lg font-bold leading-snug"
-            style={{ color: "var(--ink)" }}
+            className="font-display text-xl font-bold leading-snug"
+            style={{ color: "var(--foreground)" }}
           >
             {project.title}
           </h3>
@@ -74,38 +69,44 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {project.stack.map((item) => (
-            <span className="chip" key={item}>{item}</span>
+            <span className="chip text-xs" key={item}>{item}</span>
           ))}
         </div>
 
         <div
-          className="flex flex-wrap gap-5 pt-3"
+          className="flex items-center justify-between gap-5 pt-4"
           style={{ borderTop: "1px solid var(--border)" }}
         >
-          <Link
-            className="link-hover inline-flex items-center gap-1.5 text-sm font-medium opacity-60 transition-opacity hover:opacity-100"
-            style={{ color: "var(--ink)" }}
-            href={project.github}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Github className="h-4 w-4" />
-            GitHub
-          </Link>
-          {project.demo ? (
+          <div className="flex items-center gap-4">
             <Link
-              className="link-hover inline-flex items-center gap-1.5 text-sm font-semibold"
-              style={{ color: "var(--ink)" }}
-              href={project.demo}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+              href={project.github}
               rel="noreferrer"
               target="_blank"
             >
-              <ArrowUpRight className="h-4 w-4" />
-              Live Demo
+              <Github className="h-4 w-4" />
+              GitHub
             </Link>
-          ) : null}
+            {project.demo ? (
+              <Link
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--foreground)]"
+                href={project.demo}
+                rel="noreferrer"
+                target="_blank"
+              >
+                Live Demo
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            ) : null}
+          </div>
+          <Link
+            href={`/projects/${project.slug}`}
+            className="text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+          >
+            Details &rarr;
+          </Link>
         </div>
       </div>
     </article>

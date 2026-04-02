@@ -35,7 +35,7 @@ export function AboutSection({
           <FadeIn className="panel p-6 sm:p-8">
             <h3
               className="font-display text-xl font-semibold"
-              style={{ color: "var(--ink)" }}
+              style={{ color: "var(--foreground)" }}
             >
               Professional background
             </h3>
@@ -53,7 +53,7 @@ export function AboutSection({
           <FadeIn className="panel-muted p-6 sm:p-8" delay={0.08}>
             <h3
               className="font-display text-xl font-semibold"
-              style={{ color: "var(--ink)" }}
+              style={{ color: "var(--foreground)" }}
             >
               Working principles
             </h3>

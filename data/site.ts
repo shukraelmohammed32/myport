@@ -2,7 +2,7 @@ import type { NavItem, SocialItem } from "@/types/portfolio";
 
 export const siteConfig = {
   name: "Shukreal",
-  role: "Full-Stack Developer",
+  roles: ["Full-Stack Developer", "React Specialist", "UI/UX Enthusiast"],
   intro:
     "I build modern full-stack web applications with clean frontend architecture, robust backend APIs, and reliable database design.",
   email: "shukraelmohammed32@gmail.com",

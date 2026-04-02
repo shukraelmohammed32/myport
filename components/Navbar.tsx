@@ -33,7 +33,7 @@ export function SiteHeader() {
       className="sticky top-0 z-50 transition-all duration-300"
       style={{
         borderBottom: "1px solid var(--border)",
-        backgroundColor: "var(--bg)",
+        backgroundColor: "var(--background)",
         backdropFilter: scrolled ? "blur(14px)" : "none"
       }}
     >
@@ -43,12 +43,12 @@ export function SiteHeader() {
         <Link href="/" className="group flex items-center gap-2.5">
           <span
             className="h-2 w-2 rounded-full transition-transform group-hover:scale-125"
-            style={{ backgroundColor: "var(--ink)" }}
+            style={{ backgroundColor: "var(--foreground)" }}
             aria-hidden
           />
           <span
             className="font-display text-[0.95rem] font-semibold tracking-tight transition-opacity group-hover:opacity-60"
-            style={{ color: "var(--ink)" }}
+            style={{ color: "var(--foreground)" }}
           >
             {siteConfig.name}
           </span>
@@ -66,7 +66,7 @@ export function SiteHeader() {
                   ? "font-semibold opacity-100"
                   : "opacity-50 hover:opacity-100"
               )}
-              style={{ color: "var(--ink)" }}
+              style={{ color: "var(--foreground)" }}
             >
               {item.label}
             </Link>
@@ -79,7 +79,7 @@ export function SiteHeader() {
           <Link
             href={siteConfig.resumePath}
             download
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] px-3.5 py-1.5 text-sm font-medium text-[var(--ink)] transition-all hover:bg-[var(--ink)] hover:text-[var(--bg)] hover:border-[var(--ink)] active:scale-[0.97]"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] px-3.5 py-1.5 text-sm font-medium text-[var(--foreground)] transition-all hover:bg-[var(--foreground)] hover:text-[var(--background)] hover:border-[var(--foreground)] active:scale-[0.97]"
           >
             Resume
           </Link>
@@ -91,7 +91,7 @@ export function SiteHeader() {
           <button
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             className="inline-flex h-9 w-9 items-center justify-center rounded-lg border transition-colors active:scale-[0.97]"
-            style={{ borderColor: "var(--border)", color: "var(--ink)" }}
+            style={{ borderColor: "var(--border)", color: "var(--foreground)" }}
             onClick={() => setMenuOpen((p) => !p)}
             type="button"
           >

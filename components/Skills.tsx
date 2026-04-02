@@ -70,7 +70,7 @@ export function SkillsSection({
                 <h2
                   className="font-display text-xl font-bold pb-3"
                   style={{
-                    color: "var(--ink)",
+                    color: "var(--foreground)",
                     borderBottom: "1px solid var(--border)"
                   }}
                 >
@@ -95,7 +95,7 @@ export function SkillsSection({
                           <div className="flex items-center justify-between gap-2">
                             <h3
                               className="truncate font-display text-sm font-semibold"
-                              style={{ color: "var(--ink)" }}
+                              style={{ color: "var(--foreground)" }}
                             >
                               {skill.name}
                             </h3>
