@@ -67,7 +67,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             className="pointer-events-none fixed inset-0 -z-10"
             style={{
               backgroundImage:
-                "radial-gradient(circle at top, rgba(0, 224, 255, 0.08), transparent 34%), radial-gradient(circle at 80% 18%, rgba(255, 45, 85, 0.08), transparent 28%), radial-gradient(circle, var(--dot-color) 1px, transparent 1px)",
+                "radial-gradient(circle at top, var(--glow-a), transparent 34%), radial-gradient(circle at 80% 18%, var(--glow-b), transparent 28%), radial-gradient(circle, var(--dot-color) 1px, transparent 1px)",
               backgroundSize: "100% 100%, 100% 100%, 44px 44px"
             }}
           />

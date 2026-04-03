@@ -15,6 +15,10 @@
   --accent-soft-strong: rgba(0, 224, 255, 0.24);
   --surface: rgba(8, 14, 28, 0.72);
   --surface-strong: rgba(10, 18, 36, 0.9);
+  --surface-muted: rgba(255, 255, 255, 0.03);
+  --surface-glint: rgba(255, 255, 255, 0.06);
+  --surface-glint-soft: rgba(255, 255, 255, 0.02);
+  --surface-inset: rgba(255, 255, 255, 0.08);
   --ink: #ffffff;
   --bg: #050816;
   --primary: #ffffff;
@@ -24,30 +28,36 @@
   --glow-a: rgba(0, 224, 255, 0.28);
   --glow-b: rgba(255, 45, 85, 0.22);
   --glow-c: rgba(255, 255, 255, 0.06);
+  --backdrop: rgba(3, 8, 18, 0.72);
 }
 
 html:not(.dark) {
-  --background: #f5f8ff;
-  --background-accent: #ebf2ff;
-  --foreground: #07111f;
-  --muted: #52617b;
-  --border: rgba(15, 23, 42, 0.12);
-  --accent: #007dff;
-  --accent-strong: #00b7ff;
-  --accent-secondary: #e11d48;
-  --accent-soft: rgba(0, 125, 255, 0.12);
-  --accent-soft-strong: rgba(0, 125, 255, 0.18);
-  --surface: rgba(255, 255, 255, 0.72);
-  --surface-strong: rgba(255, 255, 255, 0.88);
-  --ink: #08111f;
-  --bg: #f5f8ff;
-  --primary: #08111f;
-  --bg-start: #f5f8ff;
-  --bg-end: #e6eeff;
-  --dot-color: rgba(15, 23, 42, 0.05);
-  --glow-a: rgba(0, 125, 255, 0.18);
-  --glow-b: rgba(225, 29, 72, 0.12);
-  --glow-c: rgba(255, 255, 255, 0.45);
+  --background: #fff1f1;
+  --background-accent: #ffe1e1;
+  --foreground: #2a0b0b;
+  --muted: #7b4a4a;
+  --border: rgba(153, 27, 27, 0.18);
+  --accent: #ef4444;
+  --accent-strong: #f87171;
+  --accent-secondary: #b91c1c;
+  --accent-soft: rgba(239, 68, 68, 0.14);
+  --accent-soft-strong: rgba(239, 68, 68, 0.26);
+  --surface: rgba(255, 245, 245, 0.82);
+  --surface-strong: rgba(255, 236, 236, 0.9);
+  --surface-muted: rgba(255, 233, 233, 0.72);
+  --surface-glint: rgba(255, 255, 255, 0.34);
+  --surface-glint-soft: rgba(255, 255, 255, 0.16);
+  --surface-inset: rgba(255, 255, 255, 0.55);
+  --ink: #6b1111;
+  --bg: #fff1f1;
+  --primary: #7f1d1d;
+  --bg-start: #fff1f1;
+  --bg-end: #ffd1d1;
+  --dot-color: rgba(153, 27, 27, 0.06);
+  --glow-a: rgba(239, 68, 68, 0.22);
+  --glow-b: rgba(185, 28, 28, 0.18);
+  --glow-c: rgba(255, 186, 186, 0.16);
+  --backdrop: rgba(127, 29, 29, 0.72);
 }
 
 *,
@@ -67,9 +77,9 @@ body {
   overflow-x: hidden;
   color: var(--foreground);
   background:
-    radial-gradient(circle at 12% 10%, rgba(0, 224, 255, 0.14), transparent 26%),
-    radial-gradient(circle at 86% 18%, rgba(255, 45, 85, 0.1), transparent 24%),
-    radial-gradient(circle at 50% 80%, rgba(0, 224, 255, 0.08), transparent 30%),
+    radial-gradient(circle at 12% 10%, var(--glow-a), transparent 26%),
+    radial-gradient(circle at 86% 18%, var(--glow-b), transparent 24%),
+    radial-gradient(circle at 50% 80%, var(--glow-c), transparent 30%),
     linear-gradient(180deg, var(--background) 0%, var(--bg-end) 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,8 +93,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--surface-glint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--surface-glint) 1px, transparent 1px);
   background-position: center top;
   background-size: 96px 96px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 92%);
@@ -97,8 +107,8 @@ body::after {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 20% 20%, rgba(0, 224, 255, 0.06), transparent 28%),
-    radial-gradient(circle at 80% 12%, rgba(255, 45, 85, 0.06), transparent 26%);
+    radial-gradient(circle at 20% 20%, var(--glow-a), transparent 28%),
+    radial-gradient(circle at 80% 12%, var(--glow-b), transparent 26%);
   mix-blend-mode: screen;
   opacity: 0.9;
 }
@@ -109,7 +119,7 @@ a {
 }
 
 ::selection {
-  background-color: rgba(0, 224, 255, 0.82);
+  background-color: var(--accent);
   color: #ffffff;
 }
 
@@ -118,16 +128,16 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-muted);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(0, 224, 255, 0.82), rgba(255, 45, 85, 0.62));
+  background: linear-gradient(180deg, var(--accent), var(--accent-secondary));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(90, 230, 255, 0.92), rgba(255, 45, 85, 0.76));
+  background: linear-gradient(180deg, var(--accent-strong), var(--accent-secondary));
 }
 
 .link-hover {
@@ -162,10 +172,10 @@ a {
     border: 1px solid var(--border);
     border-radius: 1.5rem;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+      linear-gradient(180deg, var(--surface-glint), var(--surface-glint-soft)),
       var(--surface);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 1px 0 var(--surface-inset),
       0 20px 60px rgba(0, 0, 0, 0.24);
     backdrop-filter: blur(24px);
   }
@@ -174,25 +184,25 @@ a {
     border: 1px solid var(--border);
     border-radius: 1.5rem;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
-      rgba(255, 255, 255, 0.02);
+      linear-gradient(180deg, var(--surface-glint-soft), rgba(255, 255, 255, 0.01)),
+      var(--surface-muted);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      inset 0 1px 0 var(--surface-inset),
       0 18px 48px rgba(0, 0, 0, 0.22);
     backdrop-filter: blur(20px);
   }
 
   .neo-panel {
-    border: 1px solid rgba(0, 224, 255, 0.16);
+    border: 1px solid var(--accent-soft-strong);
     border-radius: 1.75rem;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02)),
-      rgba(10, 18, 36, 0.72);
+      linear-gradient(180deg, var(--surface-glint), var(--surface-glint-soft)),
+      var(--surface-strong);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 1px 0 var(--surface-inset),
       inset 0 -14px 40px rgba(0, 0, 0, 0.24),
       0 28px 72px rgba(0, 0, 0, 0.34),
-      0 0 0 1px rgba(0, 224, 255, 0.04);
+      0 0 0 1px var(--accent-soft);
     backdrop-filter: blur(28px);
   }
 
@@ -200,10 +210,10 @@ a {
     border: 1px solid var(--border);
     border-radius: 1.75rem;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-      rgba(8, 14, 28, 0.68);
+      linear-gradient(180deg, var(--surface-glint), var(--surface-glint-soft)),
+      var(--surface-strong);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 1px 0 var(--surface-inset),
       0 22px 58px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(24px);
   }
@@ -214,7 +224,7 @@ a {
     gap: 0.5rem;
     border-radius: 999px;
     border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--surface-muted);
     padding: 0.35rem 0.8rem;
     font-size: 0.72rem;
     font-weight: 600;
@@ -224,7 +234,7 @@ a {
   }
 
   .text-gradient {
-    background: linear-gradient(180deg, #ffffff 0%, #78f0ff 45%, #ff8ea5 100%);
+    background: linear-gradient(180deg, var(--foreground) 0%, var(--accent-strong) 45%, var(--accent-secondary) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -235,8 +245,8 @@ a {
     align-items: center;
     gap: 0.7rem;
     border-radius: 999px;
-    border: 1px solid rgba(0, 224, 255, 0.18);
-    background: linear-gradient(135deg, rgba(0, 224, 255, 0.08), rgba(255, 45, 85, 0.04));
+    border: 1px solid var(--accent-soft-strong);
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent-soft-strong));
     padding: 0.45rem 0.9rem;
     font-size: 0.72rem;
     font-weight: 700;
@@ -248,15 +258,15 @@ a {
   .section-rule {
     height: 1px;
     width: 4rem;
-    background: linear-gradient(90deg, transparent, rgba(0, 224, 255, 0.9), rgba(255, 45, 85, 0.9), transparent);
-    box-shadow: 0 0 22px rgba(0, 224, 255, 0.3);
+    background: linear-gradient(90deg, transparent, var(--accent), var(--accent-secondary), transparent);
+    box-shadow: 0 0 22px var(--accent-soft);
   }
 
   .input-field {
     width: 100%;
     border-radius: 1rem;
     border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--surface-muted);
     padding: 0.85rem 1rem;
     font-size: 0.92rem;
     color: var(--foreground);
@@ -268,19 +278,20 @@ a {
   }
 
   .input-field::placeholder {
-    color: rgba(152, 166, 191, 0.68);
+    color: var(--muted);
+    opacity: 0.72;
   }
 
   .input-field:focus {
-    border-color: rgba(0, 224, 255, 0.46);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 0 0 3px rgba(0, 224, 255, 0.12);
+    border-color: var(--accent-soft-strong);
+    background: var(--surface);
+    box-shadow: 0 0 0 3px var(--accent-soft);
   }
 
   .glow-ring {
-    outline: 1px solid rgba(0, 224, 255, 0.72);
+    outline: 1px solid var(--accent-strong);
     outline-offset: 2px;
-    box-shadow: 0 0 24px rgba(0, 224, 255, 0.24);
+    box-shadow: 0 0 24px var(--accent-soft);
   }
 
   .cursor-glow {
@@ -293,7 +304,7 @@ a {
     width: 17.5rem;
     border-radius: 999px;
     background:
-      radial-gradient(circle, rgba(0, 224, 255, 0.18) 0%, rgba(0, 224, 255, 0.1) 28%, rgba(255, 45, 85, 0.06) 48%, transparent 72%);
+      radial-gradient(circle, var(--glow-a) 0%, rgba(255, 255, 255, 0.04) 28%, var(--glow-b) 48%, transparent 72%);
     filter: blur(30px);
     mix-blend-mode: screen;
     opacity: 0.8;
@@ -306,11 +317,11 @@ a {
     gap: 0.55rem;
     border-radius: 999px;
     border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--surface-muted);
     padding: 0.45rem 0.7rem;
     color: var(--foreground);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      inset 0 1px 0 var(--surface-inset),
       0 10px 26px rgba(0, 0, 0, 0.18);
     transition:
       transform 0.25s ease,
@@ -320,22 +331,22 @@ a {
 
   .theme-toggle:hover {
     transform: translateY(-1px);
-    border-color: rgba(0, 224, 255, 0.26);
-    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent-soft-strong);
+    background: var(--surface);
   }
 
   .theme-toggle__thumb {
     height: 1.5rem;
     width: 1.5rem;
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(0, 224, 255, 0.9), rgba(255, 45, 85, 0.88));
-    box-shadow: 0 0 24px rgba(0, 224, 255, 0.28);
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    box-shadow: 0 0 24px var(--accent-soft);
   }
 
   .surface-grid {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      linear-gradient(var(--surface-glint) 1px, transparent 1px),
+      linear-gradient(90deg, var(--surface-glint) 1px, transparent 1px);
     background-size: 42px 42px;
   }
 
@@ -350,7 +361,7 @@ a {
   .tilt-card:hover {
     box-shadow:
       0 28px 70px rgba(0, 0, 0, 0.34),
-      0 0 0 1px rgba(0, 224, 255, 0.1);
+      0 0 0 1px var(--accent-soft);
   }
 
   .timeline-rail {
@@ -364,7 +375,7 @@ a {
     top: 0.75rem;
     bottom: 0.75rem;
     width: 1px;
-    background: linear-gradient(180deg, rgba(0, 224, 255, 0.25), rgba(255, 45, 85, 0.18));
+    background: linear-gradient(180deg, var(--accent-soft-strong), var(--accent-soft));
   }
 
   .timeline-dot {
@@ -379,8 +390,8 @@ a {
     height: 0.9rem;
     width: 0.9rem;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.96) 0%, rgba(0, 224, 255, 0.9) 30%, rgba(0, 224, 255, 0.36) 64%, rgba(0, 0, 0, 0) 100%);
-    box-shadow: 0 0 0 6px rgba(0, 224, 255, 0.08), 0 0 22px rgba(0, 224, 255, 0.36);
+    background: radial-gradient(circle, var(--accent-strong) 0%, var(--accent) 30%, var(--accent-soft-strong) 64%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: 0 0 0 6px var(--accent-soft), 0 0 22px var(--accent-soft-strong);
   }
 
   .hero-scanline {
@@ -388,13 +399,13 @@ a {
   }
 
   .metric-chip {
-    border: 1px solid rgba(0, 224, 255, 0.16);
-    background: linear-gradient(135deg, rgba(0, 224, 255, 0.1), rgba(255, 45, 85, 0.06));
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 12px 30px rgba(0, 0, 0, 0.18);
+    border: 1px solid var(--accent-soft-strong);
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent-soft-strong));
+    box-shadow: inset 0 1px 0 var(--surface-inset), 0 12px 30px rgba(0, 0, 0, 0.18);
   }
 
   .modal-backdrop {
-    background: rgba(3, 8, 18, 0.72);
+    background: var(--backdrop);
     backdrop-filter: blur(22px);
   }
 }

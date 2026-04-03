@@ -14,8 +14,8 @@ export function ScrollProgress() {
     <motion.div
       className="fixed left-0 right-0 top-0 z-[60] h-[3px] origin-left"
       style={{
-        background: "linear-gradient(90deg, rgba(0, 224, 255, 0.95), rgba(255, 45, 85, 0.9))",
-        boxShadow: "0 0 20px rgba(0, 224, 255, 0.22)",
+        background: "linear-gradient(90deg, var(--accent), var(--accent-secondary))",
+        boxShadow: "0 0 20px var(--accent-soft)",
         scaleX
       }}
     />

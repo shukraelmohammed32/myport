@@ -18,11 +18,11 @@ export function SectionTitle({ eyebrow, title, description, centered = false }: 
         </span>
         <span className="section-rule" />
       </div>
-      <h2 className="font-display text-3xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+      <h2 className="font-display text-3xl font-bold leading-tight tracking-[-0.04em] text-[color:var(--foreground)] sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="text-base leading-relaxed text-white/68 sm:text-lg">
+        <p className="text-base leading-relaxed text-[color:var(--muted)] sm:text-lg">
           {description}
         </p>
       ) : null}
