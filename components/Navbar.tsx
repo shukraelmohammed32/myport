@@ -30,7 +30,7 @@ export function SiteHeader() {
     const [basePath, hash] = href.split("#");
 
     if (hash) {
-      return href === "/#home" ? pathname === "/" : false;
+      return href === "/#about" ? pathname === "/" : false;
     }
 
     return basePath === "/" ? pathname === "/" : pathname.startsWith(basePath);
@@ -48,7 +48,7 @@ export function SiteHeader() {
           }}
         >
           <div className="flex min-h-[5.1rem] items-center justify-between gap-4 px-5 sm:px-6">
-            <Link href="/#home" className="group flex items-center gap-3">
+            <Link href="/#about" className="group flex items-center gap-3">
               <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-[color:var(--accent-soft-strong)] bg-[linear-gradient(135deg,var(--accent-soft),var(--accent-soft-strong))] shadow-[0_0_24px_var(--accent-soft)]">
                 <span className="absolute inset-1 rounded-[14px] bg-[linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.02))]" />
                 <span className="relative h-2.5 w-2.5 rounded-full bg-[var(--accent)] shadow-[0_0_18px_var(--glow-a)]" />

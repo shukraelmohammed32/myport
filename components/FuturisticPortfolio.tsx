@@ -810,7 +810,7 @@ export function FuturisticPortfolio() {
         ) : null}
       </AnimatePresence>
 
-      <section id="home" className="relative pt-8 sm:pt-10">
+      <section id="about" className="relative pt-8 sm:pt-10">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top,rgba(0,224,255,0.18),transparent_36%),radial-gradient(circle_at_80%_15%,rgba(255,45,85,0.14),transparent_32%),radial-gradient(circle_at_50%_40%,rgba(0,224,255,0.08),transparent_55%)]" />
         <div className="pointer-events-none absolute left-1/2 top-20 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,224,255,0.18)_0%,rgba(0,224,255,0.06)_36%,transparent_70%)] blur-3xl" />
         <div className="pointer-events-none absolute -left-20 top-36 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -1098,9 +1098,7 @@ export function FuturisticPortfolio() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section id="about" className="section-gap relative">
+      <div className="mt-20 sm:mt-24">
         <div className={shellClass}>
           <div className="grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
             <motion.div
@@ -1229,7 +1227,8 @@ export function FuturisticPortfolio() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       <section id="skills" className="section-gap relative">
         <div className={shellClass}>
