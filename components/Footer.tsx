@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 import { navigation, socialLinks, siteConfig } from "@/data/site";
 import { Container } from "@/components/Container";
@@ -8,34 +8,44 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="pb-10 pt-4">
+    <footer className="pb-8 pt-4 sm:pb-10">
       <Container>
-        <div className="neo-panel rounded-[32px] px-6 py-8 sm:px-8">
-          <div className="grid gap-8 border-b border-white/8 pb-8 lg:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="glass-panel rounded-[34px] px-6 py-8 sm:px-8">
+          <div className="grid gap-8 border-b border-white/10 pb-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <span className="relative flex h-3 w-3">
-                  <span className="absolute inset-0 rounded-full bg-[#ff2a2a] blur-[6px]" />
-                  <span className="relative rounded-full bg-[#ff5b5b]" />
+                <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/18 bg-[linear-gradient(135deg,rgba(0,224,255,0.18),rgba(255,45,85,0.08))]">
+                  <span className="absolute inset-1 rounded-[14px] bg-[linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.02))]" />
+                  <span className="relative h-2.5 w-2.5 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(0,224,255,0.5)]" />
                 </span>
-                <p className="font-display text-lg font-semibold tracking-tight text-white">
-                  {siteConfig.name}
-                </p>
+                <div>
+                  <p className="font-display text-lg font-semibold tracking-tight text-white">
+                    {siteConfig.name}
+                  </p>
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-white/42">
+                    Futuristic full-stack portfolio
+                  </p>
+                </div>
               </div>
-              <p className="max-w-md text-sm leading-7 text-white/62">{siteConfig.availability}</p>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/40">
-                {siteConfig.role}
+
+              <p className="max-w-md text-sm leading-7 text-white/64">
+                {siteConfig.availability}
               </p>
+
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-400/10 px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-cyan-100">
+                <Sparkles className="h-3.5 w-3.5" />
+                {siteConfig.role}
+              </div>
             </div>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#ff7a7a]">
+              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-cyan-200">
                 Navigation
               </p>
               <div className="mt-4 grid gap-3">
                 {navigation.map((item) => (
                   <Link
-                    className="text-sm font-medium text-white/62 transition duration-300 hover:text-white"
+                    className="text-sm font-medium text-white/64 transition duration-300 hover:text-white"
                     href={item.href}
                     key={item.href}
                   >
@@ -46,7 +56,7 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#ff7a7a]">
+              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-cyan-200">
                 Connect
               </p>
               <div className="mt-4 grid gap-3">
@@ -55,7 +65,7 @@ export function SiteFooter() {
 
                   return (
                     <Link
-                      className="inline-flex items-center gap-2 text-sm font-medium text-white/62 transition duration-300 hover:text-white"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white/64 transition duration-300 hover:text-white"
                       href={link.href}
                       key={link.label}
                       rel={isExternal ? "noreferrer" : undefined}
@@ -70,11 +80,13 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 pt-6 text-xs text-white/42 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-2 pt-6 text-xs text-white/44 sm:flex-row sm:items-center sm:justify-between">
             <p>
-              (c) {year} {siteConfig.name}. Built with Next.js, Tailwind CSS, and a sharp red glow.
+              (c) {year} {siteConfig.name}. Built with Next.js, Tailwind CSS, Framer Motion, and neon glass styling.
             </p>
-            <p className="font-semibold uppercase tracking-[0.22em]">Premium Full-Stack Portfolio</p>
+            <p className="font-semibold uppercase tracking-[0.22em] text-white/52">
+              Premium Full-Stack Portfolio
+            </p>
           </div>
         </div>
       </Container>

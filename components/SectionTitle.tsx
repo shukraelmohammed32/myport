@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { Sparkles } from "lucide-react";
 
 type SectionTitleProps = {
   eyebrow: string;
@@ -10,23 +11,18 @@ type SectionTitleProps = {
 export function SectionTitle({ eyebrow, title, description, centered = false }: SectionTitleProps) {
   return (
     <div className={cn("space-y-4", centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl")}>
-      <p
-        className="text-xs font-bold uppercase tracking-[0.26em]"
-        style={{ color: "var(--muted)" }}
-      >
-        {eyebrow}
-      </p>
-      <h2
-        className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
-        style={{ color: "var(--foreground)" }}
-      >
+      <div className={cn("flex items-center gap-4", centered ? "justify-center" : "justify-start")}>
+        <span className="section-kicker">
+          <Sparkles className="h-3.5 w-3.5" />
+          {eyebrow}
+        </span>
+        <span className="section-rule" />
+      </div>
+      <h2 className="font-display text-3xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p
-          className="text-base leading-relaxed sm:text-lg"
-          style={{ color: "var(--muted)" }}
-        >
+        <p className="text-base leading-relaxed text-white/68 sm:text-lg">
           {description}
         </p>
       ) : null}
