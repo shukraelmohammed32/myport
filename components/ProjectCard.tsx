@@ -21,7 +21,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }, [project.image]);
 
   return (
-    <article className="tilt-card group overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02)),rgba(8,14,28,0.72)] transition-all duration-300">
+    <article className="tilt-card group overflow-hidden rounded-[30px] border border-[color:var(--border)] bg-[linear-gradient(180deg,var(--surface-glint),var(--surface-glint-soft)),var(--surface-strong)] transition-all duration-300">
       <Link
         aria-label={`Open project link for ${project.title}`}
         className="relative block aspect-[16/10] overflow-hidden"
@@ -37,18 +37,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
           src={imageSrc}
           unoptimized={isDataImage}
         />
-        <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.18)_40%,rgba(3,8,18,0.9)_100%)]" />
+        <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.18)_40%,var(--backdrop)_100%)]" />
         <div className="absolute left-4 top-4">
-          <span className="section-kicker bg-black/35 text-white/80">Featured case</span>
+          <span className="section-kicker">Featured case</span>
         </div>
       </Link>
 
       <div className="space-y-5 p-6">
         <div>
-          <h3 className="font-display text-2xl font-semibold leading-snug tracking-[-0.03em] text-white">
+          <h3 className="font-display text-2xl font-semibold leading-snug tracking-[-0.03em] text-[color:var(--foreground)]">
             {project.title}
           </h3>
-          <p className="mt-2 text-sm leading-7 text-white/64">
+          <p className="mt-2 text-sm leading-7 text-[color:var(--muted)]">
             {project.summary}
           </p>
         </div>
@@ -64,7 +64,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex flex-wrap items-center gap-3 pt-4">
           <div className="flex items-center gap-4">
             <Link
-              className="inline-flex items-center gap-1.5 rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(0,224,255,0.95),rgba(0,122,255,0.72))] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_36px_rgba(0,224,255,0.16)] transition duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-1.5 rounded-2xl border border-[color:var(--accent-soft-strong)] bg-[linear-gradient(135deg,var(--accent),var(--accent-secondary))] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_36px_var(--accent-soft)] transition duration-300 hover:-translate-y-0.5"
               href={project.github}
               rel="noreferrer"
               target="_blank"
@@ -74,7 +74,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </Link>
             {project.demo ? (
               <Link
-                className="inline-flex items-center gap-1.5 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-white/84 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/25 hover:text-white"
+                className="inline-flex items-center gap-1.5 rounded-2xl border border-[color:var(--border)] bg-[var(--surface-muted)] px-4 py-3 text-sm font-semibold text-[color:var(--foreground)] transition duration-300 hover:-translate-y-0.5 hover:border-[color:var(--accent-soft-strong)] hover:text-[color:var(--foreground)]"
                 href={project.demo}
                 rel="noreferrer"
                 target="_blank"
@@ -86,7 +86,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <Link
             href={`/projects/${project.slug}`}
-            className="ml-auto text-sm font-semibold text-cyan-200 transition duration-300 hover:text-white"
+            className="ml-auto text-sm font-semibold text-[color:var(--accent-strong)] transition duration-300 hover:text-[color:var(--foreground)]"
           >
             Details &rarr;
           </Link>

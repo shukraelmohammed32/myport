@@ -71,7 +71,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               backgroundSize: "100% 100%, 100% 100%, 44px 44px"
             }}
           />
-          <div className="pointer-events-none fixed inset-0 -z-20 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),transparent_18%,transparent_82%,rgba(255,255,255,0.02))]" />
+          <div className="pointer-events-none fixed inset-0 -z-20 bg-[linear-gradient(180deg,var(--surface-glint-soft),transparent_18%,transparent_82%,var(--surface-glint-soft))]" />
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />

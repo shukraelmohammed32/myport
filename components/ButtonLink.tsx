@@ -23,14 +23,14 @@ export function ButtonLink({
   rel
 }: ButtonLinkProps) {
   const base =
-    "inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent";
+    "inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-soft-strong)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent";
 
   if (variant === "primary") {
     return (
       <Link
         className={cn(
           base,
-          "border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(0,224,255,0.95),rgba(0,122,255,0.72))] text-white shadow-[0_16px_36px_rgba(0,224,255,0.16)] hover:-translate-y-0.5",
+          "border border-[color:var(--accent-soft-strong)] bg-[linear-gradient(135deg,var(--accent),var(--accent-secondary))] text-white shadow-[0_16px_36px_var(--accent-soft)] hover:-translate-y-0.5",
           className
         )}
         download={download}
@@ -48,7 +48,7 @@ export function ButtonLink({
       <Link
         className={cn(
           base,
-          "border border-white/10 bg-white/[0.04] text-white/84 hover:-translate-y-0.5 hover:border-cyan-300/25 hover:bg-white/[0.06] hover:text-white",
+          "border border-[color:var(--border)] bg-[var(--surface-muted)] text-[color:var(--foreground)] hover:-translate-y-0.5 hover:border-[color:var(--accent-soft-strong)] hover:bg-[var(--surface)] hover:text-[color:var(--foreground)]",
           className
         )}
         download={download}
@@ -66,7 +66,7 @@ export function ButtonLink({
     <Link
       className={cn(
         base,
-        "link-hover px-2 text-white/62 hover:text-white",
+        "link-hover px-2 text-[color:var(--muted)] hover:text-[color:var(--foreground)]",
         className
       )}
       download={download}

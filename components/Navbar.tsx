@@ -43,36 +43,36 @@ export function SiteHeader() {
           className="glass-panel rounded-[30px] transition duration-300"
           style={{
             boxShadow: scrolled
-              ? "0 26px 72px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255,255,255,0.06)"
-              : "0 18px 44px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.06)"
+              ? "0 26px 72px rgba(0, 0, 0, 0.42), inset 0 1px 0 var(--surface-inset)"
+              : "0 18px 44px rgba(0, 0, 0, 0.28), inset 0 1px 0 var(--surface-inset)"
           }}
         >
           <div className="flex min-h-[5.1rem] items-center justify-between gap-4 px-5 sm:px-6">
             <Link href="/#home" className="group flex items-center gap-3">
-              <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/18 bg-[linear-gradient(135deg,rgba(0,224,255,0.18),rgba(255,45,85,0.08))] shadow-[0_0_24px_rgba(0,224,255,0.08)]">
+              <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-[color:var(--accent-soft-strong)] bg-[linear-gradient(135deg,var(--accent-soft),var(--accent-soft-strong))] shadow-[0_0_24px_var(--accent-soft)]">
                 <span className="absolute inset-1 rounded-[14px] bg-[linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.02))]" />
-                <span className="relative h-2.5 w-2.5 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(0,224,255,0.5)]" />
+                <span className="relative h-2.5 w-2.5 rounded-full bg-[var(--accent)] shadow-[0_0_18px_var(--glow-a)]" />
               </span>
               <div>
-                <span className="block font-display text-lg font-semibold tracking-tight text-white">
+                <span className="block font-display text-lg font-semibold tracking-tight text-[color:var(--foreground)]">
                   {siteConfig.name}
                 </span>
-                <span className="block text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-white/42">
+                <span className="block text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-[color:var(--muted)]">
                   Full-Stack Developer
                 </span>
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-black/20 p-2 lg:flex">
+            <nav className="hidden items-center gap-2 rounded-full border border-[color:var(--border)] bg-[var(--surface-muted)] p-2 lg:flex">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition duration-300",
+                    "rounded-full border border-transparent px-4 py-2 text-sm font-medium transition duration-300",
                     isActive(item.href)
-                      ? "bg-cyan-400/12 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
-                      : "text-white/58 hover:bg-white/[0.04] hover:text-white"
+                      ? "bg-[var(--accent-soft)] text-[color:var(--foreground)] shadow-[inset_0_1px_0_var(--surface-inset)]"
+                      : "text-[color:var(--muted)] hover:border-[color:var(--accent-soft-strong)] hover:bg-[var(--surface-muted)] hover:text-[color:var(--foreground)]"
                   )}
                 >
                   {item.label}
@@ -85,7 +85,7 @@ export function SiteHeader() {
               <Link
                 href={siteConfig.resumePath}
                 download
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(0,224,255,0.95),rgba(0,122,255,0.72))] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_36px_rgba(0,224,255,0.16)] transition duration-300 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[color:var(--accent-soft-strong)] bg-[linear-gradient(135deg,var(--accent),var(--accent-secondary))] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_36px_var(--accent-soft)] transition duration-300 hover:-translate-y-0.5"
               >
                 Download CV
                 <Download className="h-4 w-4" />
@@ -94,7 +94,7 @@ export function SiteHeader() {
 
             <button
               aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-              className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition duration-300 active:scale-[0.97] lg:hidden"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[color:var(--border)] bg-[var(--surface-muted)] text-[color:var(--foreground)] shadow-[inset_0_1px_0_var(--surface-inset)] transition duration-300 active:scale-[0.97] lg:hidden"
               onClick={() => setMenuOpen((current) => !current)}
               type="button"
             >
@@ -103,7 +103,7 @@ export function SiteHeader() {
           </div>
 
           {menuOpen ? (
-            <div className="border-t border-white/10 px-4 pb-4 pt-4 lg:hidden">
+            <div className="border-t border-[color:var(--border)] px-4 pb-4 pt-4 lg:hidden">
               <div className="grid gap-3">
                 {navigation.map((item) => (
                   <Link
@@ -112,8 +112,8 @@ export function SiteHeader() {
                     className={cn(
                       "rounded-2xl border px-4 py-3 text-sm font-semibold transition duration-300",
                       isActive(item.href)
-                        ? "border-cyan-300/25 bg-cyan-400/10 text-white"
-                        : "border-white/10 bg-white/[0.03] text-white/76 hover:border-cyan-300/25 hover:text-white"
+                        ? "border-[color:var(--accent-soft-strong)] bg-[var(--accent-soft)] text-[color:var(--foreground)]"
+                        : "border-[color:var(--border)] bg-[var(--surface-muted)] text-[color:var(--muted)] hover:border-[color:var(--accent-soft-strong)] hover:text-[color:var(--foreground)]"
                     )}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -126,7 +126,7 @@ export function SiteHeader() {
                   <Link
                     href={siteConfig.resumePath}
                     download
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(0,224,255,0.95),rgba(0,122,255,0.72))] px-4 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(0,224,255,0.16)]"
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border border-[color:var(--accent-soft-strong)] bg-[linear-gradient(135deg,var(--accent),var(--accent-secondary))] px-4 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_var(--accent-soft)]"
                     onClick={() => setMenuOpen(false)}
                   >
                     Download CV

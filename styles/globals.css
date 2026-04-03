@@ -45,8 +45,8 @@ html:not(.dark) {
   --surface: rgba(255, 245, 245, 0.82);
   --surface-strong: rgba(255, 236, 236, 0.9);
   --surface-muted: rgba(255, 233, 233, 0.72);
-  --surface-glint: rgba(255, 255, 255, 0.34);
-  --surface-glint-soft: rgba(255, 255, 255, 0.16);
+  --surface-glint: rgba(255, 214, 214, 0.34);
+  --surface-glint-soft: rgba(255, 233, 233, 0.16);
   --surface-inset: rgba(255, 255, 255, 0.55);
   --ink: #6b1111;
   --bg: #fff1f1;
@@ -304,7 +304,7 @@ a {
     width: 17.5rem;
     border-radius: 999px;
     background:
-      radial-gradient(circle, var(--glow-a) 0%, rgba(255, 255, 255, 0.04) 28%, var(--glow-b) 48%, transparent 72%);
+      radial-gradient(circle, var(--glow-a) 0%, var(--glow-c) 28%, var(--glow-b) 48%, transparent 72%);
     filter: blur(30px);
     mix-blend-mode: screen;
     opacity: 0.8;
