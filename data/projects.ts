@@ -12,14 +12,14 @@ export const projects: Project[] = [
     demo: "https://example.com"
   },
   {
-    slug: "freelance-invoice-manager",
-    title: "Freelance Invoice Manager",
+    slug: "kalid-barber-studio",
+    title: "Kalid Barber Studio",
     summary:
-      "A full-stack dashboard that helps freelancers generate invoices, track payments, and export monthly reports.",
-    image: "/images/project-invoice-manager.svg",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Prisma"],
-    github: "https://github.com/",
-    demo: "https://example.com"
+      "A premium barber studio landing page with services, gallery, pricing, and contact — built for a clean, modern, conversion-focused experience.",
+    image: "/images/kalid.png",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/shukraelmohammed32/kalid",
+    demo: "https://kalid-lo4p.vercel.app/"
   },
   {
     slug: "devforum-community",
