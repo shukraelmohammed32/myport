@@ -1,0 +1,89 @@
+{
+  "name": "Shukrael Mohammed",
+  "headline": "Full-Stack & Android Developer",
+  "location": "Dire Dawa, Ethiopia",
+  "email": "shukraelmohammed32@gmail.com",
+  "links": {
+    "github": "https://github.com/shukraelmohammed32",
+    "linkedin": "https://www.linkedin.com/in/shukrael"
+  },
+  "summary": [
+    "Full-Stack & Android developer and Software Engineering student (3rd year) focused on building scalable, efficient, user-friendly web and mobile applications.",
+    "Strong across both frontend and backend development, with a bias toward clean architecture, responsive UI, and reliable APIs.",
+    "Actively learning modern technologies and looking for opportunities to gain practical experience, contribute to impactful projects, and grow as a professional developer."
+  ],
+  "education": [
+    {
+      "degree": "B.Sc. in Software Engineering (3rd Year)",
+      "school": "Haramaya University",
+      "location": "Ethiopia",
+      "note": "Expected graduation: —"
+    }
+  ],
+  "skills": [
+    {
+      "group": "Frontend",
+      "items": ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Tailwind CSS"]
+    },
+    {
+      "group": "Backend",
+      "items": ["Node.js", "Express.js", "PHP", "Laravel"]
+    },
+    {
+      "group": "Mobile",
+      "items": ["Android Development (Java/Kotlin)"]
+    },
+    {
+      "group": "Databases",
+      "items": ["MySQL", "PostgreSQL", "MongoDB"]
+    },
+    {
+      "group": "Tools",
+      "items": ["Git & GitHub", "RESTful APIs", "Docker (basic)"]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Freelance / Personal Projects",
+      "bullets": [
+        "Developed responsive web applications and mobile apps.",
+        "Built RESTful APIs and integrated frontend with backend systems.",
+        "Practiced clean code and version control using Git."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Campus Connect Portal",
+      "summary": "Role-based web portal for students and teachers with course updates, assignment tracking, and secure authentication.",
+      "stack": ["React", "TypeScript", "Bootstrap", "Node.js", "MySQL"]
+    },
+    {
+      "title": "Freelance Invoice Manager",
+      "summary": "Full-stack dashboard to generate invoices, track payments, and export monthly reports.",
+      "stack": ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Prisma"]
+    },
+    {
+      "title": "DevForum Community",
+      "summary": "Discussion platform with topic channels, threaded comments, and moderation tools.",
+      "stack": ["JavaScript", "React", "Bootstrap", "MongoDB", "Express.js"]
+    }
+  ],
+  "certificates": [],
+  "achievements": [
+    "Built multiple full-stack and mobile projects.",
+    "Strong problem-solving and debugging skills.",
+    "Active learner of modern technologies."
+  ],
+  "languages": [
+    { "name": "English", "level": "Professional" },
+    { "name": "Amharic", "level": "Native" }
+  ],
+  "interests": [
+    "Web Development",
+    "Mobile App Development",
+    "UI/UX Design",
+    "Open Source Contribution"
+  ],
+  "references": "Available upon request."
+}
