@@ -2,14 +2,14 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
-    slug: "campus-connect-portal",
-    title: "Campus Connect Portal",
+    slug: "student-management-system",
+    title: "Student Management System",
     summary:
-      "A role-based web portal for students and teachers with course updates, assignment tracking, and secure authentication.",
-    image: "/images/project-campus-connect.svg",
-    stack: ["React", "TypeScript", "Bootstrap", "Node.js", "MySQL"],
-    github: "https://github.com/",
-    demo: "https://example.com"
+      "A web-based student management portal that easy to control and manage student records, attendance, grades, and communication between students, teachers, and administrators.",
+    image: "/images/portal.png",
+    stack: ["React", "TypeScript", "Bootstrap",],
+    github: "https://github.com/shukraelmohammed32/advancedb",
+    demo: "https://student-managment-system.free.nf/"
   },
   {
     slug: "kalid-barber-studio",
