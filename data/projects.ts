@@ -22,14 +22,14 @@ export const projects: Project[] = [
     demo: "https://kalid-lo4p.vercel.app/"
   },
   {
-    slug: "devforum-community",
-    title: "DevForum Community",
+    slug: "mohashukra-garage-website",
+    title: "MohaShukra Garage Website",
     summary:
-      "A discussion platform with topic channels, threaded comments, and moderation tools for developer communities.",
-    image: "/images/project-devforum.svg",
-    stack: ["JavaScript", "React", "Bootstrap", "MongoDB", "Express.js"],
-    github: "https://github.com/",
-    demo: "https://example.com"
+      "A modern garage website with all car service that easy for customers to book appointments, view services, and contact the garage for inquiries.",
+    image: "/images/garage.png",
+    stack: ["JavaScript", "React", "Bootstrap", "postgresql", "Express.js"],
+    github: "https://github.com/shukraelmohammed32/AbeGarageMainApp",
+    demo: "https://abe-garage-main-app.vercel.app/"
   },
   {
     slug: "portfolio-builder-cms",
