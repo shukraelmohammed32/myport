@@ -138,10 +138,10 @@ const skillGroups: SkillGroup[] = [
     description: "Interfaces that feel fast, clear, and premium under real product pressure.",
     icon: MonitorSmartphone,
     items: [
-      { label: "React", percentage: 96 },
-      { label: "Next.js", percentage: 94 },
-      { label: "TypeScript", percentage: 95 },
-      { label: "Tailwind CSS", percentage: 97 }
+      { label: "React", percentage: 75 },
+      { label: "Next.js", percentage: 70 },
+      { label: "TypeScript", percentage: 72 },
+      { label: "Tailwind CSS", percentage: 78 }
     ]
   },
   {
@@ -149,10 +149,10 @@ const skillGroups: SkillGroup[] = [
     description: "API design, auth flows, and service logic that stay dependable at scale.",
     icon: Server,
     items: [
-      { label: "Node.js", percentage: 92 },
-      { label: "REST APIs", percentage: 93 },
-      { label: "Authentication", percentage: 90 },
-      { label: "Performance", percentage: 88 }
+      { label: "Node.js", percentage: 68 },
+      { label: "REST APIs", percentage: 70 },
+      { label: "Authentication", percentage: 65 },
+      { label: "Performance", percentage: 62 }
     ]
   },
   {
@@ -160,10 +160,10 @@ const skillGroups: SkillGroup[] = [
     description: "Structured data flows with an eye on integrity, speed, and maintainability.",
     icon: Database,
     items: [
-      { label: "PostgreSQL", percentage: 90 },
-      { label: "MySQL", percentage: 88 },
-      { label: "MongoDB", percentage: 85 },
-      { label: "Prisma", percentage: 89 }
+      { label: "PostgreSQL", percentage: 65 },
+      { label: "MySQL", percentage: 63 },
+      { label: "MongoDB", percentage: 60 },
+      { label: "Prisma", percentage: 62 }
     ]
   },
   {
@@ -171,10 +171,10 @@ const skillGroups: SkillGroup[] = [
     description: "Shipping workflows, testing, deployments, and developer experience.",
     icon: Workflow,
     items: [
-      { label: "Git & GitHub", percentage: 95 },
-      { label: "Docker", percentage: 84 },
-      { label: "Testing", percentage: 86 },
-      { label: "CI/CD", percentage: 82 }
+      { label: "Git & GitHub", percentage: 72 },
+      { label: "Docker", percentage: 45 },
+      { label: "Testing", percentage: 55 },
+      { label: "CI/CD", percentage: 48 }
     ]
   }
 ];
