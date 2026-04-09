@@ -7,7 +7,7 @@ export const projects: Project[] = [
     summary:
       "A web-based student management portal that easy to control and manage student records, attendance, grades, and communication between students, teachers, and administrators.",
     image: "/images/portal.png",
-    stack: ["React", "TypeScript", "Bootstrap",],
+    stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQLphp"],
     github: "https://github.com/shukraelmohammed32/advancedb",
     demo: "https://student-managment-system.free.nf/"
   },
@@ -17,7 +17,7 @@ export const projects: Project[] = [
     summary:
       "A premium barber studio landing page with services, gallery, pricing, and contact — built for a clean, modern, conversion-focused experience.",
     image: "/images/kalid.png",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    stack: ["HTML", "CSS", " javascript", "Tailwind CSS"],
     github: "https://github.com/shukraelmohammed32/kalid",
     demo: "https://kalid-lo4p.vercel.app/"
   },
